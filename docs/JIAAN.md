@@ -21,13 +21,13 @@
 
 A6000 负责主代码、Git、维护文档、主要开发验证环境、数据处理和离线评测；训练按资源需要在 A6000／已授权训练机进行。Cobot 只部署本项目现场实际需要的硬件、采集、推理、网页或维护组件，不复制仿真资产和完整训练环境。
 
-Cobot 采集及评测数据统一规划在 `/home/agilex/jiaan/data/`。模型放所属项目的 `models/`（上游已有 `checkpoints/` 等目录时保留其源码布局，由配置明确实际权重位置）；同一资产跨项目引用，避免重复复制。现场服务日志、PID 和状态交由 `cobot-ops/runtime/` 管理；训练 checkpoint、配置和指标保留在所属项目 `outputs/<实验>/`。环境、模型、大数据与 runtime 不入 Git。
+Cobot 采集及评测数据统一规划在 `/home/agilex/jiaan/data/`。模型放所属项目的 `models/`（上游已有 `checkpoints/` 等目录时保留其源码布局，由配置明确实际权重位置）；同一资产跨项目引用，避免重复复制。现场服务日志、PID 和状态归实际负责项目；网页编排任务使用 `cobot-web/runtime/`；训练 checkpoint、配置和指标保留在所属项目 `outputs/<实验>/`。环境、模型、大数据与 runtime 不入 Git。
 
 ## 项目协作
 
 模型加载、RTC、归一化、动作解释与评测由本项目负责；记录问题交 cobot-dagger；RL 学习逻辑交 rl-platform；硬件执行问题交 cobot-control。
 
-先读本次任务涉及的依赖项目入口和接口说明，再修改相关边界；接口变更要记录受影响调用方与验证方式。常用项目：`cobot-control`、`cobot-dagger`、`vla-platform`、`rl-platform`、`cobot-web`、`cobot-ops`，主工作区均在 `/data/LFT-W02_data/jiaan/jiaan/projects/`。需要专题对话时仍共享所属项目，不因此重复建立业务仓库。
+先读本次任务涉及的依赖项目入口和接口说明，再修改相关边界；接口变更要记录受影响调用方与验证方式。常用项目：`cobot-control`、`cobot-dagger`、`vla-platform`、`rl-platform`、`cobot-web`，主工作区均在 `/data/LFT-W02_data/jiaan/jiaan/projects/`。需要专题对话时仍共享所属项目，不因此重复建立业务仓库。
 
 ## 下一步
 
@@ -48,3 +48,5 @@ Cobot 采集及评测数据统一规划在 `/home/agilex/jiaan/data/`。模型�
 - `upstream` 保留作者地址；`origin` 指向自有独立仓库，GitHub fork 属性应为 false。
 - 本次只建立源码与维护入口，未安装环境、下载模型或验证上游运行能力；旧 FluxVLA 实验仍以原固定提交及记录为准。
 - 初始化期间自有仓库 GitHub Actions 关闭，避免复制的上游自动流程在首次 push 时发布或运行任务；启用前按实际用途核对工作流。
+
+2026-09-27 归属更新：独立 ops 项目已取消；本次仅修正协作与 runtime 归属，不代表本项目旧业务资产已迁移。
