@@ -1,0 +1,10 @@
+{
+  "checkpoint_source": "/vepfs-C\u533a/wam/junjiehe/jiaan/task5_hil_realworld_rl/checkpoints/task5_pi05_masked_in_the_pot_round_001/dagger_round001_step2000_3000/2999",
+  "completed_at_utc": "2026-08-12T20:16:26.822173+00:00",
+  "experiment": "dagger_round001_step2000_3000",
+  "exposed_step": 3000,
+  "norm_stats_sha256": "d4989cff7bad045c46d908d07d5ad8e4903b37544fcfc28ea9b840c028cc46a1",
+  "orbax_source_step": 2999,
+  "schema_version": 1,
+  "training_log": "/vepfs-C\u533a/wam/junjiehe/jiaan/task5_hil_realworld_rl/logs/dagger_round001_step2000_3000.log"
+}

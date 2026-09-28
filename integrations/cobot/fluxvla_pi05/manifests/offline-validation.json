@@ -1,0 +1,49 @@
+{
+  "status": "offline-rtc-validated",
+  "live_status": "requires-onsite-authorization",
+  "model_id": "fluxvla_pi05",
+  "checkpoint_id": "step_5000",
+  "run_id": "pi05-legacy40-v2.1-fluxvla-5k-slurm-594417",
+  "cobot_runtime_root": "/media/agilex/Getea1/jiaan/projects/fluxvla-cobot-platform/pi05",
+  "cobot_deployment_path": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/fluxvla_pi05",
+  "checkpoint": {
+    "path": "/media/agilex/Getea1/jiaan/projects/fluxvla-cobot-platform/pi05/checkpoints/step_5000/model.safetensors",
+    "bytes": 14467141216,
+    "sha256": "c1dad7ff8ce379a9fb32f963cc7576dd4cc43ac32d4e693ded64cf6d38946e67"
+  },
+  "norm_stats_sha256": "4d3b45d07083cf62f39f7517f6fcee082c3dd00eee4d5073ce9219278e64b77c",
+  "asset_manifest_sha256": "a878312e6f48f52a442d8d4bfc5d7f0aedb7a867e4779aaab8072b1d39ffbb7c",
+  "fixture": {
+    "id": "legacy40-v2.1-episode000000-frame000000",
+    "sha256": "d6df33223c1f1b9a355af25a84538f3b2244f6bbe27ad425a81303e2e6ab760c"
+  },
+  "offline_replay": {
+    "status": "passed",
+    "actions_shape": [50, 14],
+    "raw_actions_shape": [50, 32],
+    "all_finite": true,
+    "prefix_len": 6,
+    "prefix_preserved_atol": 0.002,
+    "baseline_inference_s": 0.049413583998102695,
+    "rtc_inference_s": 0.04935742900124751,
+    "report_sha256": "22f16d4176af2cf9eac717ad38b48c05d7351fdba71d9a25fd6783f2fede2d85"
+  },
+  "runtime": {
+    "python": "3.10.16",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "flash_attention": "2.8.3.post1",
+    "server_bind": "127.0.0.1:7896",
+    "server_stopped_after_validation": true,
+    "gpu_released_after_validation": true,
+    "ros_started_by_validation": false,
+    "publisher_started_by_validation": false,
+    "robot_action_sent": false
+  },
+  "compatibility_fixes": [
+    "Bypass pinned upstream PrivateInferenceDataset initializer that incorrectly injects model_path into every transform; preserve its official __call__ path.",
+    "Allocate the RTC Triton prompt buffer at the training tokenizer limit of 200 instead of the official short-task default of 48."
+  ],
+  "operator_entrypoint": "./interface_task2_teach_rtc_live.sh 5000"
+}

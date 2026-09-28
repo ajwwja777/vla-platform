@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task": "in_the_pot",
+  "project": "task5_hil_realworld_rl",
+  "model": "pi05",
+  "round": "round_001_dagger_v1",
+  "initialization": "legacy_in_the_pot_step_2000_params",
+  "optimizer": "fresh_adamw",
+  "execution": "rtc_task2_teach_button",
+  "action_space": "delta_joint_absolute_gripper",
+  "asset_id": "task5_cobot_in_the_pot_round_001",
+  "available_steps": [3000],
+  "entrypoint": "interface_task5_hil_rtc_live.sh"
+}

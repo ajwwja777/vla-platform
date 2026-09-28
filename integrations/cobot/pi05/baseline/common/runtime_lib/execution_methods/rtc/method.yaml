@@ -1,0 +1,7 @@
+schema_version: 1
+kind: execution_method
+method_id: rtc
+adapter: execution_methods.rtc
+compatible_generators:
+  - flow_matching
+  - diffusion

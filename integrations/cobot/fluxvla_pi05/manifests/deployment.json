@@ -1,0 +1,164 @@
+{
+  "status": "verified",
+  "validation": "asset-verified",
+  "live_status": "requires-onsite-authorization",
+  "model_id": "fluxvla_pi05",
+  "checkpoint_id": "step_5000",
+  "global_step": 5000,
+  "training_run_id": "pi05-legacy40-v2.1-fluxvla-5k-slurm-594417",
+  "upstream_revision": "8e22b69b2ff8c8c333d4095596cde8e1e3b57ade",
+  "base_revision": "6259312033951a03546c6ed556b1737b84cce0d2",
+  "dataset": "legacy40-v2.1",
+  "dataset_tree_sha256": "1cacee2c6b23e7b21f2f82c95ab353b3246a2ef9e2f0ec5f7e49c05ba5af4177",
+  "files": [
+    {
+      "path": "vla-platform/fluxvla_pi05/in_the_pot/step_5000/model.safetensors",
+      "bytes": 14467141216,
+      "sha256": "c1dad7ff8ce379a9fb32f963cc7576dd4cc43ac32d4e693ded64cf6d38946e67",
+      "source_path": "checkpoints/step_5000/model.safetensors",
+      "root": "model"
+    },
+    {
+      "path": "vla-platform/fluxvla_pi05/in_the_pot/step_5000/dataset_statistics.json",
+      "bytes": 3392,
+      "sha256": "4d3b45d07083cf62f39f7517f6fcee082c3dd00eee4d5073ce9219278e64b77c",
+      "source_path": "checkpoints/step_5000/dataset_statistics.json",
+      "root": "model"
+    },
+    {
+      "path": "vla-platform/fluxvla_pi05/base/pi05_base/model.safetensors",
+      "bytes": 14467165872,
+      "sha256": "da96d3abaabe6b9039e1d5bfe30e0af00432d7bb248f1bcaf0501ee4a6e237ea",
+      "source_path": "cache/FluxVLAEngine/pi05_base/model.safetensors",
+      "root": "model"
+    },
+    {
+      "path": "vla-platform/fluxvla_pi05/base/pi05_base/tokenizer.model",
+      "bytes": 4264023,
+      "sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+      "source_path": "cache/FluxVLAEngine/pi05_base/tokenizer.model",
+      "root": "model"
+    },
+    {
+      "path": "vla-platform/fluxvla_pi05/base/pi05_base/tokenizer_config.json",
+      "bytes": 39968,
+      "sha256": "3259402b1d1802e02417d7bff75a889ec61d359d15be6050a957b307c48edbbe",
+      "source_path": "cache/FluxVLAEngine/pi05_base/tokenizer_config.json",
+      "root": "model"
+    },
+    {
+      "path": "outputs/legacy-fluxvla/manifests/runtime-ready.json",
+      "bytes": 318,
+      "sha256": "fa9956b5f3289cafcb040b0e4c40ad7dd5c18ed2e2cafcdb4fdae9745fc67ab8",
+      "source_path": "manifests/runtime-ready.json",
+      "root": "project"
+    },
+    {
+      "path": "datasets/in_the_pot/derived/vla-platform/fluxvla/fixtures/legacy40-v2.1-episode000000-frame000000.npz",
+      "bytes": 396861,
+      "sha256": "d6df33223c1f1b9a355af25a84538f3b2244f6bbe27ad425a81303e2e6ab760c",
+      "source_path": "fixtures/legacy40-v2.1-episode000000-frame000000.npz",
+      "root": "data"
+    }
+  ],
+  "deployment_files": [
+    {
+      "path": "configs/pi05_legacy40_rtc_inference.py",
+      "bytes": 2023,
+      "sha256": "d0580e641242c21d7f2716d14cb7235705fe75ba745770decce18c04fec161ce",
+      "source_sha256": "d0580e641242c21d7f2716d14cb7235705fe75ba745770decce18c04fec161ce",
+      "source_bytes": 2023
+    },
+    {
+      "path": "adapters/fluxvla_cobot/__init__.py",
+      "bytes": 180,
+      "sha256": "a9cabbb20740d770027bcf2ab2a1697e98ef1abfd1636b14207c94c0553ba3a8",
+      "source_sha256": "a9cabbb20740d770027bcf2ab2a1697e98ef1abfd1636b14207c94c0553ba3a8",
+      "source_bytes": 180
+    },
+    {
+      "path": "adapters/fluxvla_cobot/rtc_server.py",
+      "bytes": 11903,
+      "sha256": "f97645a9ecc4e639e5c6426b8c6fed25560bbb44c3739ac727d8db568d67c4a3",
+      "source_sha256": "f97645a9ecc4e639e5c6426b8c6fed25560bbb44c3739ac727d8db568d67c4a3",
+      "source_bytes": 11903
+    },
+    {
+      "path": "adapters/fluxvla_cobot/schema.py",
+      "bytes": 3450,
+      "sha256": "e30b91701f78786a0d0bd50f082f11ce97c015b8b983fd14e12b314ffcbec166",
+      "source_sha256": "e30b91701f78786a0d0bd50f082f11ce97c015b8b983fd14e12b314ffcbec166",
+      "source_bytes": 3450
+    },
+    {
+      "path": "adapters/fluxvla_cobot/task2_client.py",
+      "bytes": 18484,
+      "sha256": "49341bb1f47653d866202be46ff6b5095f22941dcbeadd85d4e17aa297f4644d",
+      "source_sha256": "49341bb1f47653d866202be46ff6b5095f22941dcbeadd85d4e17aa297f4644d",
+      "source_bytes": 18484
+    },
+    {
+      "path": "adapters/fluxvla_cobot/task2_control.py",
+      "bytes": 10727,
+      "sha256": "44b4760968246053d7fe97f0df91899ec6691e80d22980478f1034e436a0663c",
+      "source_sha256": "44b4760968246053d7fe97f0df91899ec6691e80d22980478f1034e436a0663c",
+      "source_bytes": 10727
+    },
+    {
+      "path": "adapters/fluxvla_cobot/wire.py",
+      "bytes": 4494,
+      "sha256": "3896173987f9a29ab61bdb0a1f90a92fed9e25f45fd8ba95152bfe7f3bf90445",
+      "source_sha256": "3896173987f9a29ab61bdb0a1f90a92fed9e25f45fd8ba95152bfe7f3bf90445",
+      "source_bytes": 4494
+    },
+    {
+      "path": "interface_task2_teach_rtc_live.sh",
+      "bytes": 5677,
+      "sha256": "1ced3095e77fa439b81c51f7c27f6e933f04aea8a03666184707952df22807cd",
+      "source_sha256": "1ced3095e77fa439b81c51f7c27f6e933f04aea8a03666184707952df22807cd",
+      "source_bytes": 5677
+    },
+    {
+      "path": "run_checkpoint_task2.sh",
+      "bytes": 1097,
+      "sha256": "2a552763d48d66b4b6766c94efe5b34e3880999fb584bd01f30e855f658b7158",
+      "source_sha256": "2a552763d48d66b4b6766c94efe5b34e3880999fb584bd01f30e855f658b7158",
+      "source_bytes": 1097
+    },
+    {
+      "path": "start_local_server.sh",
+      "bytes": 3561,
+      "sha256": "adf49dd71c22a11c735217cc50fd06770930a95657b0a58226b3c2bf2d473c3b",
+      "source_sha256": "4e4dc895e803cd9ddcb4f6294fee6a0405a8bc8d6b88feade1865bec911a4abf",
+      "source_bytes": 3490
+    },
+    {
+      "path": "stop_local_server.sh",
+      "bytes": 1190,
+      "sha256": "892141dd82e1d2a3ee441b8dd61e61bb2669c897ed023dfa36a8c8f97d6499ca",
+      "source_sha256": "9093bcab3b0bae02e29fd1acdf85c72b1795d59fd2bb7667d7d9a640a2ed572e",
+      "source_bytes": 1189
+    },
+    {
+      "path": "offline_replay.py",
+      "bytes": 1774,
+      "sha256": "80d9d321247e15f750405e1b844e714ed240d9e34f978c63866c1e3db2dfe4cd",
+      "source_sha256": "80d9d321247e15f750405e1b844e714ed240d9e34f978c63866c1e3db2dfe4cd",
+      "source_bytes": 1774
+    },
+    {
+      "path": "ping_server.py",
+      "bytes": 714,
+      "sha256": "0c45973ef6bfc3a01a86e0839f53e7b8c8ddbc61511599d9288d3b62233bef87",
+      "source_sha256": "0c45973ef6bfc3a01a86e0839f53e7b8c8ddbc61511599d9288d3b62233bef87",
+      "source_bytes": 714
+    },
+    {
+      "path": "verify_deployment.py",
+      "bytes": 2368,
+      "sha256": "871d395b6345f331e7b0b4acabd4c4d8dc5a7bce6307a4fc2bed14d682ceda67",
+      "source_sha256": "3111136cfeebf970d48dbe7d5d813c37ce546e6c89c1cc6d5acdef6563f91a84",
+      "source_bytes": 2170
+    }
+  ]
+}

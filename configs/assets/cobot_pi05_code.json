@@ -1,0 +1,12 @@
+{
+  "baseline": {
+    "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/pi05",
+    "archive_sha256": "d8ddb3d9f3eacfc17a4103e043c13f65e3b70ac89d932d50a9468f5edcc28bb6",
+    "code": "/data/LFT-W02_data/jiaan/jiaan/projects/vla-platform/integrations/cobot/pi05/baseline"
+  },
+  "dagger": {
+    "source": "/home/agilex/cobot_magic/task5/jiaan/hil_realworld_rl/deployments/in_the_pot/pi05_dagger_round001",
+    "archive_sha256": "dc7bf3016d31a4bd37f34b7ceca48d3ea02a6fb643f3a41f0de497e571950b11",
+    "code": "/data/LFT-W02_data/jiaan/jiaan/projects/vla-platform/integrations/cobot/pi05/dagger"
+  }
+}

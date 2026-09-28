@@ -1,0 +1,96 @@
+{
+  "status": "completed",
+  "run_id": "pi05-legacy40-v2.1-fluxvla-5k-slurm-594417",
+  "slurm": {
+    "cluster": "HPC3_jhe724",
+    "job_id": 594417,
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "allocation_elapsed": "04:24:13",
+    "node": "ACD1-3",
+    "gpu_count": 4,
+    "gpu_model": "NVIDIA H100 80GB HBM3",
+    "released_after_completion": true
+  },
+  "provenance": {
+    "upstream": "https://github.com/FluxVLA/FluxVLA.git",
+    "upstream_commit": "8e22b69b2ff8c8c333d4095596cde8e1e3b57ade",
+    "base_repository": "limxdynamics/FluxVLAEngine",
+    "base_revision": "6259312033951a03546c6ed556b1737b84cce0d2",
+    "base_model_sha256": "da96d3abaabe6b9039e1d5bfe30e0af00432d7bb248f1bcaf0501ee4a6e237ea",
+    "dataset": "legacy40-v2.1",
+    "dataset_tree_sha256": "1cacee2c6b23e7b21f2f82c95ab353b3246a2ef9e2f0ec5f7e49c05ba5af4177",
+    "training_config_sha256": "e9848cac74c7693c81ae1a4e92bb7fe88083acbda80242e219af10dc0a5ecd57",
+    "resolved_config_sha256": "9539b7e2f708e023ba46f2090846daf75ac89d9c8b9518b7a6e3fe513bbd9e1a"
+  },
+  "data_contract": {
+    "episodes": 40,
+    "frames": 29383,
+    "fps": 30,
+    "camera_count": 3,
+    "state_dim": 14,
+    "action_dim": 14,
+    "model_action_dim": 32,
+    "action_chunk": 50,
+    "real_batch_smoke": "passed"
+  },
+  "training": {
+    "mode": "full_finetune",
+    "precision": "bf16",
+    "seed": 42,
+    "optimizer": "AdamW",
+    "learning_rate": 0.000025,
+    "warmup_steps": 1000,
+    "scheduler": "linear-warmup+cosine-decay",
+    "micro_batch_per_gpu": 2,
+    "gradient_accumulation": 8,
+    "global_batch": 64,
+    "optimizer_updates": 5000,
+    "checkpoint_interval": 1000,
+    "save_resume_canary": "passed",
+    "continuous_run_without_resume": true
+  },
+  "probe": {
+    "selected_mean_step_s": 2.9261915385723114,
+    "selected_peak_memory_mib": 71544,
+    "selected_minimum_headroom_mib": 10015,
+    "rejected_mb4_ga4_mean_step_s": 1.7698048055171967,
+    "rejected_mb4_ga4_headroom_mib": 1743,
+    "rejected_mb8_ga2": "CUDA OOM"
+  },
+  "metrics": {
+    "all_loss_finite": true,
+    "first_raw_loss": 0.2604312598705292,
+    "last_raw_loss": 0.008922976441681385,
+    "last_100_raw_loss_mean": 0.0033569220395293087,
+    "last_100_raw_loss_median": 0.002770120045170188,
+    "last_500_raw_loss_mean": 0.003399849490029737,
+    "last_500_raw_loss_median": 0.002965513151139021,
+    "reported_average_step_s": 2.8425966835021974,
+    "reported_training_seconds": 14212.983417510986,
+    "gpu_utilization_mean_pct": 61.783892382948984,
+    "gpu_memory_peak_mib": 77688,
+    "gpu_power_mean_w": 299.4522047519217,
+    "gpu_power_peak_w": 345.92,
+    "gpu_temperature_peak_c": 47,
+    "train_cpu_mean_pct": 632.1810621942698,
+    "train_rss_peak_gib": 210.67882537841797,
+    "minimum_node_available_ram_gib": 1821.4570426940918,
+    "filesystem_io_bytes_available": false
+  },
+  "final_checkpoint": {
+    "global_step": 5000,
+    "training_state_path": "/data/user/jhe724/jiaan/research-workspace/projects/fluxvla-cobot-platform/checkpoints/pi05/legacy40-v2.1/pi05-legacy40-v2.1-fluxvla-5k-slurm-594417/checkpoints/step-005000-epoch-10-loss=0.0035.pt",
+    "training_state_bytes": 57064506313,
+    "training_state_sha256": "9ed974cc0af5919af808cefcb37e266c2e4533e2eed22d002cba48fdaba19bb8",
+    "inference_path": "/data/user/jhe724/jiaan/research-workspace/projects/fluxvla-cobot-platform/checkpoints/pi05/legacy40-v2.1/pi05-legacy40-v2.1-fluxvla-5k-slurm-594417/checkpoints/step-005000-epoch-10-loss=0.0035.safetensors",
+    "inference_bytes": 14467141216,
+    "inference_sha256": "c1dad7ff8ce379a9fb32f963cc7576dd4cc43ac32d4e693ded64cf6d38946e67",
+    "norm_stats_sha256": "4d3b45d07083cf62f39f7517f6fcee082c3dd00eee4d5073ce9219278e64b77c"
+  },
+  "warnings": [
+    "DPC/NFS multiprocessing temporary-directory cleanup emitted non-fatal Device or resource busy warnings after successful save.",
+    "One child srun probe returned 1:0, while the Slurm batch and main job completed 0:0; the failed probe is the intentionally rejected OOM candidate.",
+    "Filesystem byte-level I/O counters were unavailable because this cluster mount reports DPC rather than NFS counters."
+  ]
+}

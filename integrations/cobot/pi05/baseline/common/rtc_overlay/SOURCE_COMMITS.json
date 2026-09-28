@@ -1,0 +1,8 @@
+{
+  "fluxvla_reference": "61509d3ea28aa977c3b3e4563e96fce406bb4878",
+  "lerobot_reference": "40a5e70352ee313cce5ef9738589fc1e2d785fce",
+  "openpi_runtime": "fba793f3ac44db17599105a6b1daa950a5a737a7",
+  "paper_max_guidance_weight": 5.0,
+  "paper_title": "Real-Time Execution of Action Chunking Flow Policies",
+  "rtc_kinetix": "9296f31d62d5bfeb5779dcb2f9bcf71ca37f448b"
+}

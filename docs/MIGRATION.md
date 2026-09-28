@@ -61,3 +61,10 @@
 rl-platform的旧RLT归档现已全量SHA验收（39,001条目、122,208,969,870字节），历史模型和datasets已归其models/history与data/history，原归档相对链接保留访问。旧平台归档中171个重定位链接全部可访问；原DM05基础模型相对链接仍作为既有外部依赖保留，不伪造缺失权重。
 
 RLT在旧路径隔离后从新项目冷加载/释放通过，随后旧RLT目录和其cobot-realworld-rl别名已删除；不改变本项目FluxVLA运行适配尚未验收的状态。网页两个π0.5入口保留共享部署位置，旧平台删除后dry-run预检通过，未重做π0.5真机推理。后续依然按固定模型输入/输出对照逐批迁移；不删除共享cobot_magic或其他旧VLA/Franka资产。
+
+
+## 2026-09-28：Getea1 统一存储迁移（进行中）
+
+Cobot 数据与模型统一在 /media/agilex/Getea1/jiaan/data/ 和 /media/agilex/Getea1/jiaan/model/。数据按场景分、模型按项目/模型分；本轮不新增 A6000 权重备份。代码、安装环境、运行日志与 PID 留在 /home/agilex/jiaan/project/<项目>/。完整路径与批次状态见相邻 cobot-web/docs/STORAGE.md。
+
+已在 A6000 接入新存储配置及旧路径映射；逐文件复制/校验正在进行，正式网页已在空闲状态正常停止，机械臂/ROS 进程保留。本段不代表旧源目录已经删除。位姿、回放、示范、RLT rollout/Replay、评测和部署权重按 STORAGE.md 归类。最终运行验证及删除回执待本批完成后追加。
