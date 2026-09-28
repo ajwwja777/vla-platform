@@ -1,6 +1,6 @@
 # 基于 FluxVLA 的模型训练、部署与评测平台：迁移记录
 
-日期：2026-09-27。当前批次：**入口初始化**，尚未开始业务迁移。
+日期：2026-09-27。初始化历史保留；2026-09-28开始历史资产归档，实际范围见文末。
 
 ## 已有位置与成果
 
@@ -37,3 +37,15 @@
 - 首次发布提交：`0204dd99193966efd34ed7471f29c7c10c0d50e2`。
 - 本记录在首次发布验证后追加并单独提交；最新版本以 main 为准。
 - 运行状态：源码／文档基础已发布，业务迁移、环境安装及新位置运行验收尚未开展。
+
+## 2026-09-28：承接旧 Cobot 平台的历史资产
+
+旧 /media/agilex/Getea1/jiaan/projects/cobot-platform 已完整归档到 A6000 本项目 outputs/migrations/20260927-platform-retirement/legacy-platform，9,457个普通文件、172个符号链接，共23,166,107,483字节，逐文件SHA-256及原链接文本验证通过。源文件清理前仍需新运行路径与无活跃依赖检查，实际删除另记回执。
+
+模型实体归位：
+- models/history/dm0-5/step_4000：11个文件，保留原模型、配置及预处理资产。
+- models/history/xiaomi-robotics-1-dagger-round001/step_4000：保留last.ckpt/checkpoint/mp_rank_00_model_states.pt，11,004,735,893字节；与A6000既有XR1训练转移文件SHA完全相同，可复用本地原件减少跨机传输。
+
+配置索引为configs/assets/legacy_cobot_models.json。原归档位置使用相对链接指向上述模型；171个原平台内部／跨RLT归档链接已按新布局重定位。原始manifest、校验和完整映射在迁移目录中，旧命令和实验provenance文本不改写。已有相对外部DM05基础模型链接按原样保存；历史环境依赖不能因归档完成就视为已安装。
+
+这是历史资产保全与位置整理，没有安装FluxVLA环境、改写模型实现或验收FluxVLA推理／RTC适配。当前网页的两个π0.5入口仍使用登记的 /home/agilex/cobot_magic/task3、task5 共享部署资产，另批迁移；不要删除整棵共享工作区。

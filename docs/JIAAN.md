@@ -9,7 +9,7 @@
 - 笔记本对话入口：`D:\Code\jiaan_workspace\vla-platform`。
 - 自有独立仓库：`https://github.com/ajwwja777/vla-platform`（目标分支 `main`）。
 - Cobot 目标部署位置：`/home/agilex/jiaan/project/vla-platform`，本轮尚未部署。
-- 当前阶段：入口与仓库初始化；旧业务代码、环境、模型和数据尚未迁移，现有服务入口未切换。
+- 当前阶段：FluxVLA源码入口保持初始化；已承接旧Cobot平台历史模型和归档。运行适配仍待逐批接入，不能把归档当作FluxVLA推理验收。
 
 ## 负责什么
 
@@ -50,3 +50,5 @@ Cobot 采集及评测数据统一规划在 `/home/agilex/jiaan/data/`。模型�
 - 初始化期间自有仓库 GitHub Actions 关闭，避免复制的上游自动流程在首次 push 时发布或运行任务；启用前按实际用途核对工作流。
 
 2026-09-27 归属更新：独立 ops 项目已取消；本次仅修正协作与 runtime 归属，不代表本项目旧业务资产已迁移。
+
+历史模型位置：models/history/dm0-5/step_4000、models/history/xiaomi-robotics-1-dagger-round001/step_4000。来源与SHA索引见configs/assets/legacy_cobot_models.json，完整保全记录见docs/MIGRATION.md（2026-09-28）。

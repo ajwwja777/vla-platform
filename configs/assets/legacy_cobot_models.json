@@ -1,0 +1,93 @@
+{
+  "models": [
+    {
+      "model": "dm0-5",
+      "path": "models/history/dm0-5/step_4000",
+      "source": "/media/agilex/Getea1/jiaan/projects/cobot-platform/archive/dm0-5/assets/step_4000",
+      "files": {
+        "chat_template.jinja": {
+          "type": "file",
+          "bytes": 1532,
+          "mtime_ns": 1788104179912802500,
+          "sha256": "7de1c58e208eda46e9c7f86397df37ec49883aeece39fb961e0a6b24088dd3c4"
+        },
+        "config.json": {
+          "type": "file",
+          "bytes": 6795,
+          "mtime_ns": 1788104179964802400,
+          "sha256": "43b2a56ed9c79c3068849caa0a140458515e654d34ae0b06bb0bbb3ef4dd0f80"
+        },
+        "deployment_manifest.json": {
+          "type": "file",
+          "bytes": 2142,
+          "mtime_ns": 1788189499482146600,
+          "sha256": "20d081801c3dbab5d92ad5b448e71d3148abe20cf5fff58d93e511d421d00a0c"
+        },
+        "model.safetensors": {
+          "type": "file",
+          "bytes": 11658431136,
+          "mtime_ns": 1788187380130786000,
+          "sha256": "0e39eea6dc56950a21b51580f419460e9070f52393cc26a49385af9185ca544d"
+        },
+        "norm_stats.json": {
+          "type": "file",
+          "bytes": 7261,
+          "mtime_ns": 1788184341713644500,
+          "sha256": "417a9207dd5b469bae8b406d63a4ff051085ea5e62d859d39ac4fb26a73d0d8b"
+        },
+        "preprocessor_config.json": {
+          "type": "file",
+          "bytes": 419,
+          "mtime_ns": 1788104179828802700,
+          "sha256": "5a7526bcc3bcbb856cf2aa0b0bf7c45482486fd17988cdf62344f5a95b462254"
+        },
+        "processor_config.json": {
+          "type": "file",
+          "bytes": 560,
+          "mtime_ns": 1788104180108802000,
+          "sha256": "9eb2e8baf401c81b1517343d1dfc799a4c1b2238acaece111fe68f5fbe3a8d57"
+        },
+        "run_manifest.json": {
+          "type": "file",
+          "bytes": 4159,
+          "mtime_ns": 1788165651063430000,
+          "sha256": "2b5106c29e2437f86c5b6314dde7b11a3edad5626befcf2996624e3939a84b44"
+        },
+        "tokenizer.json": {
+          "type": "file",
+          "bytes": 33384567,
+          "mtime_ns": 1788104191836774800,
+          "sha256": "daab2354f8a74e70d70b4d1f804939b68a8c9624dd06cb7858e52dd8970e9726"
+        },
+        "tokenizer_config.json": {
+          "type": "file",
+          "bytes": 794,
+          "mtime_ns": 1788104180244801700,
+          "sha256": "b33199fef0a04c79ededa87e84e442796a4543ed131810d776264d88741b3e37"
+        },
+        "validation/offline-replay-seed42.json": {
+          "type": "file",
+          "bytes": 1220,
+          "mtime_ns": 1788189014082339000,
+          "sha256": "48aee1ec45ac7f86f80434b3901e13187d80a8791a507efedf7d53c9150946bd"
+        }
+      },
+      "validation": "Archive SHA256 preserved; no FluxVLA runtime adapter or inference validation in this batch"
+    },
+    {
+      "model": "xiaomi-robotics-1-dagger-round001",
+      "path": "models/history/xiaomi-robotics-1-dagger-round001/step_4000",
+      "source": "/media/agilex/Getea1/jiaan/projects/cobot-platform/archive/xiaomi-robotics-1-dagger-round001/step_4000",
+      "files": {
+        "last.ckpt/checkpoint/mp_rank_00_model_states.pt": {
+          "type": "file",
+          "bytes": 11004735893,
+          "mtime_ns": 1788391585995021000,
+          "sha256": "f73e91450de3a1e5b91bf25b6edb3b2b3aa3ca7cc512b6affd3dbf730a037e6a"
+        }
+      },
+      "validation": "Archive SHA256 preserved; no FluxVLA runtime adapter or inference validation in this batch"
+    }
+  ],
+  "source_manifest": "outputs/migrations/20260927-platform-retirement/platform-source-files.json"
+}
