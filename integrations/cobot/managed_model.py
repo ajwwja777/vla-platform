@@ -11,7 +11,8 @@ ROOT = Path(__file__).resolve().parents[2]
 PORTS = {"fluxvla_pi05": 7896, "galaxea_g05": 8180, "xiaomi": 8171}
 
 def plan(identifier):
-    rows = json.loads((ROOT / "configs/cobot_models.json").read_text())["models"]
+    from registry import load_models
+    rows = load_models()
     row = next((r for r in rows if r["id"] == identifier), None)
     if not row or not row["managed"]:
         raise ValueError("This entry is not a paused web deployment")
@@ -22,6 +23,8 @@ def plan(identifier):
     if missing:
         raise ValueError("Missing deployment files: " + ", ".join(missing))
     env = dict(os.environ)
+    from registry import runtime_environment
+    env.update(runtime_environment())
     env["PYTHONPATH"] = str(ROOT / "integrations/cobot") + ":" + env.get("PYTHONPATH", "")
     env["PYTHONUNBUFFERED"] = "1"
     env["COBOT_MODEL_GATE_STATE"] = env.get("COBOT_MODEL_GATE_STATE", str(ROOT / "runtime/web-model-gate.json"))

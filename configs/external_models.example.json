@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "models": [
+    {
+      "id": "external-policy-example",
+      "family": "External",
+      "task": "replace_with_task",
+      "step": null,
+      "checkpoint": "/absolute/model/checkpoint",
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "base_model": null,
+      "normalization": "/absolute/model/norm_stats.json",
+      "io_contract": "must document cameras, joints, units and action conversion",
+      "code_revision": "replace-with-pinned-revision",
+      "runtime_python": "/absolute/environment/bin/python",
+      "command": [
+        "/bin/bash",
+        "/absolute/project/serve.sh"
+      ],
+      "cwd": "/absolute/project",
+      "required": [
+        "/absolute/project/serve.sh",
+        "/absolute/model/checkpoint",
+        "/absolute/model/norm_stats.json"
+      ],
+      "load_behavior": "unverified",
+      "process_group": "foreground"
+    }
+  ]
+}

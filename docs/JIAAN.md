@@ -64,3 +64,7 @@ Cobot 数据和 checkpoint 均存放 Getea1/jiaan/{data,model}；场景数据共
 - A6000 models/history 的 DM0.5（10.89 GiB）和 Xiaomi DAgger（10.25 GiB）历史权重保留，本轮没有新增权重备份；旧 A6000 XR1 final-transfer 对应历史副本的去重仍属后续范围。Cobot 上 DM0.5 仅元数据，旧 Xiaomi DAgger 缺失链接不冒充可部署权重。
 
 完整目录清单、磁盘空间、迁移回执和 USB 故障限制见相邻 cobot-web/docs/STORAGE.md。新设备环境完整重建任务仍按用户后续授权单独完成；这批迁移保留现场已安装版本。
+
+## 2026-09-29接入导航
+
+先读[结构、模型登记与换机部署](DEPLOYMENT.md)。历史运行时留在integrations，Flux原生代码未为统一页面而改动。RLT/EXPO-FT保留各自算法。源码/环境材料的完整路径与SHA见configs/assets；包清单不代表已验证可重装环境。

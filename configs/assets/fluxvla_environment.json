@@ -1,0 +1,19 @@
+{
+  "archive": "/data/LFT-W02_data/jiaan/jiaan/projects/vla-platform/outputs/environments/fluxvla-runtime-20260929.tar.gz",
+  "sha256": "3ee0292cf518029c424ea50defaeea4d03cdd012179e7702d492548cceb7f60e",
+  "bytes": 3590539408,
+  "classification": "frozen runtime + base Python; relocation imports tested; CUDA execution requires compatible driver",
+  "origin": "/home/agilex/jiaan/project/vla-platform/envs/fluxvla-cu124-py310",
+  "data_or_weights_copied": false,
+  "base_python_archive": "/data/LFT-W02_data/jiaan/jiaan/projects/vla-platform/outputs/environments/fluxvla-python-20260929.tar.gz",
+  "base_python_sha256": "17a45717a6b1473a219181524b2ff552fd2edd485a028abc339b039dc12647b0",
+  "relocation_import_test": {
+    "exit_code": 0,
+    "stdout": "/data/LFT-W02_data/jiaan/jiaan/scratch/vla-platform/flux-environment-verification/fluxvla-cu124-py310 /data/LFT-W02_data/jiaan/jiaan/scratch/vla-platform/flux-environment-verification/cpython-3.10.16-linux-x86_64-gnu\n2.6.0+cu124 2.8.3.post1 0.37.0.dev0\n/data/LFT-W02_data/jiaan/jiaan/scratch/vla-platform/flux-environment-verification/fluxvla-cu124-py310/lib/python3.10/site-packages/fluxvla/__init__.py\n",
+    "stderr": "/data/LFT-W02_data/jiaan/jiaan/scratch/vla-platform/flux-environment-verification/fluxvla-cu124-py310/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2274: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.\n  warnings.warn(\n/data/LFT-W02_data/jiaan/jiaan/scratch/vla-platform/flux-environment-verification/fluxvla-cu124-py310/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2274: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.\n  warnings.warn(\n",
+    "machine": "A6000",
+    "isolated_flag": "-I",
+    "robot_connected": false,
+    "relocation": "pyvenv.cfg home and bin/python point to restored base Python"
+  }
+}

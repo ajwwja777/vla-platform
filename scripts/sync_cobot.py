@@ -21,7 +21,7 @@ def main():
     run(["git", "diff", "--quiet", "HEAD"], cwd=ROOT)
     revision = run(["git","rev-parse","HEAD"],cwd=ROOT,capture_output=True).stdout.strip()
     names = run(["git","ls-files","-z"],cwd=ROOT,capture_output=True).stdout.split("\0")
-    roots = {"integrations", "docs"}
+    roots = {"integrations", "docs", "configs", "scripts"}
     files = [name for name in names if name and
         (Path(name).parts[0] in roots or name in ("README.md","AGENTS.md","scripts/sync_cobot.py","configs/assets/cobot_pi05_code.json","configs/assets/cobot_fluxvla_runtime.json","configs/assets/legacy_deployment_entries.json","configs/cobot_models.json"))
         and "tests" not in Path(name).parts]

@@ -22,7 +22,36 @@
       "runtime_dependencies": [
         "/home/agilex/jiaan/project/vla-platform/envs/fluxvla-cu124-py310/bin/python",
         "/home/agilex/jiaan/project/vla-platform/third_party/fluxvla-pinned/fluxvla"
-      ]
+      ],
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "704fa3983c4dfaf573379efa86530ff2dba5ae4e",
+      "io_contract": "cobot-bimanual-joints-v1",
+      "runtime_python": "/home/agilex/jiaan/project/vla-platform/envs/fluxvla-cu124-py310/bin/python",
+      "normalization": "/media/agilex/Getea1/jiaan/model/vla-platform/fluxvla_pi05/in_the_pot/step_5000/dataset_statistics.json",
+      "base_model": "/media/agilex/Getea1/jiaan/model/vla-platform/fluxvla_pi05/base/pi05_base",
+      "capabilities": {
+        "load": true,
+        "ready": true,
+        "start": true,
+        "pause": true,
+        "resume": true,
+        "stop": true,
+        "unload": true,
+        "capture": true,
+        "hil": true,
+        "evaluate": true,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "not_tested_this_batch",
+        "inference": "not_tested_this_batch",
+        "robot": "pending"
+      }
     },
     {
       "id": "galaxea-g05-in-the-pot-baseline",
@@ -47,7 +76,36 @@
       "runtime_dependencies": [
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/galaxea_g0_5/env/bin/python",
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/galaxea_g0_5/upstream/scripts/serve_policy.py"
-      ]
+      ],
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "704fa3983c4dfaf573379efa86530ff2dba5ae4e",
+      "io_contract": "cobot-bimanual-joints-v1",
+      "runtime_python": "/home/agilex/cobot_magic/task3/jiaan/runtimes/galaxea_g0_5/env/bin/python",
+      "normalization": "/media/agilex/Getea1/jiaan/model/vla-platform/galaxea_g0_5/in_the_pot/step_4000/dataset_stats.json",
+      "base_model": null,
+      "capabilities": {
+        "load": true,
+        "ready": true,
+        "start": true,
+        "pause": true,
+        "resume": true,
+        "stop": true,
+        "unload": true,
+        "capture": true,
+        "hil": true,
+        "evaluate": true,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "not_tested_this_batch",
+        "inference": "not_tested_this_batch",
+        "robot": "pending"
+      }
     },
     {
       "id": "galaxea-g05-in-the-pot-dagger",
@@ -72,7 +130,36 @@
       "runtime_dependencies": [
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/galaxea_g0_5/env/bin/python",
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/galaxea_g0_5/upstream/scripts/serve_policy.py"
-      ]
+      ],
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "704fa3983c4dfaf573379efa86530ff2dba5ae4e",
+      "io_contract": "cobot-bimanual-joints-v1",
+      "runtime_python": "/home/agilex/cobot_magic/task3/jiaan/runtimes/galaxea_g0_5/env/bin/python",
+      "normalization": "/media/agilex/Getea1/jiaan/model/vla-platform/galaxea_g0_5/in_the_pot/dagger_round001_step_4000/dataset_stats.json",
+      "base_model": null,
+      "capabilities": {
+        "load": true,
+        "ready": true,
+        "start": true,
+        "pause": true,
+        "resume": true,
+        "stop": true,
+        "unload": true,
+        "capture": true,
+        "hil": true,
+        "evaluate": true,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "not_tested_this_batch",
+        "inference": "not_tested_this_batch",
+        "robot": "pending"
+      }
     },
     {
       "id": "xr1-in-the-pot-4000",
@@ -100,7 +187,36 @@
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/source/xr1/mibot/models/VLA/XR1.py",
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/pretrained/Qwen3-VL-4B-Instruct/config.json",
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/vendor/transformers-4.57.1/transformers/__init__.py"
-      ]
+      ],
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "704fa3983c4dfaf573379efa86530ff2dba5ae4e",
+      "io_contract": "cobot-bimanual-joints-v1",
+      "runtime_python": "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/.venv/bin/python",
+      "normalization": "/media/agilex/Getea1/jiaan/model/vla-platform/xiaomi_robotics_1/in_the_pot/step_4000/config.py",
+      "base_model": "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/pretrained/Qwen3-VL-4B-Instruct",
+      "capabilities": {
+        "load": true,
+        "ready": true,
+        "start": true,
+        "pause": true,
+        "resume": true,
+        "stop": true,
+        "unload": true,
+        "capture": true,
+        "hil": true,
+        "evaluate": true,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "not_tested_this_batch",
+        "inference": "not_tested_this_batch",
+        "robot": "pending"
+      }
     },
     {
       "id": "xr1_dagger-in-the-pot-4000",
@@ -128,7 +244,36 @@
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/source/xr1/mibot/models/VLA/XR1.py",
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/pretrained/Qwen3-VL-4B-Instruct/config.json",
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/vendor/transformers-4.57.1/transformers/__init__.py"
-      ]
+      ],
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "704fa3983c4dfaf573379efa86530ff2dba5ae4e",
+      "io_contract": "cobot-bimanual-joints-v1",
+      "runtime_python": "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/.venv/bin/python",
+      "normalization": "/media/agilex/Getea1/jiaan/model/vla-platform/xiaomi_robotics_1/in_the_pot/dagger_round001_step_4000/config.py",
+      "base_model": "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/pretrained/Qwen3-VL-4B-Instruct",
+      "capabilities": {
+        "load": true,
+        "ready": true,
+        "start": true,
+        "pause": true,
+        "resume": true,
+        "stop": true,
+        "unload": true,
+        "capture": true,
+        "hil": true,
+        "evaluate": true,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "not_tested_this_batch",
+        "inference": "not_tested_this_batch",
+        "robot": "pending"
+      }
     },
     {
       "id": "xr0-in-the-pot-4000",
@@ -151,7 +296,36 @@
       "home_pose": "origin",
       "runtime_dependencies": [
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_0/.venv/bin/python"
-      ]
+      ],
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "704fa3983c4dfaf573379efa86530ff2dba5ae4e",
+      "io_contract": "cobot-bimanual-joints-v1",
+      "runtime_python": "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_0/.venv/bin/python",
+      "normalization": "/media/agilex/Getea1/jiaan/model/vla-platform/xiaomi_robotics_0/in_the_pot/step_4000/last.ckpt/checkpoint/mp_rank_00_model_states.pt",
+      "base_model": null,
+      "capabilities": {
+        "load": false,
+        "ready": false,
+        "start": false,
+        "pause": false,
+        "resume": false,
+        "stop": false,
+        "unload": false,
+        "capture": false,
+        "hil": false,
+        "evaluate": false,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "not_tested_this_batch",
+        "inference": "not_tested_this_batch",
+        "robot": "pending"
+      }
     },
     {
       "id": "lingbot-v2-in-the-pot-2000",
@@ -173,7 +347,36 @@
       "home_pose": "origin",
       "runtime_dependencies": [
         "/home/agilex/cobot_magic/task3/jiaan/lingbot_v2/runtime/.venv/bin/python"
-      ]
+      ],
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "704fa3983c4dfaf573379efa86530ff2dba5ae4e",
+      "io_contract": "cobot-bimanual-joints-v1",
+      "runtime_python": "/home/agilex/cobot_magic/task3/jiaan/lingbot_v2/runtime/.venv/bin/python",
+      "normalization": "Defined by preserved model configuration; see required files",
+      "base_model": null,
+      "capabilities": {
+        "load": false,
+        "ready": false,
+        "start": false,
+        "pause": false,
+        "resume": false,
+        "stop": false,
+        "unload": false,
+        "capture": false,
+        "hil": false,
+        "evaluate": false,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "not_tested_this_batch",
+        "inference": "not_tested_this_batch",
+        "robot": "pending"
+      }
     },
     {
       "id": "lingbot-v2-in-the-pot-4000",
@@ -195,7 +398,36 @@
       "home_pose": "origin",
       "runtime_dependencies": [
         "/home/agilex/cobot_magic/task3/jiaan/lingbot_v2/runtime/.venv/bin/python"
-      ]
+      ],
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "704fa3983c4dfaf573379efa86530ff2dba5ae4e",
+      "io_contract": "cobot-bimanual-joints-v1",
+      "runtime_python": "/home/agilex/cobot_magic/task3/jiaan/lingbot_v2/runtime/.venv/bin/python",
+      "normalization": "Defined by preserved model configuration; see required files",
+      "base_model": null,
+      "capabilities": {
+        "load": false,
+        "ready": false,
+        "start": false,
+        "pause": false,
+        "resume": false,
+        "stop": false,
+        "unload": false,
+        "capture": false,
+        "hil": false,
+        "evaluate": false,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "not_tested_this_batch",
+        "inference": "not_tested_this_batch",
+        "robot": "pending"
+      }
     },
     {
       "id": "pi05-lift_book-2000",
@@ -221,7 +453,36 @@
         "/home/agilex/junfeng/workspace/pi05_cobot/.venv-server/bin/python",
         "/home/agilex/junfeng/workspace/pi05_cobot/.venv-client/bin/python",
         "/home/agilex/jiaan/project/vla-platform/integrations/cobot/pi05/lift_book/common/runtime/install_openpi_task_config.py"
-      ]
+      ],
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "704fa3983c4dfaf573379efa86530ff2dba5ae4e",
+      "io_contract": "cobot-bimanual-joints-v1",
+      "runtime_python": "/home/agilex/junfeng/workspace/pi05_cobot/.venv-server/bin/python",
+      "normalization": "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/lift_book/baseline_2000/assets/wja/cobot_lift_book_50episodes/norm_stats.json",
+      "base_model": null,
+      "capabilities": {
+        "load": false,
+        "ready": false,
+        "start": false,
+        "pause": false,
+        "resume": false,
+        "stop": false,
+        "unload": false,
+        "capture": false,
+        "hil": false,
+        "evaluate": false,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "not_tested_this_batch",
+        "inference": "not_tested_this_batch",
+        "robot": "pending"
+      }
     },
     {
       "id": "pi05-put_two_fruits-2000",
@@ -247,7 +508,36 @@
         "/home/agilex/junfeng/workspace/pi05_cobot/.venv-server/bin/python",
         "/home/agilex/junfeng/workspace/pi05_cobot/.venv-client/bin/python",
         "/home/agilex/jiaan/project/vla-platform/integrations/cobot/pi05/put_two_fruits/common/runtime/install_openpi_task_config.py"
-      ]
+      ],
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "704fa3983c4dfaf573379efa86530ff2dba5ae4e",
+      "io_contract": "cobot-bimanual-joints-v1",
+      "runtime_python": "/home/agilex/junfeng/workspace/pi05_cobot/.venv-server/bin/python",
+      "normalization": "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/put_two_fruits/baseline_2000/assets/wja/cobot_put_two_fruits_100episodes/norm_stats.json",
+      "base_model": null,
+      "capabilities": {
+        "load": false,
+        "ready": false,
+        "start": false,
+        "pause": false,
+        "resume": false,
+        "stop": false,
+        "unload": false,
+        "capture": false,
+        "hil": false,
+        "evaluate": false,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "not_tested_this_batch",
+        "inference": "not_tested_this_batch",
+        "robot": "pending"
+      }
     },
     {
       "id": "pi05-put_two_fruits-4999",
@@ -273,7 +563,36 @@
         "/home/agilex/junfeng/workspace/pi05_cobot/.venv-server/bin/python",
         "/home/agilex/junfeng/workspace/pi05_cobot/.venv-client/bin/python",
         "/home/agilex/jiaan/project/vla-platform/integrations/cobot/pi05/put_two_fruits/common/runtime/install_openpi_task_config.py"
-      ]
+      ],
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "704fa3983c4dfaf573379efa86530ff2dba5ae4e",
+      "io_contract": "cobot-bimanual-joints-v1",
+      "runtime_python": "/home/agilex/junfeng/workspace/pi05_cobot/.venv-server/bin/python",
+      "normalization": "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/put_two_fruits/step_4999/assets/wja/cobot_put_two_fruits_100episodes/norm_stats.json",
+      "base_model": null,
+      "capabilities": {
+        "load": false,
+        "ready": false,
+        "start": false,
+        "pause": false,
+        "resume": false,
+        "stop": false,
+        "unload": false,
+        "capture": false,
+        "hil": false,
+        "evaluate": false,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "not_tested_this_batch",
+        "inference": "not_tested_this_batch",
+        "robot": "pending"
+      }
     },
     {
       "id": "dm05-in-the-pot-4000",
@@ -293,7 +612,37 @@
       ],
       "control_hz": 20,
       "home_pose": "origin",
-      "runtime_dependencies": []
+      "runtime_dependencies": [],
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "704fa3983c4dfaf573379efa86530ff2dba5ae4e",
+      "io_contract": "cobot-bimanual-joints-v1",
+      "runtime_python": null,
+      "normalization": "Defined by preserved model configuration; see required files",
+      "base_model": null,
+      "capabilities": {
+        "load": false,
+        "ready": false,
+        "start": false,
+        "pause": false,
+        "resume": false,
+        "stop": false,
+        "unload": false,
+        "capture": false,
+        "hil": false,
+        "evaluate": false,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "not_tested_this_batch",
+        "inference": "not_tested_this_batch",
+        "robot": "pending"
+      }
     }
-  ]
+  ],
+  "schema_version": 1
 }

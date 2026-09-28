@@ -1,0 +1,22 @@
+{
+  "archive": "/data/LFT-W02_data/jiaan/jiaan/projects/vla-platform/outputs/environments/cobot-external-source-20260929.tar.gz",
+  "sha256": "7ccfbdf9c3770452d08d70184b76b065c8baa887299a8dc5c65fc6d6f03fc549",
+  "bytes": 46283527,
+  "source_roots": {
+    "pi05-openpi": "/home/agilex/junfeng/workspace/pi05_cobot/openpi",
+    "galaxea-g05": "/home/agilex/cobot_magic/task3/jiaan/runtimes/galaxea_g0_5/upstream",
+    "xr1": "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/source/xr1",
+    "xr1-transformers": "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/vendor/transformers-4.57.1",
+    "lingbot-v2": "/home/agilex/cobot_magic/task3/jiaan/lingbot_v2/runtime/lingbot-vla-v2",
+    "openvla-prismatic": "/home/agilex/cobot_magic/openvla-oft/prismatic",
+    "dlimp": "/home/agilex/cobot_magic/install_pkg/dlimp_openvla-main"
+  },
+  "classification": "exact source snapshot, not a complete environment",
+  "excludes": [
+    ".git",
+    "cache",
+    "weights",
+    "datasets"
+  ],
+  "restores_without_original_cobot": true
+}

@@ -1,0 +1,629 @@
+{
+  "python": "3.8.19 | packaged by conda-forge | (default, Mar 20 2024, 12:47:35) \n[GCC 12.3.0]",
+  "prefix": "/home/agilex/junfeng/workspace/pi05_cobot/.venv-client",
+  "packages": [
+    {
+      "name": "pip",
+      "version": "23.0.1",
+      "direct_url": null
+    },
+    {
+      "name": "openpi-client",
+      "version": "0.1.0",
+      "direct_url": "{\"dir_info\": {\"editable\": true}, \"url\": \"file:///home/agilex/junfeng/workspace/pi05_cobot/openpi/packages/openpi-client\"}"
+    },
+    {
+      "name": "websockets",
+      "version": "13.1",
+      "direct_url": null
+    },
+    {
+      "name": "setuptools",
+      "version": "56.0.0",
+      "direct_url": null
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "2.1.5",
+      "direct_url": null
+    },
+    {
+      "name": "docutils",
+      "version": "0.20.1",
+      "direct_url": null
+    },
+    {
+      "name": "wheel",
+      "version": "0.43.0",
+      "direct_url": null
+    },
+    {
+      "name": "six",
+      "version": "1.16.0",
+      "direct_url": null
+    },
+    {
+      "name": "omegaconf",
+      "version": "2.3.0",
+      "direct_url": null
+    },
+    {
+      "name": "requests-oauthlib",
+      "version": "2.0.0",
+      "direct_url": null
+    },
+    {
+      "name": "numpy",
+      "version": "1.23.4",
+      "direct_url": null
+    },
+    {
+      "name": "grpcio",
+      "version": "1.70.0",
+      "direct_url": null
+    },
+    {
+      "name": "google-auth",
+      "version": "2.41.1",
+      "direct_url": null
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.7.5",
+      "direct_url": null
+    },
+    {
+      "name": "imageio",
+      "version": "2.34.0",
+      "direct_url": null
+    },
+    {
+      "name": "glfw",
+      "version": "2.7.0",
+      "direct_url": null
+    },
+    {
+      "name": "PyQt5",
+      "version": "5.15.11",
+      "direct_url": null
+    },
+    {
+      "name": "antlr4-python3-runtime",
+      "version": "4.9.3",
+      "direct_url": null
+    },
+    {
+      "name": "dm-tree",
+      "version": "0.1.8",
+      "direct_url": null
+    },
+    {
+      "name": "h5py",
+      "version": "3.8.0",
+      "direct_url": null
+    },
+    {
+      "name": "filelock",
+      "version": "3.13.4",
+      "direct_url": null
+    },
+    {
+      "name": "tensorboardX",
+      "version": "2.6.2.2",
+      "direct_url": null
+    },
+    {
+      "name": "torchaudio",
+      "version": "0.10.0+cu113",
+      "direct_url": null
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1",
+      "direct_url": null
+    },
+    {
+      "name": "ipython",
+      "version": "8.12.3",
+      "direct_url": null
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.2.0",
+      "direct_url": null
+    },
+    {
+      "name": "parso",
+      "version": "0.8.4",
+      "direct_url": null
+    },
+    {
+      "name": "importlib_resources",
+      "version": "6.4.0",
+      "direct_url": null
+    },
+    {
+      "name": "absl-py",
+      "version": "2.1.0",
+      "direct_url": null
+    },
+    {
+      "name": "accelerate",
+      "version": "1.0.1",
+      "direct_url": null
+    },
+    {
+      "name": "asttokens",
+      "version": "2.4.1",
+      "direct_url": null
+    },
+    {
+      "name": "zipp",
+      "version": "3.18.1",
+      "direct_url": null
+    },
+    {
+      "name": "idna",
+      "version": "3.7",
+      "direct_url": null
+    },
+    {
+      "name": "lxml",
+      "version": "5.2.1",
+      "direct_url": null
+    },
+    {
+      "name": "matplotlib-inline",
+      "version": "0.1.7",
+      "direct_url": null
+    },
+    {
+      "name": "msgpack",
+      "version": "1.0.8",
+      "direct_url": null
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.1.2",
+      "direct_url": null
+    },
+    {
+      "name": "pyquaternion",
+      "version": "0.9.9",
+      "direct_url": null
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.4.5",
+      "direct_url": null
+    },
+    {
+      "name": "keyboard",
+      "version": "0.13.5",
+      "direct_url": null
+    },
+    {
+      "name": "PyQt5_sip",
+      "version": "12.15.0",
+      "direct_url": null
+    },
+    {
+      "name": "av",
+      "version": "12.3.0",
+      "direct_url": null
+    },
+    {
+      "name": "regex",
+      "version": "2023.12.25",
+      "direct_url": null
+    },
+    {
+      "name": "einops",
+      "version": "0.7.0",
+      "direct_url": null
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "direct_url": null
+    },
+    {
+      "name": "pyasn1",
+      "version": "0.6.1",
+      "direct_url": null
+    },
+    {
+      "name": "diffusers",
+      "version": "0.26.3",
+      "direct_url": null
+    },
+    {
+      "name": "oauthlib",
+      "version": "3.3.1",
+      "direct_url": null
+    },
+    {
+      "name": "tensorboard-data-server",
+      "version": "0.7.2",
+      "direct_url": null
+    },
+    {
+      "name": "python-can",
+      "version": "4.4.2",
+      "direct_url": null
+    },
+    {
+      "name": "modern-robotics",
+      "version": "1.1.1",
+      "direct_url": null
+    },
+    {
+      "name": "protobuf",
+      "version": "5.26.1",
+      "direct_url": null
+    },
+    {
+      "name": "requests",
+      "version": "2.31.0",
+      "direct_url": null
+    },
+    {
+      "name": "packaging",
+      "version": "23.0",
+      "direct_url": null
+    },
+    {
+      "name": "torchvision",
+      "version": "0.11.0+cu113",
+      "direct_url": null
+    },
+    {
+      "name": "anyio",
+      "version": "4.5.2",
+      "direct_url": null
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "direct_url": null
+    },
+    {
+      "name": "Werkzeug",
+      "version": "3.0.6",
+      "direct_url": null
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.11.0",
+      "direct_url": null
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "direct_url": null
+    },
+    {
+      "name": "cachetools",
+      "version": "5.3.3",
+      "direct_url": null
+    },
+    {
+      "name": "rsa",
+      "version": "4.9.1",
+      "direct_url": null
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "direct_url": null
+    },
+    {
+      "name": "torch",
+      "version": "1.10.0+cu113",
+      "direct_url": "{\"archive_info\": {\"hash\": \"sha256=cccddc32b8941bd03ede29ff0a1cce2f2b51113a5ee23bb8b979316ac2114183\", \"hashes\": {\"sha256\": \"cccddc32b8941bd03ede29ff0a1cce2f2b51113a5ee23bb8b979316ac2114183\"}}, \"url\": \"file:///media/agilex/HIKSEMI/software/torch-1.10.0%2Bcu113-cp38-cp38-linux_x86_64.whl\"}"
+    },
+    {
+      "name": "scipy",
+      "version": "1.10.1",
+      "direct_url": null
+    },
+    {
+      "name": "google-auth-oauthlib",
+      "version": "1.0.0",
+      "direct_url": null
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.3.2",
+      "direct_url": null
+    },
+    {
+      "name": "stack-data",
+      "version": "0.6.3",
+      "direct_url": null
+    },
+    {
+      "name": "qwen-vl-utils",
+      "version": "0.0.14",
+      "direct_url": null
+    },
+    {
+      "name": "fonttools",
+      "version": "4.51.0",
+      "direct_url": null
+    },
+    {
+      "name": "sniffio",
+      "version": "1.3.1",
+      "direct_url": null
+    },
+    {
+      "name": "opencv-python",
+      "version": "4.9.0.80",
+      "direct_url": null
+    },
+    {
+      "name": "backcall",
+      "version": "0.2.0",
+      "direct_url": null
+    },
+    {
+      "name": "nvidia-ml-py",
+      "version": "12.535.161",
+      "direct_url": null
+    },
+    {
+      "name": "contourpy",
+      "version": "1.1.1",
+      "direct_url": null
+    },
+    {
+      "name": "labmaze",
+      "version": "1.0.6",
+      "direct_url": null
+    },
+    {
+      "name": "urllib3",
+      "version": "2.2.1",
+      "direct_url": null
+    },
+    {
+      "name": "imageio-ffmpeg",
+      "version": "0.5.1",
+      "direct_url": null
+    },
+    {
+      "name": "pexpect",
+      "version": "4.8.0",
+      "direct_url": null
+    },
+    {
+      "name": "PyQt5-Qt5",
+      "version": "5.15.17",
+      "direct_url": null
+    },
+    {
+      "name": "empy",
+      "version": "3.3.4",
+      "direct_url": null
+    },
+    {
+      "name": "termcolor",
+      "version": "2.4.0",
+      "direct_url": null
+    },
+    {
+      "name": "traitlets",
+      "version": "5.14.2",
+      "direct_url": null
+    },
+    {
+      "name": "fsspec",
+      "version": "2024.3.1",
+      "direct_url": null
+    },
+    {
+      "name": "pickleshare",
+      "version": "0.7.5",
+      "direct_url": null
+    },
+    {
+      "name": "ptyprocess",
+      "version": "0.7.0",
+      "direct_url": null
+    },
+    {
+      "name": "modelscope",
+      "version": "1.31.0",
+      "direct_url": null
+    },
+    {
+      "name": "pyasn1_modules",
+      "version": "0.4.2",
+      "direct_url": null
+    },
+    {
+      "name": "distro",
+      "version": "1.9.0",
+      "direct_url": null
+    },
+    {
+      "name": "Markdown",
+      "version": "3.7",
+      "direct_url": null
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0",
+      "direct_url": null
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "0.36.0",
+      "direct_url": null
+    },
+    {
+      "name": "piper_sdk",
+      "version": "0.4.1",
+      "direct_url": "{\"dir_info\": {}, \"url\": \"file:///home/agilex/piper_sdk\"}"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.66.2",
+      "direct_url": null
+    },
+    {
+      "name": "wrapt",
+      "version": "1.16.0",
+      "direct_url": null
+    },
+    {
+      "name": "Pygments",
+      "version": "2.17.2",
+      "direct_url": null
+    },
+    {
+      "name": "debugpy",
+      "version": "1.8.16",
+      "direct_url": null
+    },
+    {
+      "name": "decorator",
+      "version": "5.1.1",
+      "direct_url": null
+    },
+    {
+      "name": "catkin-pkg",
+      "version": "1.0.0",
+      "direct_url": null
+    },
+    {
+      "name": "uv",
+      "version": "0.9.5",
+      "direct_url": null
+    },
+    {
+      "name": "dm-env",
+      "version": "1.6",
+      "direct_url": null
+    },
+    {
+      "name": "wcwidth",
+      "version": "0.2.13",
+      "direct_url": null
+    },
+    {
+      "name": "tensorboard",
+      "version": "2.14.0",
+      "direct_url": null
+    },
+    {
+      "name": "certifi",
+      "version": "2024.2.2",
+      "direct_url": null
+    },
+    {
+      "name": "nvitop",
+      "version": "1.3.2",
+      "direct_url": null
+    },
+    {
+      "name": "exceptiongroup",
+      "version": "1.3.1",
+      "direct_url": null
+    },
+    {
+      "name": "psutil",
+      "version": "5.9.8",
+      "direct_url": null
+    },
+    {
+      "name": "importlib_metadata",
+      "version": "7.1.0",
+      "direct_url": null
+    },
+    {
+      "name": "PyOpenGL",
+      "version": "3.1.7",
+      "direct_url": null
+    },
+    {
+      "name": "robomimic",
+      "version": "0.3.0",
+      "direct_url": null
+    },
+    {
+      "name": "executing",
+      "version": "2.0.1",
+      "direct_url": null
+    },
+    {
+      "name": "setuptools",
+      "version": "69.5.1",
+      "direct_url": null
+    },
+    {
+      "name": "mujoco",
+      "version": "2.3.7",
+      "direct_url": null
+    },
+    {
+      "name": "jedi",
+      "version": "0.19.1",
+      "direct_url": null
+    },
+    {
+      "name": "pillow",
+      "version": "10.3.0",
+      "direct_url": null
+    },
+    {
+      "name": "rospkg",
+      "version": "1.5.0",
+      "direct_url": null
+    },
+    {
+      "name": "safetensors",
+      "version": "0.4.3",
+      "direct_url": null
+    },
+    {
+      "name": "egl_probe",
+      "version": "1.0.2",
+      "direct_url": null
+    },
+    {
+      "name": "decord",
+      "version": "0.6.0",
+      "direct_url": null
+    },
+    {
+      "name": "pip",
+      "version": "24.0",
+      "direct_url": null
+    },
+    {
+      "name": "prompt-toolkit",
+      "version": "3.0.43",
+      "direct_url": null
+    },
+    {
+      "name": "dm-control",
+      "version": "1.0.14",
+      "direct_url": null
+    },
+    {
+      "name": "pure-eval",
+      "version": "0.2.2",
+      "direct_url": null
+    },
+    {
+      "name": "detr",
+      "version": "0.0.0",
+      "direct_url": null
+    }
+  ],
+  "classification": "installed inventory; not a complete rebuild lock",
+  "source_python": "/home/agilex/junfeng/workspace/pi05_cobot/.venv-client/bin/python",
+  "observed": "2026-09-29"
+}

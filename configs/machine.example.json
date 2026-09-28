@@ -1,0 +1,10 @@
+{
+  "environment": {
+    "FLUXVLA_PI05_RUNTIME_ROOT": "/home/agilex/jiaan/project/vla-platform",
+    "FLUXVLA_PI05_SERVER_PYTHON": "/home/agilex/jiaan/project/vla-platform/envs/fluxvla-cu124-py310/bin/python",
+    "FLUX_PI05_CLIENT_PYTHON": "/home/agilex/miniconda3/envs/aloha/bin/python",
+    "PI05_RUNTIME_ROOT": "/home/agilex/junfeng/workspace/pi05_cobot"
+  },
+  "note": "Example only. Copy to configs/local.json; saving never starts a process.",
+  "path_aliases": {}
+}

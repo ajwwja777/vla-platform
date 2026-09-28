@@ -1,5 +1,19 @@
 # FluxVLA Engine: A One-Stop VLA Engineering Platform for Embodied Intelligence
 
+```text
+vla-platform/
+├── fluxvla/                    # FluxVLA原生实现
+├── integrations/cobot/        # 历史部署、薄适配
+├── configs/cobot_models.json  # 模型登记
+├── configs/pi05_models.json
+├── configs/external_models.example.json
+├── configs/assets/           # 来源、外部材料、SHA256
+├── configs/environments/     # 包版本与direct_url
+└── docs/
+```
+
+本地框架与部署：[说明](docs/DEPLOYMENT.md)。
+
 <p align="center">
   <img src="assets/fluxvla.png" alt="FluxVLA" width="600">
 </p>
