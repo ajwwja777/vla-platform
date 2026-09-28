@@ -55,3 +55,9 @@
 对应cobot-platform原件已在9,629条目完整核验、归档重定位、无活动引用复核后退休：先改名隔离旧路径，正式网页从新web/control冷启动并通过模型目录、数据历史、相机启停与home帮助检查，再删除原目录。回执见相邻cobot-web/outputs/migrations/20260928-platform-retirement/cobot/retirement.json；归档和模型实体继续保存在本项目，不影响FluxVLA后续适配。
 
 原平台链接到旧RLT历史的条目现在指向rl-platform历史归档；该归档全量传输和校验仍在执行。两个π0.5共享部署和其他旧VLA项目仍保留，不在本次整棵清理范围内。
+
+## 2026-09-28：关联 RLT 归档完成
+
+rl-platform的旧RLT归档现已全量SHA验收（39,001条目、122,208,969,870字节），历史模型和datasets已归其models/history与data/history，原归档相对链接保留访问。旧平台归档中171个重定位链接全部可访问；原DM05基础模型相对链接仍作为既有外部依赖保留，不伪造缺失权重。
+
+RLT在旧路径隔离后从新项目冷加载/释放通过，随后旧RLT目录和其cobot-realworld-rl别名已删除；不改变本项目FluxVLA运行适配尚未验收的状态。网页两个π0.5入口保留共享部署位置，旧平台删除后dry-run预检通过，未重做π0.5真机推理。后续依然按固定模型输入/输出对照逐批迁移；不删除共享cobot_magic或其他旧VLA/Franka资产。
