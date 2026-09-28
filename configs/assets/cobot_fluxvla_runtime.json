@@ -6,5 +6,8 @@
   "cobot_environment": "/home/agilex/jiaan/project/vla-platform/envs/fluxvla-cu124-py310",
   "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/fluxvla_pi05/in_the_pot/step_5000",
   "base": "/media/agilex/Getea1/jiaan/model/vla-platform/fluxvla_pi05/base/pi05_base",
-  "state": "paths_prepared_asset_verification_in_progress"
+  "state": "offline_baseline_and_prefix_rtc_verified",
+  "verified_at": "2026-09-28 20:56",
+  "validation": "/data/LFT-W02_data/jiaan/jiaan/projects/rl-platform/outputs/migrations/20260928-getea-storage/cobot/flux-runtime-validation.json",
+  "robot_episode_started": false
 }

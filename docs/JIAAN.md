@@ -8,8 +8,8 @@
 - A6000 主工作区：`/data/LFT-W02_data/jiaan/jiaan/projects/vla-platform`。
 - 笔记本对话入口：`D:\Code\jiaan_workspace\vla-platform`。
 - 自有独立仓库：`https://github.com/ajwwja777/vla-platform`（目标分支 `main`）。
-- Cobot 目标部署位置：`/home/agilex/jiaan/project/vla-platform`，本轮尚未部署。
-- 当前阶段：FluxVLA源码入口保持初始化；已承接旧Cobot平台历史模型和归档。运行适配仍待逐批接入，不能把归档当作FluxVLA推理验收。
+- Cobot 运行副本：`/home/agilex/jiaan/project/vla-platform`；只部署现场推理组件。
+- 当前阶段：π0.5 兼容部署入口及 FluxVLA 旧固定版本已迁入；前者 dry-run、后者离线推理/RTC 通过，未做新的真机成功率评测。
 
 ## 负责什么
 
@@ -21,7 +21,7 @@
 
 A6000 负责主代码、Git、维护文档、主要开发验证环境、数据处理和离线评测；训练按资源需要在 A6000／已授权训练机进行。Cobot 只部署本项目现场实际需要的硬件、采集、推理、网页或维护组件，不复制仿真资产和完整训练环境。
 
-Cobot 采集及评测数据统一规划在 `/home/agilex/jiaan/data/`。模型放所属项目的 `models/`（上游已有 `checkpoints/` 等目录时保留其源码布局，由配置明确实际权重位置）；同一资产跨项目引用，避免重复复制。现场服务日志、PID 和状态归实际负责项目；网页编排任务使用 `cobot-web/runtime/`；训练 checkpoint、配置和指标保留在所属项目 `outputs/<实验>/`。环境、模型、大数据与 runtime 不入 Git。
+Cobot 数据和 checkpoint 均存放 Getea1/jiaan/{data,model}；场景数据共享，模型按项目/模型/场景/版本引用。现场服务日志、PID 和状态归实际负责项目；网页编排任务使用 `cobot-web/runtime/`；A6000 训练中间 checkpoint 与配置、指标按所属项目实验目录管理；Cobot 上的 checkpoint 则必须配置到 Getea1/model。环境、模型、大数据与 runtime 不入 Git。
 
 ## 项目协作
 
@@ -53,16 +53,14 @@ Cobot 采集及评测数据统一规划在 `/home/agilex/jiaan/data/`。模型�
 
 历史模型位置：models/history/dm0-5/step_4000、models/history/xiaomi-robotics-1-dagger-round001/step_4000。来源与SHA索引见configs/assets/legacy_cobot_models.json，完整保全记录见docs/MIGRATION.md（2026-09-28）。
 
-## 数据和权重存放现状（2026-09-28）
+## 当前现场资产（2026-09-28）
 
-用户确认原始采集、现场评测和当前部署checkpoint长期单份放Cobot；训练中间checkpoint、停止部署的历史模型单份放A6000。共享场景数据通过manifest供不同模型使用，不给每个模型复制一份原始数据。
+- 权重：/media/agilex/Getea1/jiaan/model/vla-platform/。
+- 共享场景数据：/media/agilex/Getea1/jiaan/data/datasets/in_the_pot/。
+- π0.5 入口：integrations/cobot/pi05/{baseline,dagger}；对应 pi05/in_the_pot/{baseline_2000,dagger_2000plus3000}。
+- FluxVLA 入口：integrations/cobot/fluxvla_pi05；固定代码 third_party/fluxvla-pinned，环境 envs/fluxvla-cu124-py310，日志/PID runtime/fluxvla-pi05。
+- FluxVLA 权重：fluxvla_pi05/in_the_pot/step_5000，共享基础模型 fluxvla_pi05/base/pi05_base；环境和安装缓存不放外接盘。
+- 固定上游 8e22b69b2ff8c8c333d4095596cde8e1e3b57ade 在自有 Git 历史可取得；额外代码归档及 SHA 见 configs/assets/cobot_fluxvla_runtime.json。不升级成主仓库较新的实现。
+- A6000 models/history 的 DM0.5（10.89 GiB）和 Xiaomi DAgger（10.25 GiB）历史权重保留，本轮没有新增权重备份；旧 A6000 XR1 final-transfer 对应历史副本的去重仍属后续范围。Cobot 上 DM0.5 仅元数据，旧 Xiaomi DAgger 缺失链接不冒充可部署权重。
 
-本项目A6000 models/history/dm0-5/step_4000占10.89GiB，models/history/xiaomi-robotics-1-dagger-round001/step_4000占10.25GiB。旧A6000 XR1 final-transfer仍有对应权重副本，待去重。
-
-Cobot当前π0.5在/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/pi05/checkpoints/step_2000（11.59GiB）；DAgger续训在/home/agilex/cobot_magic/task5/jiaan/hil_realworld_rl/deployments/in_the_pot/pi05_dagger_round001/checkpoints/step_3000（11.59GiB）。其他Galaxea/Xiaomi/Lingbot及外置盘FluxVLA权重仍在旧目录。旧Xiaomi DAgger现场last.ckpt链接已失效，权重实体保存在本项目A6000历史模型目录；它不在当前网页六模型目录内，后续部署需接入新位置。
-
-in_the_pot数据仍分布于task3/jiaan/datasets/in_the_pot、task3/jiaan/realworld_rl/data/task5-rlt-r1/in_the_pot及task5/jiaan/hil_realworld_rl/data/{raw_rollouts,lerobot}/in_the_pot。场景根目标为/home/agilex/jiaan/data/in_the_pot/，尚未切换。所有完整绝对路径与实测占用见同级cobot-web/docs/STORAGE.md；当前盘点没有执行资产搬移或去重。
-
-## 2026-09-28 Getea1 迁移当前状态
-
-主体数据/权重已迁移到 /media/agilex/Getea1/jiaan/{data,model}，新路径网页历史及 RLT 加载验收后清理了主体旧副本。20:00 Getea1 USB 掉线，FluxVLA 环境/暂存副本的验收和清理未完成；网页已正常停止，迁移进程已退出。恢复识别后先核对文件系统和资产校验，再续迁移，不要直接开始在线训练。详细证据见实际 cobot-web/docs/STORAGE.md 和所属项目 docs/MIGRATION.md。来源：cobot_rlt 迁移会话；未新增 A6000 数据/权重备份，guide Git 不由本会话提交。
+完整目录清单、磁盘空间、迁移回执和 USB 故障限制见相邻 cobot-web/docs/STORAGE.md。新设备环境完整重建任务仍按用户后续授权单独完成；这批迁移保留现场已安装版本。
