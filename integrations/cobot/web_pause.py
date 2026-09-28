@@ -50,6 +50,16 @@ class OperatorPause:
             self.save()
             return result
 
+    def observe_mode(self, mode):
+        with self.lock:
+            manual_mode = mode != "policy"
+            if manual_mode and not self.hil:
+                self.interventions += 1
+            self.hil = manual_mode
+            if manual_mode:
+                self.paused = True
+            self.save()
+
     def mark_ready(self):
         with self.lock:
             self.ready = True

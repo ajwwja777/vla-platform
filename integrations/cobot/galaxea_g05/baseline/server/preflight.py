@@ -76,7 +76,9 @@ def validate_deployment_identity(
         actual = _sha256(hf_processor / relative)
         if actual != expected:
             raise ValueError(f"hf_processor SHA-256 mismatch for {relative}: {actual} != {expected}")
-    return manifest
+    return {**manifest, "checkpoint": str(checkpoint), "dataset_stats": str(dataset_stats),
+            "hydra_config": str(hydra_config), "action_tokenizer": str(action_tokenizer),
+            "hf_processor": str(hf_processor)}
 
 
 def main() -> None:

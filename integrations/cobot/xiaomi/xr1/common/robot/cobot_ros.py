@@ -294,7 +294,13 @@ class RosInterface:
             print("[lingbot] SHADOW MODE: no command publishers were created", flush=True)
 
     def _task2_mode_callback(self, message: Any) -> None:
-        self.task2_gate.update_mode(getattr(message, "data", ""))
+        latch = getattr(self.task2_gate, "web_pause", None)
+        if latch:
+            latch.observe_mode(getattr(message, "data", ""))
+        snapshot = self.task2_gate.update_mode(getattr(message, "data", ""))
+        if latch:
+            latch.paused = snapshot.paused
+            latch.save()
         self.set_task2_chunk_ready(False)
         self.last_command = None
 

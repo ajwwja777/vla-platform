@@ -96,7 +96,10 @@
       "home_pose": "origin",
       "runtime_dependencies": [
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/.venv/bin/python",
-        "/home/agilex/jiaan/project/vla-platform/integrations/cobot/xiaomi/xr1/common/robot/assets/piper_description.urdf"
+        "/home/agilex/jiaan/project/vla-platform/integrations/cobot/xiaomi/xr1/common/robot/assets/piper_description.urdf",
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/source/xr1/mibot/models/VLA/XR1.py",
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/pretrained/Qwen3-VL-4B-Instruct/config.json",
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/vendor/transformers-4.57.1/transformers/__init__.py"
       ]
     },
     {
@@ -121,7 +124,10 @@
       "home_pose": "origin",
       "runtime_dependencies": [
         "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/.venv/bin/python",
-        "/home/agilex/jiaan/project/vla-platform/integrations/cobot/xiaomi/xr1_dagger/common/robot/assets/piper_description.urdf"
+        "/home/agilex/jiaan/project/vla-platform/integrations/cobot/xiaomi/xr1_dagger/common/robot/assets/piper_description.urdf",
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/source/xr1/mibot/models/VLA/XR1.py",
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/pretrained/Qwen3-VL-4B-Instruct/config.json",
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/vendor/transformers-4.57.1/transformers/__init__.py"
       ]
     },
     {

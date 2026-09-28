@@ -113,7 +113,7 @@
       "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/common/robot/g05_task2_client.py",
       "target": "integrations/cobot/galaxea_g05/baseline/common/robot/g05_task2_client.py",
       "source_sha256": "4ecbf5af2543ada2be6950c1dd8889a63b27aae72b28a11edc70a7ec6359d7e3",
-      "sha256": "e2f7098fb73f1470de3be4f75c54fe4f085c4f5c2a2f4617dbe7e240099aa3d8"
+      "sha256": "b3d8053813094f9ff2c5375d2439d4086f64d9048f1f6261bf9c192c3a5a5706"
     },
     {
       "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/server/__init__.py",
@@ -131,7 +131,7 @@
       "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/server/preflight.py",
       "target": "integrations/cobot/galaxea_g05/baseline/server/preflight.py",
       "source_sha256": "807743100a4e57733e309ceb960afa9bfc8f7665e5e7fae86ca5a24ba488e598",
-      "sha256": "88db5d6ac7b04318d5a447efe611c6cd7ad65847cd4afa91dcdfe3526d61dfaf"
+      "sha256": "c6687d4a94602f418719eeb3146573112d95b5d0a1a4f98b05a974866ca2bed0"
     },
     {
       "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/server/serve_policy_compat.py",
@@ -257,7 +257,7 @@
       "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/common/robot/g05_task2_client.py",
       "target": "integrations/cobot/galaxea_g05/dagger/common/robot/g05_task2_client.py",
       "source_sha256": "4ecbf5af2543ada2be6950c1dd8889a63b27aae72b28a11edc70a7ec6359d7e3",
-      "sha256": "e2f7098fb73f1470de3be4f75c54fe4f085c4f5c2a2f4617dbe7e240099aa3d8"
+      "sha256": "b3d8053813094f9ff2c5375d2439d4086f64d9048f1f6261bf9c192c3a5a5706"
     },
     {
       "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/server/__init__.py",
@@ -275,7 +275,7 @@
       "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/server/preflight.py",
       "target": "integrations/cobot/galaxea_g05/dagger/server/preflight.py",
       "source_sha256": "807743100a4e57733e309ceb960afa9bfc8f7665e5e7fae86ca5a24ba488e598",
-      "sha256": "88db5d6ac7b04318d5a447efe611c6cd7ad65847cd4afa91dcdfe3526d61dfaf"
+      "sha256": "c6687d4a94602f418719eeb3146573112d95b5d0a1a4f98b05a974866ca2bed0"
     },
     {
       "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/server/serve_policy_compat.py",
@@ -413,7 +413,7 @@
       "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/robot/cobot_ros.py",
       "target": "integrations/cobot/xiaomi/xr1/common/robot/cobot_ros.py",
       "source_sha256": "7b257f4264ffaa28a7da17def2e9db6e949aba91cb0bc1cdcbc7394f2028108e",
-      "sha256": "58bb3380c1d501a24ee3b8a050320ad67fa847d99e616ebe06dc0765e271461a"
+      "sha256": "e5eb88b669d6f32ef21389db0f99374a381f5db37062d0157e6b3900cfe0d84a"
     },
     {
       "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/robot/direct_checkpoint_fixture.py",
@@ -575,7 +575,7 @@
       "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/robot/cobot_ros.py",
       "target": "integrations/cobot/xiaomi/xr1_dagger/common/robot/cobot_ros.py",
       "source_sha256": "7b257f4264ffaa28a7da17def2e9db6e949aba91cb0bc1cdcbc7394f2028108e",
-      "sha256": "58bb3380c1d501a24ee3b8a050320ad67fa847d99e616ebe06dc0765e271461a"
+      "sha256": "e5eb88b669d6f32ef21389db0f99374a381f5db37062d0157e6b3900cfe0d84a"
     },
     {
       "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/robot/direct_checkpoint_fixture.py",

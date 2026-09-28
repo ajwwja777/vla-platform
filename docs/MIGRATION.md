@@ -86,3 +86,15 @@ Cobot 数据与模型统一在 /media/agilex/Getea1/jiaan/data/ 和 /media/agile
 USB 掉线重连后已完成已迁移资产的全量收据复核；尚不能据此认定硬件链路根因已消除。RLT 新路径暂停加载、在线状态恢复与历史媒体通过；FluxVLA 固定版本离线 baseline/prefix-RTC 通过；π0.5 两入口只做 dry-run。本批未启动真实 Episode 或机器人动作。
 
 完整路径、占用、各项验证边界及回执见实际 cobot-web/docs/STORAGE.md。证据位于 rl-platform/outputs/migrations/20260928-getea-storage/cobot/（Cobot 去掉末尾 cobot/）。同批源码与项目记录已按各自仓库发布；guide Git 保持由其他会话管理。
+
+## 2026-09-28：复用历史部署脚本与模型身份标注
+
+来源：cobot_rlt 会话；用户要求复用以前直接 .sh 部署的成果，并在权重路径后标明模型、场景、训练步数与状态。
+
+- 历史 Galaxea G0.5（baseline/DAgger）、Xiaomi XR0/XR1/XR1 DAgger、LingBot V2、DM0.5、π0.5 lift_book/put_two_fruits 的脚本、客户端、配置、测试和 XR1 URDF 纳入 vla-platform/integrations/cobot；主代码在 A6000，Cobot 同步运行副本。来源和文件哈希在 configs/assets/legacy_deployment_entries.json。
+- configs/cobot_models.json 登记 12 个历史版本/入口；现有 FluxVLA、G05 两版本、XR1 原版复用旧服务、动作映射和 RTC 参数，通过原暂停/arm服务连接网页。加载不 arm、不恢复推理；网页 Start/Resume 才调用原 arm + resume；暂停锁防止示教释放覆盖网页手动暂停。
+- XR0、LingBot 两版本、另两场景的 π0.5 三版本保留原终端入口，不将会直接运动的原 live 脚本冒充“仅加载”。列表区分终端可用/网页待接入、缺少文件、基础模型依赖。DM0.5 与 XR1 DAgger 本机缺权重，历史权重仍在 A6000，不擅自复制。
+- 旧共享 Python/ROS 与 G05/Xiaomi/LingBot 的已安装 runtime 仍作为显式依赖保留，没有宣称环境整体迁移或跨机器从零重建完成。原部署目录暂保留，未达到完整现场验收的部分不清理。
+- 模型选择统一显示真实路径、模型、场景、步数与状态；RLT 分开标 Stage1 checkpoint / learner steps / actor version，π0.5 DAgger 保留 2000+3000 来源。备份目录名字不推断训练步数，没有证据时标待核验。
+
+验证：A6000 web 相关后端 39 passed/1 skipped；前端 37 passed。新网页手动暂停锁 3 passed，原 G05 generation/资产 preflight 6 passed，原 XR1 HIL/旧动作过期处理 26 passed。Cobot 四个 managed 启动计划 --check 通过；G05 两版本的 checkpoint 大小、归一化/配置/processor 哈希 preflight 通过。本批未加载新 GPU 模型、未启动真实 Episode、未发送机器人动作；真实模型加载和现场动作效果仍待逐个验收。

@@ -33,3 +33,12 @@ def test_rejected_resume_keeps_operator_latch(tmp_path):
     latch = module.OperatorPause(tmp_path / "gate.json")
     latch.handle(lambda r: SimpleNamespace(success=False), request(False, True))
     assert latch.manual and latch.paused
+
+
+def test_mode_topic_never_releases_manual_pause(tmp_path):
+    latch = module.OperatorPause(tmp_path/"gate.json")
+    latch.observe_mode("teach")
+    latch.handle(lambda req: SimpleNamespace(success=True), request(True))
+    assert latch.interventions == 1
+    latch.observe_mode("policy")
+    assert latch.manual and latch.paused

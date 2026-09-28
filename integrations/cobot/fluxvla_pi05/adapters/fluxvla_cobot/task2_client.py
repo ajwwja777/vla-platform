@@ -244,6 +244,8 @@ def main() -> None:
         )
 
     def handover_mode(message):
+        if web_pause:
+            web_pause.observe_mode(message.data)
         if message.data == "policy":
             return
         with state_lock:

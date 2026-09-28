@@ -213,6 +213,8 @@ def main() -> None:
         )
 
     def handover_mode(message):
+        if web_pause:
+            web_pause.observe_mode(message.data)
         if message.data != "policy":
             policy_state.set_paused(True)
             reset_requested.set()
