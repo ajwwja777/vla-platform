@@ -62,3 +62,7 @@ Cobot 采集及评测数据统一规划在 `/home/agilex/jiaan/data/`。模型�
 Cobot当前π0.5在/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/pi05/checkpoints/step_2000（11.59GiB）；DAgger续训在/home/agilex/cobot_magic/task5/jiaan/hil_realworld_rl/deployments/in_the_pot/pi05_dagger_round001/checkpoints/step_3000（11.59GiB）。其他Galaxea/Xiaomi/Lingbot及外置盘FluxVLA权重仍在旧目录。旧Xiaomi DAgger现场last.ckpt链接已失效，权重实体保存在本项目A6000历史模型目录；它不在当前网页六模型目录内，后续部署需接入新位置。
 
 in_the_pot数据仍分布于task3/jiaan/datasets/in_the_pot、task3/jiaan/realworld_rl/data/task5-rlt-r1/in_the_pot及task5/jiaan/hil_realworld_rl/data/{raw_rollouts,lerobot}/in_the_pot。场景根目标为/home/agilex/jiaan/data/in_the_pot/，尚未切换。所有完整绝对路径与实测占用见同级cobot-web/docs/STORAGE.md；当前盘点没有执行资产搬移或去重。
+
+## 2026-09-28 Getea1 迁移当前状态
+
+主体数据/权重已迁移到 /media/agilex/Getea1/jiaan/{data,model}，新路径网页历史及 RLT 加载验收后清理了主体旧副本。20:00 Getea1 USB 掉线，FluxVLA 环境/暂存副本的验收和清理未完成；网页已正常停止，迁移进程已退出。恢复识别后先核对文件系统和资产校验，再续迁移，不要直接开始在线训练。详细证据见实际 cobot-web/docs/STORAGE.md 和所属项目 docs/MIGRATION.md。来源：cobot_rlt 迁移会话；未新增 A6000 数据/权重备份，guide Git 不由本会话提交。
