@@ -1,0 +1,60 @@
+{
+  "attention": {
+    "action": "sdpa",
+    "config_override_timing": "before model construction",
+    "liger_kernel": false,
+    "llm": "eager",
+    "reason": "shared runtime exposes flash_attn package metadata but not flash_attn_func",
+    "vision": "sdpa"
+  },
+  "base_runtime": {
+    "cuda_runtime": "12.8",
+    "path": "/home/agilex/cobot_magic/task3/jiaan/runtimes/galaxea_g0_5/env",
+    "read_only_dependency": true,
+    "torch": "2.7.1+cu128",
+    "torchvision": "0.22.1+cu128"
+  },
+  "gpu": {
+    "compute_capability": "8.9",
+    "model": "NVIDIA GeForce RTX 4090"
+  },
+  "overlay": {
+    "path": "/home/agilex/cobot_magic/task3/jiaan/runtimes/dm0_5/overlay",
+    "packages": {
+      "accelerate": "1.14.0",
+      "diffusers": "0.38.0",
+      "einops": "0.8.1",
+      "einops-exts": "0.0.4",
+      "huggingface-hub": "1.24.0",
+      "peft": "0.19.1",
+      "pydantic": "2.13.4",
+      "pydantic-core": "2.46.4",
+      "safetensors": "0.8.0",
+      "sentencepiece": "0.2.1",
+      "tiktoken": "0.12.0",
+      "timm": "1.0.27",
+      "transformers": "5.3.0",
+      "tyro": "1.0.13"
+    }
+  },
+  "source_commit": "e89fcbaa0408ca0fb04a410bfab50cc15eb73fdb",
+  "status": "cobot-local-offline-validated",
+  "validation": {
+    "action_dim": 32,
+    "chunk_size": 50,
+    "cold_start_including_full_hash_seconds": 62.91,
+    "meta_tensor_count": 1473,
+    "model_bytes": 11658431136,
+    "model_sha256": "0e39eea6dc56950a21b51580f419460e9070f52393cc26a49385af9185ca544d",
+    "norm_stats_sha256": "417a9207dd5b469bae8b406d63a4ff051085ea5e62d859d39ac4fb26a73d0d8b",
+    "real_weight_load": "1473/1473; no missing, unexpected, mismatched, or error entries",
+    "server_bind": "127.0.0.1:7891",
+    "server_static_gpu_mib": 12035,
+    "shadow_1_model_latency_ms": 877.5,
+    "shadow_2_model_latency_ms": 423.6,
+    "shadow_peak_gpu_mib": 12413,
+    "shadow_peak_power_w": 74.73,
+    "three_camera_fixture": "two finite (50,14) responses; no ROS or publisher",
+    "post_stop_gpu_mib": 447
+  }
+}

@@ -193,7 +193,10 @@ def main() -> None:
             for queue in queues:
                 queue.clear()
 
-    def set_paused(request):
+    from web_pause import from_environment
+    web_pause = from_environment()
+
+    def native_set_paused(request):
         with state_lock:
             if bool(request.data):
                 generation = gate.pause()
@@ -210,6 +213,9 @@ def main() -> None:
                 status = "fresh resume"
             invalidate_runtime()
         return SetBoolResponse(success=True, message=f"{status}; generation={generation}")
+
+    def set_paused(request):
+        return web_pause.handle(native_set_paused, request) if web_pause else native_set_paused(request)
 
     def arm_policy(_request):
         with state_lock:
@@ -325,6 +331,8 @@ def main() -> None:
     last_inference_s = 0.0
     published = 0
     announced_generation: int | None = None
+    if web_pause:
+        web_pause.mark_ready()
     print(
         f"[flux-pi05-task2] {'shadow running' if args.shadow else 'ready and paused'}; "
         f"endpoint={args.endpoint}",

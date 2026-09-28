@@ -2,6 +2,7 @@
 set -euo pipefail
 
 readonly ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+export PYTHONPATH="/home/agilex/jiaan/project/vla-platform/integrations/cobot:${PYTHONPATH:-}"
 readonly STEP="${1:-}"
 if [[ "${FLUX_PI05_TASK2_WRAPPER_ACK:-}" != I_AM_THE_GATED_WRAPPER ]]; then
   echo "FluxVLA PI0.5 Task2 must be started through the gated live wrapper." >&2

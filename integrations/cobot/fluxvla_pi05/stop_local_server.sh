@@ -2,6 +2,7 @@
 set -euo pipefail
 
 readonly ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+export PYTHONPATH="/home/agilex/jiaan/project/vla-platform/integrations/cobot:${PYTHONPATH:-}"
 readonly STEP="${1:-5000}"
 readonly RUNTIME_ROOT="${FLUXVLA_PI05_RUNTIME_ROOT:-/home/agilex/jiaan/project/vla-platform}"
 readonly PYTHON="${FLUXVLA_PI05_SERVER_PYTHON:-${RUNTIME_ROOT}/envs/fluxvla-cu124-py310/bin/python}"

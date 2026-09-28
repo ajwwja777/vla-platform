@@ -1,0 +1,293 @@
+{
+  "models": [
+    {
+      "id": "fluxvla-pi05-in-the-pot-5000",
+      "family": "FluxVLA π0.5",
+      "task": "in_the_pot",
+      "step": 5000,
+      "parent_step": null,
+      "root": "integrations/cobot/fluxvla_pi05",
+      "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/fluxvla_pi05/in_the_pot/step_5000",
+      "required": [
+        "/media/agilex/Getea1/jiaan/model/vla-platform/fluxvla_pi05/in_the_pot/step_5000/model.safetensors",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/fluxvla_pi05/in_the_pot/step_5000/dataset_statistics.json"
+      ],
+      "managed": true,
+      "args": [
+        "run_checkpoint_task2.sh",
+        "5000"
+      ],
+      "control_hz": 20,
+      "home_pose": "origin",
+      "runtime_dependencies": [
+        "/home/agilex/jiaan/project/vla-platform/envs/fluxvla-cu124-py310/bin/python",
+        "/home/agilex/jiaan/project/vla-platform/third_party/fluxvla-pinned/fluxvla"
+      ]
+    },
+    {
+      "id": "galaxea-g05-in-the-pot-baseline",
+      "family": "Galaxea G0.5",
+      "task": "in_the_pot",
+      "step": 4000,
+      "parent_step": null,
+      "root": "integrations/cobot/galaxea_g05/baseline",
+      "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/galaxea_g0_5/in_the_pot/step_4000",
+      "required": [
+        "/media/agilex/Getea1/jiaan/model/vla-platform/galaxea_g0_5/in_the_pot/step_4000/step_4000.pt",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/galaxea_g0_5/in_the_pot/step_4000/deployment_manifest.json",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/galaxea_g0_5/in_the_pot/step_4000/dataset_stats.json"
+      ],
+      "managed": true,
+      "args": [
+        "run_checkpoint_task2.sh",
+        "4000"
+      ],
+      "control_hz": 20,
+      "home_pose": "origin",
+      "runtime_dependencies": [
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/galaxea_g0_5/env/bin/python",
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/galaxea_g0_5/upstream/scripts/serve_policy.py"
+      ]
+    },
+    {
+      "id": "galaxea-g05-in-the-pot-dagger",
+      "family": "Galaxea G0.5",
+      "task": "in_the_pot",
+      "step": 4000,
+      "parent_step": 4000,
+      "root": "integrations/cobot/galaxea_g05/dagger",
+      "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/galaxea_g0_5/in_the_pot/dagger_round001_step_4000",
+      "required": [
+        "/media/agilex/Getea1/jiaan/model/vla-platform/galaxea_g0_5/in_the_pot/dagger_round001_step_4000/step_4000.pt",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/galaxea_g0_5/in_the_pot/dagger_round001_step_4000/deployment_manifest.json",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/galaxea_g0_5/in_the_pot/dagger_round001_step_4000/dataset_stats.json"
+      ],
+      "managed": true,
+      "args": [
+        "run_checkpoint_task2.sh",
+        "4000"
+      ],
+      "control_hz": 20,
+      "home_pose": "origin",
+      "runtime_dependencies": [
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/galaxea_g0_5/env/bin/python",
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/galaxea_g0_5/upstream/scripts/serve_policy.py"
+      ]
+    },
+    {
+      "id": "xr1-in-the-pot-4000",
+      "family": "XR1",
+      "task": "in_the_pot",
+      "step": 4000,
+      "parent_step": null,
+      "root": "integrations/cobot/xiaomi/xr1",
+      "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/xiaomi_robotics_1/in_the_pot/step_4000/last.ckpt/checkpoint",
+      "required": [
+        "/media/agilex/Getea1/jiaan/model/vla-platform/xiaomi_robotics_1/in_the_pot/step_4000/last.ckpt/checkpoint/mp_rank_00_model_states.pt",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/xiaomi_robotics_1/in_the_pot/step_4000/config.py"
+      ],
+      "managed": true,
+      "args": [
+        "run_checkpoint.sh",
+        "4000",
+        "task2"
+      ],
+      "control_hz": 20,
+      "home_pose": "origin",
+      "runtime_dependencies": [
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/.venv/bin/python",
+        "/home/agilex/jiaan/project/vla-platform/integrations/cobot/xiaomi/xr1/common/robot/assets/piper_description.urdf"
+      ]
+    },
+    {
+      "id": "xr1_dagger-in-the-pot-4000",
+      "family": "XR1 DAgger",
+      "task": "in_the_pot",
+      "step": 4000,
+      "parent_step": 4000,
+      "root": "integrations/cobot/xiaomi/xr1_dagger",
+      "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/xiaomi_robotics_1/in_the_pot/dagger_round001_step_4000/last.ckpt/checkpoint",
+      "required": [
+        "/media/agilex/Getea1/jiaan/model/vla-platform/xiaomi_robotics_1/in_the_pot/dagger_round001_step_4000/last.ckpt/checkpoint/mp_rank_00_model_states.pt",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/xiaomi_robotics_1/in_the_pot/dagger_round001_step_4000/config.py"
+      ],
+      "managed": true,
+      "args": [
+        "run_checkpoint.sh",
+        "4000",
+        "task2"
+      ],
+      "control_hz": 20,
+      "home_pose": "origin",
+      "runtime_dependencies": [
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1/.venv/bin/python",
+        "/home/agilex/jiaan/project/vla-platform/integrations/cobot/xiaomi/xr1_dagger/common/robot/assets/piper_description.urdf"
+      ]
+    },
+    {
+      "id": "xr0-in-the-pot-4000",
+      "family": "XR0",
+      "task": "in_the_pot",
+      "step": 4000,
+      "parent_step": null,
+      "root": "integrations/cobot/xiaomi/xr0",
+      "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/xiaomi_robotics_0/in_the_pot/step_4000/last.ckpt/checkpoint",
+      "required": [
+        "/media/agilex/Getea1/jiaan/model/vla-platform/xiaomi_robotics_0/in_the_pot/step_4000/last.ckpt/checkpoint/mp_rank_00_model_states.pt",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/xiaomi_robotics_0/in_the_pot/step_4000/config.py"
+      ],
+      "managed": false,
+      "args": [
+        "interface_live.sh",
+        "4000"
+      ],
+      "control_hz": 20,
+      "home_pose": "origin",
+      "runtime_dependencies": [
+        "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_0/.venv/bin/python"
+      ]
+    },
+    {
+      "id": "lingbot-v2-in-the-pot-2000",
+      "family": "LingBot V2",
+      "task": "in_the_pot",
+      "step": 2000,
+      "parent_step": null,
+      "root": "integrations/cobot/lingbot_v2",
+      "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/lingbot_v2/in_the_pot/step_2000/hf_ckpt",
+      "required": [
+        "/media/agilex/Getea1/jiaan/model/vla-platform/lingbot_v2/in_the_pot/step_2000/hf_ckpt/config.json"
+      ],
+      "managed": false,
+      "args": [
+        "interface_live.sh",
+        "2000"
+      ],
+      "control_hz": 20,
+      "home_pose": "origin",
+      "runtime_dependencies": [
+        "/home/agilex/cobot_magic/task3/jiaan/lingbot_v2/runtime/.venv/bin/python"
+      ]
+    },
+    {
+      "id": "lingbot-v2-in-the-pot-4000",
+      "family": "LingBot V2",
+      "task": "in_the_pot",
+      "step": 4000,
+      "parent_step": null,
+      "root": "integrations/cobot/lingbot_v2",
+      "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/lingbot_v2/in_the_pot/step_4000/hf_ckpt",
+      "required": [
+        "/media/agilex/Getea1/jiaan/model/vla-platform/lingbot_v2/in_the_pot/step_4000/hf_ckpt/config.json"
+      ],
+      "managed": false,
+      "args": [
+        "interface_live.sh",
+        "4000"
+      ],
+      "control_hz": 20,
+      "home_pose": "origin",
+      "runtime_dependencies": [
+        "/home/agilex/cobot_magic/task3/jiaan/lingbot_v2/runtime/.venv/bin/python"
+      ]
+    },
+    {
+      "id": "pi05-lift_book-2000",
+      "family": "π0.5",
+      "task": "lift_book",
+      "step": 2000,
+      "parent_step": null,
+      "root": "integrations/cobot/pi05/lift_book",
+      "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/lift_book/baseline_2000",
+      "required": [
+        "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/lift_book/baseline_2000/params/_METADATA",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/lift_book/baseline_2000/_CHECKPOINT_METADATA",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/lift_book/baseline_2000/assets/wja/cobot_lift_book_50episodes/norm_stats.json"
+      ],
+      "managed": false,
+      "args": [
+        "interface_live.sh",
+        "2000"
+      ],
+      "control_hz": 20,
+      "home_pose": "origin",
+      "runtime_dependencies": [
+        "/home/agilex/junfeng/workspace/pi05_cobot/.venv-server/bin/python",
+        "/home/agilex/junfeng/workspace/pi05_cobot/.venv-client/bin/python",
+        "/home/agilex/jiaan/project/vla-platform/integrations/cobot/pi05/lift_book/common/runtime/install_openpi_task_config.py"
+      ]
+    },
+    {
+      "id": "pi05-put_two_fruits-2000",
+      "family": "π0.5",
+      "task": "put_two_fruits",
+      "step": 2000,
+      "parent_step": null,
+      "root": "integrations/cobot/pi05/put_two_fruits",
+      "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/put_two_fruits/baseline_2000",
+      "required": [
+        "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/put_two_fruits/baseline_2000/params/_METADATA",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/put_two_fruits/baseline_2000/_CHECKPOINT_METADATA",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/put_two_fruits/baseline_2000/assets/wja/cobot_put_two_fruits_100episodes/norm_stats.json"
+      ],
+      "managed": false,
+      "args": [
+        "interface_live.sh",
+        "2000"
+      ],
+      "control_hz": 20,
+      "home_pose": "origin",
+      "runtime_dependencies": [
+        "/home/agilex/junfeng/workspace/pi05_cobot/.venv-server/bin/python",
+        "/home/agilex/junfeng/workspace/pi05_cobot/.venv-client/bin/python",
+        "/home/agilex/jiaan/project/vla-platform/integrations/cobot/pi05/put_two_fruits/common/runtime/install_openpi_task_config.py"
+      ]
+    },
+    {
+      "id": "pi05-put_two_fruits-4999",
+      "family": "π0.5",
+      "task": "put_two_fruits",
+      "step": 4999,
+      "parent_step": null,
+      "root": "integrations/cobot/pi05/put_two_fruits",
+      "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/put_two_fruits/step_4999",
+      "required": [
+        "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/put_two_fruits/step_4999/params/_METADATA",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/put_two_fruits/step_4999/_CHECKPOINT_METADATA",
+        "/media/agilex/Getea1/jiaan/model/vla-platform/pi05/put_two_fruits/step_4999/assets/wja/cobot_put_two_fruits_100episodes/norm_stats.json"
+      ],
+      "managed": false,
+      "args": [
+        "interface_live.sh",
+        "4999"
+      ],
+      "control_hz": 20,
+      "home_pose": "origin",
+      "runtime_dependencies": [
+        "/home/agilex/junfeng/workspace/pi05_cobot/.venv-server/bin/python",
+        "/home/agilex/junfeng/workspace/pi05_cobot/.venv-client/bin/python",
+        "/home/agilex/jiaan/project/vla-platform/integrations/cobot/pi05/put_two_fruits/common/runtime/install_openpi_task_config.py"
+      ]
+    },
+    {
+      "id": "dm05-in-the-pot-4000",
+      "family": "DM0.5",
+      "task": "in_the_pot",
+      "step": 4000,
+      "parent_step": null,
+      "root": "integrations/cobot/dm05",
+      "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/dm0_5/in_the_pot/step_4000",
+      "required": [
+        "/media/agilex/Getea1/jiaan/model/vla-platform/dm0_5/in_the_pot/step_4000/model.safetensors"
+      ],
+      "managed": false,
+      "args": [
+        "interface_task2_teach_rtc_live.sh",
+        "4000"
+      ],
+      "control_hz": 20,
+      "home_pose": "origin",
+      "runtime_dependencies": []
+    }
+  ]
+}

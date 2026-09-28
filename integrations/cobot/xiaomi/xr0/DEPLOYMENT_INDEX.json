@@ -1,0 +1,14 @@
+{
+  "action_shape": [
+    30,
+    32
+  ],
+  "checkpoint_format": "deepspeed_model_state",
+  "execution_method": "async_prefix",
+  "global_batch_size": 32,
+  "model_id": "xiaomi_robotics_0",
+  "platform_id": "cobot_piper",
+  "schema_version": 1,
+  "step": 4000,
+  "task_id": "in_the_pot"
+}

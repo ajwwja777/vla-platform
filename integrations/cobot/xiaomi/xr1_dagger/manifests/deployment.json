@@ -1,0 +1,87 @@
+{
+  "schema_version": "cobot-xr1-dagger-deployment-v1",
+  "status": "offline-validated",
+  "task": "in_the_pot",
+  "model": {
+    "family": "Xiaomi Robotics 1",
+    "source_commit": "cfcab04e662514644d62a4f3cfcce97ce83b90b2",
+    "base_checkpoint_sha256": "94d55a79122050a654b379664b644e874ff90d64ccd30a6a633f816555bcecf7"
+  },
+  "training": {
+    "run_id": "xr1-dagger-round001-from-legacy40-step4000-b4x4-ga2-s4000-seed42-hpc-587328-r1",
+    "method": "full fine-tuning from legacy40 model parameters with fresh optimizer",
+    "parent_checkpoint_sha256": "89246f3570274e33cccbc30fc89ba12f0a2e555026e303a39fbe33b9e5248a40",
+    "parent_global_step": 4000,
+    "round_global_step": 4000,
+    "new_optimizer_updates": 4000,
+    "world_size": 4,
+    "micro_batch_per_gpu": 4,
+    "gradient_accumulation": 2,
+    "global_batch": 32,
+    "precision": "bf16-mixed",
+    "seed": 42,
+    "loss_final": 0.03102283924818039,
+    "loss_last_250_mean": 0.05274041032791138
+  },
+  "dataset": {
+    "track": "legacy40-v2.1 plus Task5 round001 masked data",
+    "legacy_episodes": 40,
+    "additional_expert_episodes": 29,
+    "rollout_episodes": 15,
+    "accepted_anchors": 70201,
+    "cameras": 3,
+    "action_supervision": "60D container; left slots 0..6, right slots 8..14; per-arm expert mask"
+  },
+  "checkpoint": {
+    "relative_path": "checkpoints/step_4000/last.ckpt/checkpoint/mp_rank_00_model_states.pt",
+    "external_path": "/media/agilex/Getea1/jiaan/projects/cobot-realworld-vla/xiaomi-robotics-1-dagger-round001/step_4000/last.ckpt/checkpoint/mp_rank_00_model_states.pt",
+    "bytes": 11004735893,
+    "sha256": "f73e91450de3a1e5b91bf25b6edb3b2b3aa3ca7cc512b6affd3dbf730a037e6a",
+    "config_sha256": "53aed9bdbb605136483a05f38063e92b4205a000c7e038d17a978d1bd8447cbf"
+  },
+  "deployment": {
+    "cobot_root": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001",
+    "runtime_root": "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1",
+    "server_bind": "127.0.0.1:8171",
+    "operator_entry": "./interface_task2_teach_rtc_live.sh 4000",
+    "endpoint_environment_variable_required": false,
+    "task5_recording_required": false,
+    "camera_map": {
+      "ego": "cam_high",
+      "left_wrist": "cam_left_wrist",
+      "right_wrist": "cam_right_wrist"
+    },
+    "input_state_dimensions": 14,
+    "raw_action_shape": [30, 60],
+    "robot_action_dimensions": 14
+  },
+  "validation": {
+    "relay_regression_tests": "35 passed",
+    "cobot_checkpoint_fixture": "complete",
+    "checkpoint_all_keys_matched": true,
+    "checkpoint_construct_seconds": 141.65544725290965,
+    "checkpoint_inference_seconds": 1.3489564170595258,
+    "checkpoint_raw_action_shape": [1, 30, 60],
+    "checkpoint_joint_target_shape": [30, 14],
+    "checkpoint_raw_action_abs_max": 0.061217691749334335,
+    "checkpoint_joint_target_abs_max": 0.284803569316864,
+    "checkpoint_max_ik_iterations": 1,
+    "ik_joint_limit_tolerance_rad": 0.05,
+    "ik_position_tolerance_m": 0.003,
+    "ik_rotation_tolerance_rad": 0.02,
+    "cobot_loopback_replay": "complete",
+    "loopback_latency_seconds_including_ik": 1.4094171269098297,
+    "loopback_server_owned_pid": 3592893,
+    "post_validation_port_8171_listening": false,
+    "post_validation_gpu_memory_used_mib": 477,
+    "bash_python_json_static_validation": "passed",
+    "ros_started": false,
+    "publisher_created": false,
+    "robot_motion": false
+  },
+  "safety": {
+    "live_deployment_authorized": false,
+    "requires_current_can_and_estop_check": true,
+    "requires_onsite_motion_authorization": true
+  }
+}

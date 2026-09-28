@@ -1,0 +1,1025 @@
+{
+  "source": "Cobot preserved deployment scripts; 2026-09-28",
+  "files": [
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/server_probe.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/server_probe.py",
+      "source_sha256": "1081ddda90456a0ced2ac8034aa57c277c069991a06a8d8189956f0a661632b4",
+      "sha256": "1081ddda90456a0ced2ac8034aa57c277c069991a06a8d8189956f0a661632b4"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/offline_replay.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/offline_replay.py",
+      "source_sha256": "4531f7dd6143926490d16057e58c99e9cc3020fd12bbca2580095fe20919b4f2",
+      "sha256": "4531f7dd6143926490d16057e58c99e9cc3020fd12bbca2580095fe20919b4f2"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/start_local_server.sh",
+      "target": "integrations/cobot/galaxea_g05/baseline/start_local_server.sh",
+      "source_sha256": "273e510dbcf6e33abfd810c06b4d49f7320b5a1081170e70c58c3387773ad8e6",
+      "sha256": "0810b01529b9c9c4e603b9435ef25f3e48e05d9e8a2caa4490ad27f52cd80ba4"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/interface_task2_teach_rtc_live.sh",
+      "target": "integrations/cobot/galaxea_g05/baseline/interface_task2_teach_rtc_live.sh",
+      "source_sha256": "95f097805194cbc3b62bdb782b7dd8155c66909714176ab4d08536a9cac50e4f",
+      "sha256": "0e69b88fc9d0ad170910e2fda165e28eb9020d680579ade84032a0a4616da6f8"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/run_shadow.sh",
+      "target": "integrations/cobot/galaxea_g05/baseline/run_shadow.sh",
+      "source_sha256": "2fb93db176062c04edd6d7b243c5455088710604376d03638dd9778561ba5cf0",
+      "sha256": "a5afc78e134b2ab7a4473b8646903eb41dde54e202208ae5f801c5d9d6ce1602"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/run_checkpoint_task2.sh",
+      "target": "integrations/cobot/galaxea_g05/baseline/run_checkpoint_task2.sh",
+      "source_sha256": "9bbf50e939a220e44d93569df558a06223f573c17e05bdac48a1961c0ca6033f",
+      "sha256": "0087314ce3bd12ff778e84665e7f3e2cefb914bd6d311950862e06625e05f5a1"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/stop_local_server.sh",
+      "target": "integrations/cobot/galaxea_g05/baseline/stop_local_server.sh",
+      "source_sha256": "2cf42ee1df813ecfd7697fc94b7d9d4eece237b6c53e611583bf96f389ebb8ae",
+      "sha256": "e9ced91da37f5540b8051049cf5c82f3d31ac7c77c473e1558feafcb5e040da3"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/tests/test_task2_wrapper.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/tests/test_task2_wrapper.py",
+      "source_sha256": "b4cb4ac2136dd82bbc0b3ecaaa54a0e410aac51f15e5247c8c3232d9aea8e293",
+      "sha256": "e6d356056f79e919d71e30a9565fe5d9c71554523e3c0ba5020f43fe7ec8ec40"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/tests/test_g05_generation.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/tests/test_g05_generation.py",
+      "source_sha256": "bef023e580a24c81d23829a372a4844e830675b36ed66b3d5a406d0b4a9a769c",
+      "sha256": "bef023e580a24c81d23829a372a4844e830675b36ed66b3d5a406d0b4a9a769c"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/tests/test_g05_contract.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/tests/test_g05_contract.py",
+      "source_sha256": "747bad571505718a9273b3115966e6f353674f6b1f884781e5829b9cb331b3fb",
+      "sha256": "747bad571505718a9273b3115966e6f353674f6b1f884781e5829b9cb331b3fb"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/tests/test_g05_config_compat.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/tests/test_g05_config_compat.py",
+      "source_sha256": "b634d0e6e7aa4f06eecee126512d2ae5d0ffee178b9ef22dabc640dcb6ff3924",
+      "sha256": "b634d0e6e7aa4f06eecee126512d2ae5d0ffee178b9ef22dabc640dcb6ff3924"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/tests/test_offline_fixture.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/tests/test_offline_fixture.py",
+      "source_sha256": "d34e715ace513a2247989704e10b37d3890e8441ac9e7ab1cbe9adc53827c76f",
+      "sha256": "d34e715ace513a2247989704e10b37d3890e8441ac9e7ab1cbe9adc53827c76f"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/tests/test_server_preflight.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/tests/test_server_preflight.py",
+      "source_sha256": "6b0802da35a6dbcd241fd269d8d5ebf49cc6ef8129ff6ddc870eab8da7f90fce",
+      "sha256": "6b0802da35a6dbcd241fd269d8d5ebf49cc6ef8129ff6ddc870eab8da7f90fce"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/common/__init__.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/common/__init__.py",
+      "source_sha256": "dd5990e4d9d447a4e314f17b3830267c18d485868e86e5b37390c857582d894e",
+      "sha256": "dd5990e4d9d447a4e314f17b3830267c18d485868e86e5b37390c857582d894e"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/common/g05_contract.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/common/g05_contract.py",
+      "source_sha256": "63b2b09ad58a741cb2fadabc5690a152a0db9a18c4cc2f5dc1728bc21f06f0ba",
+      "sha256": "63b2b09ad58a741cb2fadabc5690a152a0db9a18c4cc2f5dc1728bc21f06f0ba"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/common/g05_wire.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/common/g05_wire.py",
+      "source_sha256": "eeb0bdf74f9667a335db7ef8ee8a79064e6488575fd9bdc0ee23a4fe9ad685dc",
+      "sha256": "eeb0bdf74f9667a335db7ef8ee8a79064e6488575fd9bdc0ee23a4fe9ad685dc"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/common/g05_ws_client.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/common/g05_ws_client.py",
+      "source_sha256": "6c79b4b8b9037b07e45f750326af8d2c735924b01653837b808c0f6c4bcbbf2c",
+      "sha256": "6c79b4b8b9037b07e45f750326af8d2c735924b01653837b808c0f6c4bcbbf2c"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/common/robot/__init__.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/common/robot/__init__.py",
+      "source_sha256": "d9a8a42efc1fe914f837123e0a2f04a672ec3f05269f42fc4384b934184567e3",
+      "sha256": "d9a8a42efc1fe914f837123e0a2f04a672ec3f05269f42fc4384b934184567e3"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/common/robot/g05_task2_client.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/common/robot/g05_task2_client.py",
+      "source_sha256": "4ecbf5af2543ada2be6950c1dd8889a63b27aae72b28a11edc70a7ec6359d7e3",
+      "sha256": "e2f7098fb73f1470de3be4f75c54fe4f085c4f5c2a2f4617dbe7e240099aa3d8"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/server/__init__.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/server/__init__.py",
+      "source_sha256": "98b6ce18f1afbb27ff7253a6d879bebe714845884e6864170f2a56d7c3a66b63",
+      "sha256": "98b6ce18f1afbb27ff7253a6d879bebe714845884e6864170f2a56d7c3a66b63"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/server/config_probe.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/server/config_probe.py",
+      "source_sha256": "1a12b3b984a55162f5bb07c1143499f7f017099caeab02d6d5f2038e6b7a8b5e",
+      "sha256": "1a12b3b984a55162f5bb07c1143499f7f017099caeab02d6d5f2038e6b7a8b5e"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/server/preflight.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/server/preflight.py",
+      "source_sha256": "807743100a4e57733e309ceb960afa9bfc8f7665e5e7fae86ca5a24ba488e598",
+      "sha256": "88db5d6ac7b04318d5a447efe611c6cd7ad65847cd4afa91dcdfe3526d61dfaf"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/server/serve_policy_compat.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/server/serve_policy_compat.py",
+      "source_sha256": "3cfb32c64e062ab251c63bec011efb9b80b62c3354f5b8aa81cfde642ad00b12",
+      "sha256": "3cfb32c64e062ab251c63bec011efb9b80b62c3354f5b8aa81cfde642ad00b12"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5/server/g05_config_compat.py",
+      "target": "integrations/cobot/galaxea_g05/baseline/server/g05_config_compat.py",
+      "source_sha256": "e34d6ce48a5c2985f9e82a35b6330a9b1b48a331bc000d959a4eee33531a3ebb",
+      "sha256": "e34d6ce48a5c2985f9e82a35b6330a9b1b48a331bc000d959a4eee33531a3ebb"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/server_probe.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/server_probe.py",
+      "source_sha256": "1081ddda90456a0ced2ac8034aa57c277c069991a06a8d8189956f0a661632b4",
+      "sha256": "1081ddda90456a0ced2ac8034aa57c277c069991a06a8d8189956f0a661632b4"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/offline_replay.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/offline_replay.py",
+      "source_sha256": "4531f7dd6143926490d16057e58c99e9cc3020fd12bbca2580095fe20919b4f2",
+      "sha256": "4531f7dd6143926490d16057e58c99e9cc3020fd12bbca2580095fe20919b4f2"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/start_local_server.sh",
+      "target": "integrations/cobot/galaxea_g05/dagger/start_local_server.sh",
+      "source_sha256": "273e510dbcf6e33abfd810c06b4d49f7320b5a1081170e70c58c3387773ad8e6",
+      "sha256": "857a9ea17037eb72c8d6642fa1d224abec9c7f587d3677cdfaa712b4c2f4e321"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/interface_task2_teach_rtc_live.sh",
+      "target": "integrations/cobot/galaxea_g05/dagger/interface_task2_teach_rtc_live.sh",
+      "source_sha256": "95f097805194cbc3b62bdb782b7dd8155c66909714176ab4d08536a9cac50e4f",
+      "sha256": "0e69b88fc9d0ad170910e2fda165e28eb9020d680579ade84032a0a4616da6f8"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/run_shadow.sh",
+      "target": "integrations/cobot/galaxea_g05/dagger/run_shadow.sh",
+      "source_sha256": "2fb93db176062c04edd6d7b243c5455088710604376d03638dd9778561ba5cf0",
+      "sha256": "a5afc78e134b2ab7a4473b8646903eb41dde54e202208ae5f801c5d9d6ce1602"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/run_checkpoint_task2.sh",
+      "target": "integrations/cobot/galaxea_g05/dagger/run_checkpoint_task2.sh",
+      "source_sha256": "9bbf50e939a220e44d93569df558a06223f573c17e05bdac48a1961c0ca6033f",
+      "sha256": "0087314ce3bd12ff778e84665e7f3e2cefb914bd6d311950862e06625e05f5a1"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/stop_local_server.sh",
+      "target": "integrations/cobot/galaxea_g05/dagger/stop_local_server.sh",
+      "source_sha256": "2cf42ee1df813ecfd7697fc94b7d9d4eece237b6c53e611583bf96f389ebb8ae",
+      "sha256": "0125f0cc101bdb351298bdec015cdbda36238d5ffb2431c9d179d766e76ce3fa"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/tests/test_task2_wrapper.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/tests/test_task2_wrapper.py",
+      "source_sha256": "b4cb4ac2136dd82bbc0b3ecaaa54a0e410aac51f15e5247c8c3232d9aea8e293",
+      "sha256": "e6d356056f79e919d71e30a9565fe5d9c71554523e3c0ba5020f43fe7ec8ec40"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/tests/test_g05_generation.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/tests/test_g05_generation.py",
+      "source_sha256": "bef023e580a24c81d23829a372a4844e830675b36ed66b3d5a406d0b4a9a769c",
+      "sha256": "bef023e580a24c81d23829a372a4844e830675b36ed66b3d5a406d0b4a9a769c"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/tests/test_g05_contract.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/tests/test_g05_contract.py",
+      "source_sha256": "747bad571505718a9273b3115966e6f353674f6b1f884781e5829b9cb331b3fb",
+      "sha256": "747bad571505718a9273b3115966e6f353674f6b1f884781e5829b9cb331b3fb"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/tests/test_g05_config_compat.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/tests/test_g05_config_compat.py",
+      "source_sha256": "b634d0e6e7aa4f06eecee126512d2ae5d0ffee178b9ef22dabc640dcb6ff3924",
+      "sha256": "b634d0e6e7aa4f06eecee126512d2ae5d0ffee178b9ef22dabc640dcb6ff3924"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/tests/test_offline_fixture.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/tests/test_offline_fixture.py",
+      "source_sha256": "d34e715ace513a2247989704e10b37d3890e8441ac9e7ab1cbe9adc53827c76f",
+      "sha256": "d34e715ace513a2247989704e10b37d3890e8441ac9e7ab1cbe9adc53827c76f"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/tests/test_server_preflight.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/tests/test_server_preflight.py",
+      "source_sha256": "6b0802da35a6dbcd241fd269d8d5ebf49cc6ef8129ff6ddc870eab8da7f90fce",
+      "sha256": "6b0802da35a6dbcd241fd269d8d5ebf49cc6ef8129ff6ddc870eab8da7f90fce"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/common/__init__.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/common/__init__.py",
+      "source_sha256": "dd5990e4d9d447a4e314f17b3830267c18d485868e86e5b37390c857582d894e",
+      "sha256": "dd5990e4d9d447a4e314f17b3830267c18d485868e86e5b37390c857582d894e"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/common/g05_contract.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/common/g05_contract.py",
+      "source_sha256": "63b2b09ad58a741cb2fadabc5690a152a0db9a18c4cc2f5dc1728bc21f06f0ba",
+      "sha256": "63b2b09ad58a741cb2fadabc5690a152a0db9a18c4cc2f5dc1728bc21f06f0ba"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/common/g05_wire.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/common/g05_wire.py",
+      "source_sha256": "eeb0bdf74f9667a335db7ef8ee8a79064e6488575fd9bdc0ee23a4fe9ad685dc",
+      "sha256": "eeb0bdf74f9667a335db7ef8ee8a79064e6488575fd9bdc0ee23a4fe9ad685dc"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/common/g05_ws_client.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/common/g05_ws_client.py",
+      "source_sha256": "6c79b4b8b9037b07e45f750326af8d2c735924b01653837b808c0f6c4bcbbf2c",
+      "sha256": "6c79b4b8b9037b07e45f750326af8d2c735924b01653837b808c0f6c4bcbbf2c"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/common/robot/__init__.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/common/robot/__init__.py",
+      "source_sha256": "d9a8a42efc1fe914f837123e0a2f04a672ec3f05269f42fc4384b934184567e3",
+      "sha256": "d9a8a42efc1fe914f837123e0a2f04a672ec3f05269f42fc4384b934184567e3"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/common/robot/g05_task2_client.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/common/robot/g05_task2_client.py",
+      "source_sha256": "4ecbf5af2543ada2be6950c1dd8889a63b27aae72b28a11edc70a7ec6359d7e3",
+      "sha256": "e2f7098fb73f1470de3be4f75c54fe4f085c4f5c2a2f4617dbe7e240099aa3d8"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/server/__init__.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/server/__init__.py",
+      "source_sha256": "98b6ce18f1afbb27ff7253a6d879bebe714845884e6864170f2a56d7c3a66b63",
+      "sha256": "98b6ce18f1afbb27ff7253a6d879bebe714845884e6864170f2a56d7c3a66b63"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/server/config_probe.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/server/config_probe.py",
+      "source_sha256": "1a12b3b984a55162f5bb07c1143499f7f017099caeab02d6d5f2038e6b7a8b5e",
+      "sha256": "1a12b3b984a55162f5bb07c1143499f7f017099caeab02d6d5f2038e6b7a8b5e"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/server/preflight.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/server/preflight.py",
+      "source_sha256": "807743100a4e57733e309ceb960afa9bfc8f7665e5e7fae86ca5a24ba488e598",
+      "sha256": "88db5d6ac7b04318d5a447efe611c6cd7ad65847cd4afa91dcdfe3526d61dfaf"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/server/serve_policy_compat.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/server/serve_policy_compat.py",
+      "source_sha256": "3cfb32c64e062ab251c63bec011efb9b80b62c3354f5b8aa81cfde642ad00b12",
+      "sha256": "3cfb32c64e062ab251c63bec011efb9b80b62c3354f5b8aa81cfde642ad00b12"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/galaxea_g0_5_dagger_round001/server/g05_config_compat.py",
+      "target": "integrations/cobot/galaxea_g05/dagger/server/g05_config_compat.py",
+      "source_sha256": "e34d6ce48a5c2985f9e82a35b6330a9b1b48a331bc000d959a4eee33531a3ebb",
+      "sha256": "e34d6ce48a5c2985f9e82a35b6330a9b1b48a331bc000d959a4eee33531a3ebb"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/interface_live.sh",
+      "target": "integrations/cobot/xiaomi/xr1/interface_live.sh",
+      "source_sha256": "7aa7b6f0431ee50c216328ddc8c3a707a66871a4f3c381c4bcb9be2f9bca8276",
+      "sha256": "4812e19edec111fcca53281e8d6e5b596958655d50dabb7b60eeedfbcf46f4a5"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/start_server.sh",
+      "target": "integrations/cobot/xiaomi/xr1/start_server.sh",
+      "source_sha256": "e06b1efa40468f88ce9492251323584bf437cef514a138b75e1a428ee6259ed3",
+      "sha256": "e06b1efa40468f88ce9492251323584bf437cef514a138b75e1a428ee6259ed3"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/validate_checkpoint.sh",
+      "target": "integrations/cobot/xiaomi/xr1/validate_checkpoint.sh",
+      "source_sha256": "782c20862b2707794b97a89cfe3573d58c16368a2d9a574a71dd715ed939dd0e",
+      "sha256": "32ffdca71c22909c17183482395c391ef8f96570d645f527a9c96e27c67e5d49"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/interface_task2_teach_rtc_live.sh",
+      "target": "integrations/cobot/xiaomi/xr1/interface_task2_teach_rtc_live.sh",
+      "source_sha256": "5dbe18b3206ea7e4c238dc6a4d83940e65d775032a07b71c4f3255d1a95b60d2",
+      "sha256": "65bc4c16ba9d7e3833cb4ade82755f3b186d6ce0891ca416c37e57c9d733c449"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/offline_replay.sh",
+      "target": "integrations/cobot/xiaomi/xr1/offline_replay.sh",
+      "source_sha256": "da6a92c441fd6fc7401e46f9b391d68548893be5f4f7ea241016971164a67535",
+      "sha256": "18ae56e6fb8053bb07259ffa88657c51dbea5807e3d66a3400b8d21edd2a4804"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/run_checkpoint.sh",
+      "target": "integrations/cobot/xiaomi/xr1/run_checkpoint.sh",
+      "source_sha256": "0856018a528f8e309f5282c1698af90f359bb23da3e100ffce30eb8de3b0fffb",
+      "sha256": "7b4857b0b4ddb3ab1578281fecc780ae3cfcae1ec2de2f20272516701ce270c6"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/raw_client.py",
+      "target": "integrations/cobot/xiaomi/xr1/raw_client.py",
+      "source_sha256": "8386749a986f395da56f28d398cc32946af5bc0a389eef8cac22a7fa9ccfd809",
+      "sha256": "8386749a986f395da56f28d398cc32946af5bc0a389eef8cac22a7fa9ccfd809"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/inference_xr1_async.py",
+      "target": "integrations/cobot/xiaomi/xr1/inference_xr1_async.py",
+      "source_sha256": "8cd368c17790aa5aacfdaf137874b36e0b8166971336214bed333ede94e8d18c",
+      "sha256": "fe36946b344005327cd56483021b9dd561d4b4d566033054f2fcbcddc116ab0d"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/serve_cobot.py",
+      "target": "integrations/cobot/xiaomi/xr1/serve_cobot.py",
+      "source_sha256": "c9f62348960f27aa06295fcb09a5ab1d988977628f959da9307ab6cd34c08efb",
+      "sha256": "c9f62348960f27aa06295fcb09a5ab1d988977628f959da9307ab6cd34c08efb"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/interface.sh",
+      "target": "integrations/cobot/xiaomi/xr1/interface.sh",
+      "source_sha256": "0767fd4487e4267da1f7eed7b3f1d13ea67a978aea231c9237192363fced595a",
+      "sha256": "59c947e64691ec2e5b27a40f1311dbd144b0fea00db42923b84974766d5e3585"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/tests/test_xr1_task2_handover.py",
+      "target": "integrations/cobot/xiaomi/xr1/tests/test_xr1_task2_handover.py",
+      "source_sha256": "2fab13820c423a3e785ad2491548d71532c5065dda16dce1d5f0e27b24a7dd24",
+      "sha256": "2fab13820c423a3e785ad2491548d71532c5065dda16dce1d5f0e27b24a7dd24"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/tests/test_xr1_task2_wrapper.py",
+      "target": "integrations/cobot/xiaomi/xr1/tests/test_xr1_task2_wrapper.py",
+      "source_sha256": "4aa4fa88807c96487a01ff7bd7f320edbfe2155201f36e0f3bbc2909e39fcb78",
+      "sha256": "4aa4fa88807c96487a01ff7bd7f320edbfe2155201f36e0f3bbc2909e39fcb78"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/tests/test_torch_compat.py",
+      "target": "integrations/cobot/xiaomi/xr1/tests/test_torch_compat.py",
+      "source_sha256": "44c1d4faad8a7aa2bf4fa6ab24b87ea826eae5395e3c1b19f8a129d92c607e90",
+      "sha256": "44c1d4faad8a7aa2bf4fa6ab24b87ea826eae5395e3c1b19f8a129d92c607e90"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/tests/test_checkpoint_io.py",
+      "target": "integrations/cobot/xiaomi/xr1/tests/test_checkpoint_io.py",
+      "source_sha256": "d0862961730618f9b8f8ac1e7aacd7a3f495efc8ecca3e8f951b5c32422a5be4",
+      "sha256": "d0862961730618f9b8f8ac1e7aacd7a3f495efc8ecca3e8f951b5c32422a5be4"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/server/checkpoint_io.py",
+      "target": "integrations/cobot/xiaomi/xr1/common/server/checkpoint_io.py",
+      "source_sha256": "d0628dc6930a5f9d2f5b0c7fcdb8e6ece6ec64322f8754b7e3954a3ebd2b5ce9",
+      "sha256": "d0628dc6930a5f9d2f5b0c7fcdb8e6ece6ec64322f8754b7e3954a3ebd2b5ce9"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/server/serve_cobot.py",
+      "target": "integrations/cobot/xiaomi/xr1/common/server/serve_cobot.py",
+      "source_sha256": "c9f62348960f27aa06295fcb09a5ab1d988977628f959da9307ab6cd34c08efb",
+      "sha256": "c9f62348960f27aa06295fcb09a5ab1d988977628f959da9307ab6cd34c08efb"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/robot/task2_gate.py",
+      "target": "integrations/cobot/xiaomi/xr1/common/robot/task2_gate.py",
+      "source_sha256": "2c1847ac64c7d273616fc9b8930478eb49c210f81849621c2f4cbcb9caf2b23b",
+      "sha256": "62c81818cfa97cb574bed824eda51f92933331e5d55eb7f76bbb860061175a0d"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/robot/offline_replay.py",
+      "target": "integrations/cobot/xiaomi/xr1/common/robot/offline_replay.py",
+      "source_sha256": "8fa86511db05121ae2531dc148536592966edbcdd308a15c4524b052db9c7311",
+      "sha256": "8fa86511db05121ae2531dc148536592966edbcdd308a15c4524b052db9c7311"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/robot/raw_client.py",
+      "target": "integrations/cobot/xiaomi/xr1/common/robot/raw_client.py",
+      "source_sha256": "8386749a986f395da56f28d398cc32946af5bc0a389eef8cac22a7fa9ccfd809",
+      "sha256": "8386749a986f395da56f28d398cc32946af5bc0a389eef8cac22a7fa9ccfd809"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/robot/inference_xr1_async.py",
+      "target": "integrations/cobot/xiaomi/xr1/common/robot/inference_xr1_async.py",
+      "source_sha256": "8cd368c17790aa5aacfdaf137874b36e0b8166971336214bed333ede94e8d18c",
+      "sha256": "fe36946b344005327cd56483021b9dd561d4b4d566033054f2fcbcddc116ab0d"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/robot/cobot_ros.py",
+      "target": "integrations/cobot/xiaomi/xr1/common/robot/cobot_ros.py",
+      "source_sha256": "7b257f4264ffaa28a7da17def2e9db6e949aba91cb0bc1cdcbc7394f2028108e",
+      "sha256": "58bb3380c1d501a24ee3b8a050320ad67fa847d99e616ebe06dc0765e271461a"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/robot/direct_checkpoint_fixture.py",
+      "target": "integrations/cobot/xiaomi/xr1/common/robot/direct_checkpoint_fixture.py",
+      "source_sha256": "2c65b9630a434fb4829a6377c1dc3e62b30ef5430edf47ec07337ca8b03dbda8",
+      "sha256": "2c65b9630a434fb4829a6377c1dc3e62b30ef5430edf47ec07337ca8b03dbda8"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/robot/cobot_xr1/kinematics.py",
+      "target": "integrations/cobot/xiaomi/xr1/common/robot/cobot_xr1/kinematics.py",
+      "source_sha256": "9d484ff0e36823d1439b2d3cb9a3130f4a8a8a2a3059591cdca9078973da5a79",
+      "sha256": "9d484ff0e36823d1439b2d3cb9a3130f4a8a8a2a3059591cdca9078973da5a79"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/robot/cobot_xr1/__init__.py",
+      "target": "integrations/cobot/xiaomi/xr1/common/robot/cobot_xr1/__init__.py",
+      "source_sha256": "25f36c251aa048515b590fa48ac96da5c9643626f1a98b96a25b2b2da506afd1",
+      "sha256": "25f36c251aa048515b590fa48ac96da5c9643626f1a98b96a25b2b2da506afd1"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/robot/cobot_xr1/ik.py",
+      "target": "integrations/cobot/xiaomi/xr1/common/robot/cobot_xr1/ik.py",
+      "source_sha256": "46bdbc696810c0cf99c5d5c5613e50c0475936e9d5452a6ee264f9a96a974d18",
+      "sha256": "46bdbc696810c0cf99c5d5c5613e50c0475936e9d5452a6ee264f9a96a974d18"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/common/robot/cobot_xr1/deployment.py",
+      "target": "integrations/cobot/xiaomi/xr1/common/robot/cobot_xr1/deployment.py",
+      "source_sha256": "345e1834f1aa0dea8e188751481fab2f6247f1d6e6ad8d84e838e38f8266848c",
+      "sha256": "345e1834f1aa0dea8e188751481fab2f6247f1d6e6ad8d84e838e38f8266848c"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/manifests/deployment.json",
+      "target": "integrations/cobot/xiaomi/xr1/manifests/deployment.json",
+      "source_sha256": "2960742cda49320faeb48e0e967ce5f096878c4a81d6bcf136a6999920e62c40",
+      "sha256": "2960742cda49320faeb48e0e967ce5f096878c4a81d6bcf136a6999920e62c40"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/interface_live.sh",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/interface_live.sh",
+      "source_sha256": "7aa7b6f0431ee50c216328ddc8c3a707a66871a4f3c381c4bcb9be2f9bca8276",
+      "sha256": "4812e19edec111fcca53281e8d6e5b596958655d50dabb7b60eeedfbcf46f4a5"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/start_server.sh",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/start_server.sh",
+      "source_sha256": "e06b1efa40468f88ce9492251323584bf437cef514a138b75e1a428ee6259ed3",
+      "sha256": "e06b1efa40468f88ce9492251323584bf437cef514a138b75e1a428ee6259ed3"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/validate_checkpoint.sh",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/validate_checkpoint.sh",
+      "source_sha256": "9adb33c5522e576aba5f1fb1feea91304fe8a39b3da992d9371a2d2fff090aad",
+      "sha256": "a1dd40075a94c0cdd8a3e83ffa8e13d0363bce7d3babd3d4fb8f00b962857812"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/interface_task2_teach_rtc_live.sh",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/interface_task2_teach_rtc_live.sh",
+      "source_sha256": "5dbe18b3206ea7e4c238dc6a4d83940e65d775032a07b71c4f3255d1a95b60d2",
+      "sha256": "65bc4c16ba9d7e3833cb4ade82755f3b186d6ce0891ca416c37e57c9d733c449"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/offline_replay.sh",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/offline_replay.sh",
+      "source_sha256": "da6a92c441fd6fc7401e46f9b391d68548893be5f4f7ea241016971164a67535",
+      "sha256": "18ae56e6fb8053bb07259ffa88657c51dbea5807e3d66a3400b8d21edd2a4804"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/run_checkpoint.sh",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/run_checkpoint.sh",
+      "source_sha256": "0856018a528f8e309f5282c1698af90f359bb23da3e100ffce30eb8de3b0fffb",
+      "sha256": "9e5ebdd01b487a17365c89e90200c7cc85ebb23b8962c118f3797915d4430201"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/raw_client.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/raw_client.py",
+      "source_sha256": "8386749a986f395da56f28d398cc32946af5bc0a389eef8cac22a7fa9ccfd809",
+      "sha256": "8386749a986f395da56f28d398cc32946af5bc0a389eef8cac22a7fa9ccfd809"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/inference_xr1_async.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/inference_xr1_async.py",
+      "source_sha256": "8cd368c17790aa5aacfdaf137874b36e0b8166971336214bed333ede94e8d18c",
+      "sha256": "fe36946b344005327cd56483021b9dd561d4b4d566033054f2fcbcddc116ab0d"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/serve_cobot.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/serve_cobot.py",
+      "source_sha256": "c9f62348960f27aa06295fcb09a5ab1d988977628f959da9307ab6cd34c08efb",
+      "sha256": "c9f62348960f27aa06295fcb09a5ab1d988977628f959da9307ab6cd34c08efb"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/interface.sh",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/interface.sh",
+      "source_sha256": "0767fd4487e4267da1f7eed7b3f1d13ea67a978aea231c9237192363fced595a",
+      "sha256": "59c947e64691ec2e5b27a40f1311dbd144b0fea00db42923b84974766d5e3585"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/tests/test_xr1_task2_handover.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/tests/test_xr1_task2_handover.py",
+      "source_sha256": "2fab13820c423a3e785ad2491548d71532c5065dda16dce1d5f0e27b24a7dd24",
+      "sha256": "2fab13820c423a3e785ad2491548d71532c5065dda16dce1d5f0e27b24a7dd24"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/tests/test_xr1_task2_wrapper.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/tests/test_xr1_task2_wrapper.py",
+      "source_sha256": "4aa4fa88807c96487a01ff7bd7f320edbfe2155201f36e0f3bbc2909e39fcb78",
+      "sha256": "4aa4fa88807c96487a01ff7bd7f320edbfe2155201f36e0f3bbc2909e39fcb78"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/tests/test_torch_compat.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/tests/test_torch_compat.py",
+      "source_sha256": "44c1d4faad8a7aa2bf4fa6ab24b87ea826eae5395e3c1b19f8a129d92c607e90",
+      "sha256": "44c1d4faad8a7aa2bf4fa6ab24b87ea826eae5395e3c1b19f8a129d92c607e90"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/tests/test_checkpoint_io.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/tests/test_checkpoint_io.py",
+      "source_sha256": "d0862961730618f9b8f8ac1e7aacd7a3f495efc8ecca3e8f951b5c32422a5be4",
+      "sha256": "d0862961730618f9b8f8ac1e7aacd7a3f495efc8ecca3e8f951b5c32422a5be4"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/server/checkpoint_io.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/common/server/checkpoint_io.py",
+      "source_sha256": "d0628dc6930a5f9d2f5b0c7fcdb8e6ece6ec64322f8754b7e3954a3ebd2b5ce9",
+      "sha256": "d0628dc6930a5f9d2f5b0c7fcdb8e6ece6ec64322f8754b7e3954a3ebd2b5ce9"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/server/serve_cobot.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/common/server/serve_cobot.py",
+      "source_sha256": "c9f62348960f27aa06295fcb09a5ab1d988977628f959da9307ab6cd34c08efb",
+      "sha256": "c9f62348960f27aa06295fcb09a5ab1d988977628f959da9307ab6cd34c08efb"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/robot/task2_gate.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/common/robot/task2_gate.py",
+      "source_sha256": "2c1847ac64c7d273616fc9b8930478eb49c210f81849621c2f4cbcb9caf2b23b",
+      "sha256": "62c81818cfa97cb574bed824eda51f92933331e5d55eb7f76bbb860061175a0d"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/robot/offline_replay.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/common/robot/offline_replay.py",
+      "source_sha256": "8fa86511db05121ae2531dc148536592966edbcdd308a15c4524b052db9c7311",
+      "sha256": "8fa86511db05121ae2531dc148536592966edbcdd308a15c4524b052db9c7311"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/robot/raw_client.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/common/robot/raw_client.py",
+      "source_sha256": "8386749a986f395da56f28d398cc32946af5bc0a389eef8cac22a7fa9ccfd809",
+      "sha256": "8386749a986f395da56f28d398cc32946af5bc0a389eef8cac22a7fa9ccfd809"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/robot/inference_xr1_async.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/common/robot/inference_xr1_async.py",
+      "source_sha256": "8cd368c17790aa5aacfdaf137874b36e0b8166971336214bed333ede94e8d18c",
+      "sha256": "fe36946b344005327cd56483021b9dd561d4b4d566033054f2fcbcddc116ab0d"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/robot/cobot_ros.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/common/robot/cobot_ros.py",
+      "source_sha256": "7b257f4264ffaa28a7da17def2e9db6e949aba91cb0bc1cdcbc7394f2028108e",
+      "sha256": "58bb3380c1d501a24ee3b8a050320ad67fa847d99e616ebe06dc0765e271461a"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/robot/direct_checkpoint_fixture.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/common/robot/direct_checkpoint_fixture.py",
+      "source_sha256": "38b0a8c6e90a2c6b0c372908d93a0f562823697a49ab11d7ba1d4bcaff1c1685",
+      "sha256": "38b0a8c6e90a2c6b0c372908d93a0f562823697a49ab11d7ba1d4bcaff1c1685"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/robot/cobot_xr1/kinematics.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/common/robot/cobot_xr1/kinematics.py",
+      "source_sha256": "9d484ff0e36823d1439b2d3cb9a3130f4a8a8a2a3059591cdca9078973da5a79",
+      "sha256": "9d484ff0e36823d1439b2d3cb9a3130f4a8a8a2a3059591cdca9078973da5a79"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/robot/cobot_xr1/__init__.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/common/robot/cobot_xr1/__init__.py",
+      "source_sha256": "25f36c251aa048515b590fa48ac96da5c9643626f1a98b96a25b2b2da506afd1",
+      "sha256": "25f36c251aa048515b590fa48ac96da5c9643626f1a98b96a25b2b2da506afd1"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/robot/cobot_xr1/ik.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/common/robot/cobot_xr1/ik.py",
+      "source_sha256": "46bdbc696810c0cf99c5d5c5613e50c0475936e9d5452a6ee264f9a96a974d18",
+      "sha256": "46bdbc696810c0cf99c5d5c5613e50c0475936e9d5452a6ee264f9a96a974d18"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/common/robot/cobot_xr1/deployment.py",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/common/robot/cobot_xr1/deployment.py",
+      "source_sha256": "345e1834f1aa0dea8e188751481fab2f6247f1d6e6ad8d84e838e38f8266848c",
+      "sha256": "345e1834f1aa0dea8e188751481fab2f6247f1d6e6ad8d84e838e38f8266848c"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1_dagger_round001/manifests/deployment.json",
+      "target": "integrations/cobot/xiaomi/xr1_dagger/manifests/deployment.json",
+      "source_sha256": "d7b593b86842b23baf7f83bef46b0483305edcfe323f89181a1574a5516ddd3f",
+      "sha256": "d7b593b86842b23baf7f83bef46b0483305edcfe323f89181a1574a5516ddd3f"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/interface_live.sh",
+      "target": "integrations/cobot/xiaomi/xr0/interface_live.sh",
+      "source_sha256": "db45037b96f139d1b9c01145de24bc40788b13eede8f37aa89e75a46daa71b5e",
+      "sha256": "7b763d1f7e22b55abb9cf2c165a45baa6fc7aa2c9d1e996c81b7501904078e62"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/install_runtime.sh",
+      "target": "integrations/cobot/xiaomi/xr0/install_runtime.sh",
+      "source_sha256": "a51ecc4579425bda105501a4bc032ed25d2a74fd7d8387fbe8cda8630e2a6336",
+      "sha256": "461892e502123e6073649a32905effc3c96149890b453c65f58b8b1eb419107a"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/start_server.sh",
+      "target": "integrations/cobot/xiaomi/xr0/start_server.sh",
+      "source_sha256": "5f87ff71d6a81dc473393bb0991840a7c778d45d0ca34ce217f87fddd3a2bffe",
+      "sha256": "5f87ff71d6a81dc473393bb0991840a7c778d45d0ca34ce217f87fddd3a2bffe"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/DEPLOYMENT_INDEX.json",
+      "target": "integrations/cobot/xiaomi/xr0/DEPLOYMENT_INDEX.json",
+      "source_sha256": "7170d9b686df2f4ec12b16cb2551727227dccacfb3ca0434296863c754fc82d7",
+      "sha256": "7170d9b686df2f4ec12b16cb2551727227dccacfb3ca0434296863c754fc82d7"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/inference_xr0_async.py",
+      "target": "integrations/cobot/xiaomi/xr0/inference_xr0_async.py",
+      "source_sha256": "f74a4d9b97145c2f226dfd3f9b9e6c1ec4ec23ae14a0c01882b81f55849199bd",
+      "sha256": "f74a4d9b97145c2f226dfd3f9b9e6c1ec4ec23ae14a0c01882b81f55849199bd"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/run_checkpoint.sh",
+      "target": "integrations/cobot/xiaomi/xr0/run_checkpoint.sh",
+      "source_sha256": "0786953cae21c46e79c91231aa965d95ec5e8553a6a5bf9285ffa1e5869b499b",
+      "sha256": "afc14542171ac5d112fdeef6095743bb63dc7e20a20682454ed7d57125038f33"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/raw_client.py",
+      "target": "integrations/cobot/xiaomi/xr0/raw_client.py",
+      "source_sha256": "b79a581da349966b3e7b6dca23d6901de47b7273144267ee843bbe58987885e4",
+      "sha256": "b79a581da349966b3e7b6dca23d6901de47b7273144267ee843bbe58987885e4"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/serve_cobot.py",
+      "target": "integrations/cobot/xiaomi/xr0/serve_cobot.py",
+      "source_sha256": "7d2955a8a0c15a99a8d4e4c680a81b55f1f33991f1d4caf542b7b3d4dadcdd93",
+      "sha256": "7d2955a8a0c15a99a8d4e4c680a81b55f1f33991f1d4caf542b7b3d4dadcdd93"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/interface.sh",
+      "target": "integrations/cobot/xiaomi/xr0/interface.sh",
+      "source_sha256": "79a931031d7e3998e57d0f7ee7077c4c41c5f5eb5b9e51582779415ced04f772",
+      "sha256": "c2bd2d3296e95c0715aa7afe38a0928c9c74a7d83d0e5c7889f57da89d3a9526"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/common/server/serve_cobot.py",
+      "target": "integrations/cobot/xiaomi/xr0/common/server/serve_cobot.py",
+      "source_sha256": "7d2955a8a0c15a99a8d4e4c680a81b55f1f33991f1d4caf542b7b3d4dadcdd93",
+      "sha256": "7d2955a8a0c15a99a8d4e4c680a81b55f1f33991f1d4caf542b7b3d4dadcdd93"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/common/robot/inference_xr0_async.py",
+      "target": "integrations/cobot/xiaomi/xr0/common/robot/inference_xr0_async.py",
+      "source_sha256": "f74a4d9b97145c2f226dfd3f9b9e6c1ec4ec23ae14a0c01882b81f55849199bd",
+      "sha256": "f74a4d9b97145c2f226dfd3f9b9e6c1ec4ec23ae14a0c01882b81f55849199bd"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/common/robot/raw_client.py",
+      "target": "integrations/cobot/xiaomi/xr0/common/robot/raw_client.py",
+      "source_sha256": "b79a581da349966b3e7b6dca23d6901de47b7273144267ee843bbe58987885e4",
+      "sha256": "b79a581da349966b3e7b6dca23d6901de47b7273144267ee843bbe58987885e4"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/common/robot/xiaomi_runtime.py",
+      "target": "integrations/cobot/xiaomi/xr0/common/robot/xiaomi_runtime.py",
+      "source_sha256": "ebd9743f53579cbe6c70933ce9c96513b910ff6a81bce9b73de65e338eb01edf",
+      "sha256": "ebd9743f53579cbe6c70933ce9c96513b910ff6a81bce9b73de65e338eb01edf"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_0/common/robot/cobot_ros.py",
+      "target": "integrations/cobot/xiaomi/xr0/common/robot/cobot_ros.py",
+      "source_sha256": "ec1727ea5414b72a7cb951ab94bc32b5ec11efa83ba386d30755c4b595236716",
+      "sha256": "ec1727ea5414b72a7cb951ab94bc32b5ec11efa83ba386d30755c4b595236716"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/interface_live.sh",
+      "target": "integrations/cobot/lingbot_v2/interface_live.sh",
+      "source_sha256": "d9a0a357bff168a17a1f8db8bfe7ad27ac298a912d1368f09941386b699e9555",
+      "sha256": "d9a0a357bff168a17a1f8db8bfe7ad27ac298a912d1368f09941386b699e9555"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/lingbotvla_cli.yaml",
+      "target": "integrations/cobot/lingbot_v2/lingbotvla_cli.yaml",
+      "source_sha256": "4c2ccf2adfd2179f3208bdaf48af1c344c5545ad2db39957c96e19fbd0c012c7",
+      "sha256": "4c2ccf2adfd2179f3208bdaf48af1c344c5545ad2db39957c96e19fbd0c012c7"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/DEPLOYMENT_INDEX.json",
+      "target": "integrations/cobot/lingbot_v2/DEPLOYMENT_INDEX.json",
+      "source_sha256": "c839fe487b8581ae0c970c54bb2411e495fb5da67f32aa92459ac297752c3051",
+      "sha256": "c839fe487b8581ae0c970c54bb2411e495fb5da67f32aa92459ac297752c3051"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/run_checkpoint.sh",
+      "target": "integrations/cobot/lingbot_v2/run_checkpoint.sh",
+      "source_sha256": "7f709ad2e440a3030b1ae95966fc02efa8de7933402b23bcd15d04e2193f59e9",
+      "sha256": "325ce8576b263ffde2afebf5a917974ce13656d778d810feafdffe8053eef1a9"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/interface.sh",
+      "target": "integrations/cobot/lingbot_v2/interface.sh",
+      "source_sha256": "ae9df67de61db1af7ba1e307ba186e9ac32955e2d639a56da6b9b442bc13f6c2",
+      "sha256": "ae9df67de61db1af7ba1e307ba186e9ac32955e2d639a56da6b9b442bc13f6c2"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/interface_live.sh",
+      "target": "integrations/cobot/lingbot_v2/common/interface_live.sh",
+      "source_sha256": "0ce1adc6251046a4c7f1222b0724e4890449423756095145526e3b4596837a8f",
+      "sha256": "0ce1adc6251046a4c7f1222b0724e4890449423756095145526e3b4596837a8f"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/start_lingbot_server.sh",
+      "target": "integrations/cobot/lingbot_v2/common/start_lingbot_server.sh",
+      "source_sha256": "6b179b75354ed6d7a6cfdfee106a78051abfa4d2db7e2bc70bd35f12186d6d0c",
+      "sha256": "9a2b1bb8df7c02f4eed5e931fb2e72ec50de63497f7fcb1806d5798bad387cec"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/lingbotvla_cli.yaml",
+      "target": "integrations/cobot/lingbot_v2/common/lingbotvla_cli.yaml",
+      "source_sha256": "4c2ccf2adfd2179f3208bdaf48af1c344c5545ad2db39957c96e19fbd0c012c7",
+      "sha256": "4c2ccf2adfd2179f3208bdaf48af1c344c5545ad2db39957c96e19fbd0c012c7"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/install_runtime_4090.sh",
+      "target": "integrations/cobot/lingbot_v2/common/install_runtime_4090.sh",
+      "source_sha256": "577aac72fbd98010e89d8c9178e15ca8b190d5e2868beabb6c1b1bd9c4a8e651",
+      "sha256": "577aac72fbd98010e89d8c9178e15ca8b190d5e2868beabb6c1b1bd9c4a8e651"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/interface.sh",
+      "target": "integrations/cobot/lingbot_v2/common/interface.sh",
+      "source_sha256": "a444ebb6833fae7c6eea57902f52386b8283b5c4fcd11e8bb1a6285ab7b21430",
+      "sha256": "e723e54d9ecd5d2a0ded848fde86892dde47235524143286c2ef2615fd0d5255"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/model_assets/video_preprocessor_config.json",
+      "target": "integrations/cobot/lingbot_v2/common/model_assets/video_preprocessor_config.json",
+      "source_sha256": "59c5c9eb52182eb14c06ffb10ca9effd29adce5f238a95de23ca14a38dbd2cb1",
+      "sha256": "59c5c9eb52182eb14c06ffb10ca9effd29adce5f238a95de23ca14a38dbd2cb1"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/model_assets/preprocessor_config.json",
+      "target": "integrations/cobot/lingbot_v2/common/model_assets/preprocessor_config.json",
+      "source_sha256": "93585062a80db5e8ca038efc7726a3e6411d9db948472d81d63c6303993be8c5",
+      "sha256": "93585062a80db5e8ca038efc7726a3e6411d9db948472d81d63c6303993be8c5"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/model_assets/config.json",
+      "target": "integrations/cobot/lingbot_v2/common/model_assets/config.json",
+      "source_sha256": "dffcf3e9d769b14de7dd79dfcbd27f2752b4ae3bf87c3a285d27502cd5859c90",
+      "sha256": "dffcf3e9d769b14de7dd79dfcbd27f2752b4ae3bf87c3a285d27502cd5859c90"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/model_assets/special_tokens_map.json",
+      "target": "integrations/cobot/lingbot_v2/common/model_assets/special_tokens_map.json",
+      "source_sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+      "sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/model_assets/added_tokens.json",
+      "target": "integrations/cobot/lingbot_v2/common/model_assets/added_tokens.json",
+      "source_sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680",
+      "sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/model_assets/tokenizer_config.json",
+      "target": "integrations/cobot/lingbot_v2/common/model_assets/tokenizer_config.json",
+      "source_sha256": "cf43a5bf1a49ee69ecced02f419b169e72559034dcf15af47cf775bd253830f0",
+      "sha256": "cf43a5bf1a49ee69ecced02f419b169e72559034dcf15af47cf775bd253830f0"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/assets/norm_stats/norm_stats.json",
+      "target": "integrations/cobot/lingbot_v2/common/assets/norm_stats/norm_stats.json",
+      "source_sha256": "9681a4e4a651f451ae7c9d29b4bdb3192cf94b6c67f2fc6cd8b45837dbc083d8",
+      "sha256": "9681a4e4a651f451ae7c9d29b4bdb3192cf94b6c67f2fc6cd8b45837dbc083d8"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/configs/robot_configs/agilex_cobot_magic_wja_in_the_pot.yaml",
+      "target": "integrations/cobot/lingbot_v2/common/configs/robot_configs/agilex_cobot_magic_wja_in_the_pot.yaml",
+      "source_sha256": "b24ee810b96f582021d2ec3ca92666e6c5c8a50250ea3ed9a7f992b6b9beab8a",
+      "sha256": "b24ee810b96f582021d2ec3ca92666e6c5c8a50250ea3ed9a7f992b6b9beab8a"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/robot/lingbot_adapter.py",
+      "target": "integrations/cobot/lingbot_v2/common/robot/lingbot_adapter.py",
+      "source_sha256": "79a45a5b0dd5e586620edd9615da1e9a8ccaeb90b92946fb0f40f002e5012c01",
+      "sha256": "79a45a5b0dd5e586620edd9615da1e9a8ccaeb90b92946fb0f40f002e5012c01"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/lingbot_v2/common/robot/inference_lingbot.py",
+      "target": "integrations/cobot/lingbot_v2/common/robot/inference_lingbot.py",
+      "source_sha256": "ec1727ea5414b72a7cb951ab94bc32b5ec11efa83ba386d30755c4b595236716",
+      "sha256": "ec1727ea5414b72a7cb951ab94bc32b5ec11efa83ba386d30755c4b595236716"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/start_local_server.sh",
+      "target": "integrations/cobot/dm05/start_local_server.sh",
+      "source_sha256": "07526f4ba2ee28c2718a414c2c3c2dc62292d75b8cf130e6b7e7ea061ae00041",
+      "sha256": "dc9bb4f9f36206dbdf2ea790ee960dbc8ca77e82b65030b66d91eb2b33ea225c"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/interface_task2_teach_rtc_live.sh",
+      "target": "integrations/cobot/dm05/interface_task2_teach_rtc_live.sh",
+      "source_sha256": "c8a931c683b1bc817ac8aa3a0aab9a6a0df46653204772181bb8877732c22085",
+      "sha256": "c8a931c683b1bc817ac8aa3a0aab9a6a0df46653204772181bb8877732c22085"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/run_shadow.sh",
+      "target": "integrations/cobot/dm05/run_shadow.sh",
+      "source_sha256": "ca68ec3d59f39c2d3c1ba505b6b27b259031d99b38535e2d228034c019bc4e06",
+      "sha256": "cfcf3e1364c9ce1570d7421234f6e3279b624b7eb3ebae10b049f7727f76fa14"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/run_checkpoint_task2.sh",
+      "target": "integrations/cobot/dm05/run_checkpoint_task2.sh",
+      "source_sha256": "e7357b3bd58bf87dc132a7581893eb661a97a134970537df5db71c197abacfbb",
+      "sha256": "e7357b3bd58bf87dc132a7581893eb661a97a134970537df5db71c197abacfbb"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/stop_local_server.sh",
+      "target": "integrations/cobot/dm05/stop_local_server.sh",
+      "source_sha256": "bf928dee0e23d4041ca828947d4f490db7b549c084fc34b7365986c9ab287d8b",
+      "sha256": "b8cc218d0a9a8b4cca16986225f351b897cbe758f001d778d1ed24dc8a39f6dc"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/tests/test_task2_wrapper.py",
+      "target": "integrations/cobot/dm05/tests/test_task2_wrapper.py",
+      "source_sha256": "4144462e3568c56e6899a444afd0f78c1c88b0b3a5840aa68b535e524c73f4ff",
+      "sha256": "4144462e3568c56e6899a444afd0f78c1c88b0b3a5840aa68b535e524c73f4ff"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/tests/test_local_model_config.py",
+      "target": "integrations/cobot/dm05/tests/test_local_model_config.py",
+      "source_sha256": "7b5675923b5339463375ac2c05ea1a90b92f7ef3348c6e16da8fd71a7753b4a5",
+      "sha256": "7b5675923b5339463375ac2c05ea1a90b92f7ef3348c6e16da8fd71a7753b4a5"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/tests/test_dm05_task2_client.py",
+      "target": "integrations/cobot/dm05/tests/test_dm05_task2_client.py",
+      "source_sha256": "ffb9c3e9865d5e7ffec653ebd0d4969c3e608c46a1de6636b41714904cca52a4",
+      "sha256": "ffb9c3e9865d5e7ffec653ebd0d4969c3e608c46a1de6636b41714904cca52a4"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/tests/test_local_preflight.py",
+      "target": "integrations/cobot/dm05/tests/test_local_preflight.py",
+      "source_sha256": "625be094f7af380ff0a2fad2f41f9f168836ed951b2f0d41ea095acfe5fc9f54",
+      "sha256": "625be094f7af380ff0a2fad2f41f9f168836ed951b2f0d41ea095acfe5fc9f54"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/tests/test_local_server_wrapper.py",
+      "target": "integrations/cobot/dm05/tests/test_local_server_wrapper.py",
+      "source_sha256": "c97040ec81d0cde27dd1ca0fcc8a708559c2d776e36ba125aa1a57bc3b605dc3",
+      "sha256": "c97040ec81d0cde27dd1ca0fcc8a708559c2d776e36ba125aa1a57bc3b605dc3"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/common/__init__.py",
+      "target": "integrations/cobot/dm05/common/__init__.py",
+      "source_sha256": "c70a160aaaa158906aa53f1de40672b54a287fd988160b5d190ab780e92d4167",
+      "sha256": "c70a160aaaa158906aa53f1de40672b54a287fd988160b5d190ab780e92d4167"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/common/remote_client.py",
+      "target": "integrations/cobot/dm05/common/remote_client.py",
+      "source_sha256": "3a6bd1bc0e5765c1b857827f88e154f273067cc66ff56debf1174e6b4204f1c9",
+      "sha256": "3a6bd1bc0e5765c1b857827f88e154f273067cc66ff56debf1174e6b4204f1c9"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/common/robot/dm05_task2_client.py",
+      "target": "integrations/cobot/dm05/common/robot/dm05_task2_client.py",
+      "source_sha256": "c590a0125ce16d2f8c36eef8ce81393c85e50e741c1f3a40e38c4c734c05c3d2",
+      "sha256": "c590a0125ce16d2f8c36eef8ce81393c85e50e741c1f3a40e38c4c734c05c3d2"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/common/robot/__init__.py",
+      "target": "integrations/cobot/dm05/common/robot/__init__.py",
+      "source_sha256": "3eea255e9851f3a74f5f82cca14818b2ff81a3ab06d1a871de45e0b72d56d856",
+      "sha256": "3eea255e9851f3a74f5f82cca14818b2ff81a3ab06d1a871de45e0b72d56d856"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/manifests/local-runtime.json",
+      "target": "integrations/cobot/dm05/manifests/local-runtime.json",
+      "source_sha256": "01ceea574dfce4c2225a6b55cbd1c9f6d3fecf55cc3fe2df93f1d208585dff19",
+      "sha256": "01ceea574dfce4c2225a6b55cbd1c9f6d3fecf55cc3fe2df93f1d208585dff19"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/server/local_model_config.py",
+      "target": "integrations/cobot/dm05/server/local_model_config.py",
+      "source_sha256": "8c91ed1033990aba79d7153927409f90750f87b6fc23e58c348cb66973521127",
+      "sha256": "8c91ed1033990aba79d7153927409f90750f87b6fc23e58c348cb66973521127"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/server/dm05_local_server.py",
+      "target": "integrations/cobot/dm05/server/dm05_local_server.py",
+      "source_sha256": "15326a302727a8e55ca31617dea578514fd200e8df6bbb9e360ef137564a81f6",
+      "sha256": "15326a302727a8e55ca31617dea578514fd200e8df6bbb9e360ef137564a81f6"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/server/__init__.py",
+      "target": "integrations/cobot/dm05/server/__init__.py",
+      "source_sha256": "b21a4e5d2aaef94774def6c734eb7ac129fccd81a5fe57dc2951c6ffe7af928a",
+      "sha256": "b21a4e5d2aaef94774def6c734eb7ac129fccd81a5fe57dc2951c6ffe7af928a"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/dm0_5/server/local_preflight.py",
+      "target": "integrations/cobot/dm05/server/local_preflight.py",
+      "source_sha256": "598f72783c3b153cf75200755f6e7a968d522d4737e54e6380a6045fcfc00640",
+      "sha256": "598f72783c3b153cf75200755f6e7a968d522d4737e54e6380a6045fcfc00640"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/lift_book/pi05/interface_live.sh",
+      "target": "integrations/cobot/pi05/lift_book/interface_live.sh",
+      "source_sha256": "3b1fbbff2f0e20ae7b22412488c3da446bc27e75d29dd578e383953d5fff0648",
+      "sha256": "3b1fbbff2f0e20ae7b22412488c3da446bc27e75d29dd578e383953d5fff0648"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/lift_book/pi05/run_checkpoint.sh",
+      "target": "integrations/cobot/pi05/lift_book/run_checkpoint.sh",
+      "source_sha256": "3d76997393a225beb8e2ccac71549b8245a01a9f0b72cb55998df764fc1aed72",
+      "sha256": "27a6e89779a201aa000a3a59122354c9e4ed99836b5abf6e8eb768bfc83fe787"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/lift_book/pi05/common/inference_pi05.sh",
+      "target": "integrations/cobot/pi05/lift_book/common/inference_pi05.sh",
+      "source_sha256": "729a7fd16a53c56cbd99af19b7eb9adbb3efea8ddb07a13d93f27d48ab7125a6",
+      "sha256": "729a7fd16a53c56cbd99af19b7eb9adbb3efea8ddb07a13d93f27d48ab7125a6"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/lift_book/pi05/common/assets/wja/cobot_lift_book_50episodes/norm_stats.json",
+      "target": "integrations/cobot/pi05/lift_book/common/assets/wja/cobot_lift_book_50episodes/norm_stats.json",
+      "source_sha256": "31e4f20406f0a7e196bf4742b09334e1e2d16d7ebbf7c715c402703d349f1992",
+      "sha256": "31e4f20406f0a7e196bf4742b09334e1e2d16d7ebbf7c715c402703d349f1992"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/lift_book/pi05/common/robot/inference_pi05.py",
+      "target": "integrations/cobot/pi05/lift_book/common/robot/inference_pi05.py",
+      "source_sha256": "d9a14707e8d9ffb20fd8a97b5066a6217d7f52eb3d8a90b9b95a2d5bd27a4681",
+      "sha256": "d9a14707e8d9ffb20fd8a97b5066a6217d7f52eb3d8a90b9b95a2d5bd27a4681"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/put_two_fruits/pi05/interface_live.sh",
+      "target": "integrations/cobot/pi05/put_two_fruits/interface_live.sh",
+      "source_sha256": "3b1fbbff2f0e20ae7b22412488c3da446bc27e75d29dd578e383953d5fff0648",
+      "sha256": "3b1fbbff2f0e20ae7b22412488c3da446bc27e75d29dd578e383953d5fff0648"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/put_two_fruits/pi05/.wja_managed.json",
+      "target": "integrations/cobot/pi05/put_two_fruits/.wja_managed.json",
+      "source_sha256": "8823391e103ffb73c5cf61b8b8774aae472048a93f17afe1d0b24358be999555",
+      "sha256": "8823391e103ffb73c5cf61b8b8774aae472048a93f17afe1d0b24358be999555"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/put_two_fruits/pi05/CHECKSUMS.json",
+      "target": "integrations/cobot/pi05/put_two_fruits/CHECKSUMS.json",
+      "source_sha256": "adbdadc7ee0ce4cb59d7568d7373ebd4aeffc4a88fb0f680700b0577cbc2fb7e",
+      "sha256": "adbdadc7ee0ce4cb59d7568d7373ebd4aeffc4a88fb0f680700b0577cbc2fb7e"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/put_two_fruits/pi05/DEPLOYMENT_INDEX.json",
+      "target": "integrations/cobot/pi05/put_two_fruits/DEPLOYMENT_INDEX.json",
+      "source_sha256": "ccaa7e89ff5cf7ff412b4011b28a9c1f2086b471612d897e90520029db7bc030",
+      "sha256": "ccaa7e89ff5cf7ff412b4011b28a9c1f2086b471612d897e90520029db7bc030"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/put_two_fruits/pi05/run_checkpoint.sh",
+      "target": "integrations/cobot/pi05/put_two_fruits/run_checkpoint.sh",
+      "source_sha256": "3fd08191769bf0f8443271c1ea2bfb55c94228c87a6972781279c93b98bdd84f",
+      "sha256": "1ca334faf12d353bf43302a380561470e6076d71f2aacc8d290abe2c4ce0b1f8"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/put_two_fruits/pi05/interface.sh",
+      "target": "integrations/cobot/pi05/put_two_fruits/interface.sh",
+      "source_sha256": "6e97137818b69234bdc8c288db4f8f434314eba62f7c226d9f51c93937640158",
+      "sha256": "6e97137818b69234bdc8c288db4f8f434314eba62f7c226d9f51c93937640158"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/put_two_fruits/pi05/common/inference_pi05.sh",
+      "target": "integrations/cobot/pi05/put_two_fruits/common/inference_pi05.sh",
+      "source_sha256": "729a7fd16a53c56cbd99af19b7eb9adbb3efea8ddb07a13d93f27d48ab7125a6",
+      "sha256": "729a7fd16a53c56cbd99af19b7eb9adbb3efea8ddb07a13d93f27d48ab7125a6"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/put_two_fruits/pi05/common/assets/wja/cobot_put_two_fruits_100episodes/norm_stats.json",
+      "target": "integrations/cobot/pi05/put_two_fruits/common/assets/wja/cobot_put_two_fruits_100episodes/norm_stats.json",
+      "source_sha256": "c1c49a455a1a0264cb89970d6362b95a0b39a803cbe3aaccd192d0ade9797303",
+      "sha256": "c1c49a455a1a0264cb89970d6362b95a0b39a803cbe3aaccd192d0ade9797303"
+    },
+    {
+      "source": "/home/agilex/cobot_magic/task3/jiaan/deployments/put_two_fruits/pi05/common/robot/inference_pi05.py",
+      "target": "integrations/cobot/pi05/put_two_fruits/common/robot/inference_pi05.py",
+      "source_sha256": "d9a14707e8d9ffb20fd8a97b5066a6217d7f52eb3d8a90b9b95a2d5bd27a4681",
+      "sha256": "d9a14707e8d9ffb20fd8a97b5066a6217d7f52eb3d8a90b9b95a2d5bd27a4681"
+    }
+  ],
+  "notes": [
+    "Preserved model, normalization, RTC and action semantics; migrated source paths.",
+    "Existing site Python/ROS installations remain explicit dependencies, not migrated environments.",
+    "Web pause support added only to original pause-aware G05, XR1 and FluxVLA clients.",
+    "New paths have not undergone real robot success-rate evaluation."
+  ]
+}

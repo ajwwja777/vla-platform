@@ -1,0 +1,12 @@
+{
+  "action_horizon": 50,
+  "available_steps": [
+    2000
+  ],
+  "checkpoint_format": "jax_orbax",
+  "execute_horizon": 25,
+  "model_id": "pi05",
+  "platform_id": "cobot_piper",
+  "schema_version": 1,
+  "task_id": "put_two_fruits"
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "model_family": "lingbot_vla2",
+  "contract": {
+    "robot_name": "agilex_cobot_magic_wja_in_the_pot",
+    "prompt": "Open the pot lid, put the object into the pot, then close the lid.",
+    "right_gripper_threshold": 0.02
+  },
+  "available_steps": [
+    2000
+  ]
+}

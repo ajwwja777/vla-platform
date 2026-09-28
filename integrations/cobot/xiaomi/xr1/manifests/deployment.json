@@ -1,0 +1,124 @@
+{
+  "schema_version": "cobot-xr1-deployment-v1",
+  "status": "trained / packaged / Cobot direct fixture verified / live not authorized",
+  "task": "in_the_pot",
+  "model": {
+    "family": "Xiaomi Robotics 1",
+    "source_commit": "cfcab04e662514644d62a4f3cfcce97ce83b90b2",
+    "base_checkpoint_sha256": "94d55a79122050a654b379664b644e874ff90d64ccd30a6a633f816555bcecf7"
+  },
+  "training": {
+    "run_id": "xr1-full-ft-b32-s4000-seed42-20260830-r2",
+    "method": "full fine-tuning",
+    "global_step": 4000,
+    "global_batch": 32,
+    "micro_batch_per_gpu": 4,
+    "gradient_accumulation": 4,
+    "seed": 42
+  },
+  "dataset": {
+    "canonical_id": "legacy40-v2.1",
+    "episodes": 40,
+    "frames": 29383,
+    "cameras": 3,
+    "preparation_manifest_sha256": "40fc374c1a8257733456487907ab5582a2c6888f6a1fa143c8750c8eda69da9c",
+    "stats_sha256": "34c223acc9278bd7b311c17737d6101137a12838599f966064c6e556c5cb9414"
+  },
+  "checkpoint": {
+    "relative_path": "checkpoints/step_4000/last.ckpt/checkpoint/mp_rank_00_model_states.pt",
+    "bytes": 11004741391,
+    "sha256": "89246f3570274e33cccbc30fc89ba12f0a2e555026e303a39fbe33b9e5248a40",
+    "config_sha256": "7145ee35239c7a3748d28e338df0ea72e5ed41477a70156bfd44b14fb61cb516"
+  },
+  "deployment": {
+    "cobot_root": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1",
+    "runtime_root": "/home/agilex/cobot_magic/task3/jiaan/runtimes/xiaomi_robotics_1",
+    "server_bind": "127.0.0.1:8171",
+    "camera_map": {
+      "ego": "cam_high",
+      "left_wrist": "cam_left_wrist",
+      "right_wrist": "cam_right_wrist"
+    },
+    "input_state_dimensions": 14,
+    "raw_action_shape": [30, 60],
+    "robot_action_dimensions": 14,
+    "task2_hil": {
+      "operator_entry": "interface_task2_teach_rtc_live.sh 4000",
+      "policy_topics": [
+        "/task2/policy/joint_left",
+        "/task2/policy/joint_right"
+      ],
+      "coordinator_topics": [
+        "/master/joint_left",
+        "/master/joint_right"
+      ],
+      "pause_service": "/task2/policy/set_paused",
+      "operator_arm_service": "/task2/policy/arm",
+      "first_chunk_ready_service": "/task2/policy/chunk_ready",
+      "first_chunk_timeout_seconds": 120,
+      "handover_mode": "/task2/teach_handover/mode",
+      "resume_contract": "invalidate chunk/future/generation; fresh observation; empty prefix",
+      "task5_requirement": "none; optional independent web recording only"
+    },
+    "ik": {
+      "position_tolerance_m": 0.002,
+      "rotation_tolerance_rad": 0.01,
+      "joint_limit_tolerance_rad": 0.05,
+      "max_adjacent_target_joint_step_rad": 0.12,
+      "failure_policy": "reject the complete chunk before publication; Task2 first/fresh and async rejection fail closed to pause and require fresh resume",
+      "first_target_policy": "the 0.12 rad branch guard applies between adjacent action targets, not measured-state to the first queued prefix target; publisher EMA and 0.01 rad/cycle limit remain active"
+    }
+  },
+  "validation": {
+    "direct_checkpoint_fixture": "complete",
+    "completed_at_utc": "2026-08-30T15:08:11Z",
+    "construct_seconds": 99.1007312189322,
+    "inference_seconds": 1.7392110689543188,
+    "raw_action_shape": [1, 30, 60],
+    "raw_action_abs_max": 0.030335813760757446,
+    "joint_target_shape": [30, 14],
+    "joint_target_abs_max": 0.28392723202705383,
+    "max_ik_iterations": 1,
+    "ik_joint_limit_tolerance_rad": 0.05,
+    "ros_imported": false,
+    "socket_server_started": false,
+    "publisher_created": false,
+    "task2_adapter_tests": "23 passed in local isolated staging; production XR-1 runtime py_compile and shell syntax checks passed on Cobot; no Cobot Python environment currently provides pytest",
+    "task2_live_result": "2026-08-31 operator-started attempt moved briefly then exited on a false-positive async-prefix action-0 branch guard; a separate pre-Enter teach/release exposed unintended auto-arm. Both paths were corrected; post-fix validation is shadow only",
+    "task2_shadow_validation": "real-ROS no-publisher Task2 shadow verified: pre-arm coordinator resume stayed paused; arm+resume produced a ready chunk; simulated takeover pause/release produced a fresh ready chunk; two stochastic async IK/adjacent-jump rejections fail-closed paused without client exit and each accepted a later fresh resume; final policy topic Publishers=None",
+    "real_robot_result": "pre-fix operator attempt moved briefly and stopped on adapter exception; no task outcome; post-fix live motion not yet verified"
+  },
+  "safety": {
+    "live_deployment_authorized": false,
+    "requires_can_mid_recheck": true,
+    "requires_onsite_authorization": true,
+    "post_validation_port_8171_listening": true,
+    "post_validation_gpu_memory_used_mib": 10594,
+    "post_validation_control_processes": "XR-1 server only; no inference client; /task2/policy/joint_left and joint_right Publishers: None"
+  },
+  "runtime_compatibility": {
+    "torch": "2.2.0+cu121",
+    "liger_kernel": "0.6.5",
+    "dtensor_compatibility": "public torch.distributed.tensor.DTensor alias installed from torch.distributed._tensor.DTensor",
+    "regression_tests": "DTensor compatibility and legacy checkpoint loader passed",
+    "checkpoint_io_sha256": "d0628dc6930a5f9d2f5b0c7fcdb8e6ece6ec64322f8754b7e3954a3ebd2b5ce9",
+    "serve_cobot_sha256": "c9f62348960f27aa06295fcb09a5ab1d988977628f959da9307ab6cd34c08efb",
+    "direct_checkpoint_fixture_sha256": "2c65b9630a434fb4829a6377c1dc3e62b30ef5430edf47ec07337ca8b03dbda8"
+  },
+  "task2_adapter_assets": {
+    "common/robot/cobot_ros.py": "7b257f4264ffaa28a7da17def2e9db6e949aba91cb0bc1cdcbc7394f2028108e",
+    "common/robot/inference_xr1_async.py": "b1bf22a461d4ab8b1709fbadf0a9bcac7ce5d2bdc92f29f3d71c6106d651353f",
+    "common/robot/cobot_xr1/deployment.py": "2edfd8959639ae463c2c3c20f2d53041af60d0b7f6bc24ffaf2001864f90d422",
+    "common/robot/task2_gate.py": "2c1847ac64c7d273616fc9b8930478eb49c210f81849621c2f4cbcb9caf2b23b",
+    "interface_task2_teach_rtc_live.sh": "5dbe18b3206ea7e4c238dc6a4d83940e65d775032a07b71c4f3255d1a95b60d2",
+    "run_checkpoint.sh": "bbcc841d338c68f59b7fa595e05391f863a4fbc46e5f19cfcca743e2e64a02b2",
+    "tests/test_xr1_task2_handover.py": "04be657132210481d6fce4e7101e5280ada1ebed888397cde4cf074b879703bc",
+    "tests/test_xr1_task2_wrapper.py": "bd45846ea7a12ab818986d23dceb1d954d1387a9946d5c383b928073af9448a8"
+  },
+  "quarantine": {
+    "cobot_path": "/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/xiaomi_robotics_1/quarantine/corrupt-step_1000-first-run-20260830",
+    "reason": "first-run truncated PyTorch ZIP checkpoint; must not be loaded",
+    "bytes_approx": 3706000000,
+    "deletion": "not performed; execution safety guard rejected destructive cleanup"
+  }
+}

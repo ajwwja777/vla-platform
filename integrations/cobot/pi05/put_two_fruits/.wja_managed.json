@@ -1,0 +1,10 @@
+{
+  "installed_steps": [
+    2000
+  ],
+  "model_id": "pi05",
+  "platform_id": "cobot_piper",
+  "schema_version": 1,
+  "source": "training_server",
+  "task_id": "put_two_fruits"
+}
