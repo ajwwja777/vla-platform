@@ -104,3 +104,11 @@ USB 掉线重连后已完成已迁移资产的全量收据复核；尚不能据�
 ## 2026-09-29：职责边界与部署材料
 
 按实际源码、只读现场状态整理，代码先在A6000开发。结构、安装、依赖来源及验证界限见docs/DEPLOYMENT.md；跨项目关系见cobot-web/docs/ARCHITECTURE.md。数据/模型实体未迁移或删除；公共厂商工作区未删除、硬件未重启。guide只写事实、不提交其Git。现场切换与版本见后续发布回执。
+
+## 2026-09-29：正式切换、清理及交付验收
+
+统一登记及材料首次发布e78192e。各模型记录family/task/steps、权重/基础模型/归一化、运行环境、I/O、能力与接入程度；外部sh可登记进程启动/日志/停止，没有协议的暂停/HIL明确禁用。原Flux主框架保持，历史运行时保留integrations。
+
+A6000新增保存必要外部源码及补丁证据，不含数据/权重；Flux环境与基础Python归档独立恢复后，Torch/FlashAttention/Diffusers/FluxVLA导入通过。其他历史模型的包清单和源码材料不等于全套GPU环境重建通过；Junfeng π0.5共享环境未升级。新GPU加载和真实推理按模型逐个验收。
+
+主代码位于 /data/LFT-W02_data/jiaan/jiaan/projects/vla-platform；现场副本 /home/agilex/jiaan/project/vla-platform。后续收尾版本以Git main和现场.release.json为准。guide仅更新事实摘要，不提交其Git。

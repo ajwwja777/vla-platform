@@ -17,7 +17,7 @@ def main():
     parser.add_argument("--target", default=DEFAULT_TARGET)
     args = parser.parse_args()
     if args.target != DEFAULT_TARGET:
-        parser.error("This deployment entry targets the registered Cobot web directory")
+        parser.error("This deployment entry targets the registered vla-platform directory")
     run(["git", "diff", "--quiet", "HEAD"], cwd=ROOT)
     revision = run(["git","rev-parse","HEAD"],cwd=ROOT,capture_output=True).stdout.strip()
     names = run(["git","ls-files","-z"],cwd=ROOT,capture_output=True).stdout.split("\0")

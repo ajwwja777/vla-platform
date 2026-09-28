@@ -30,7 +30,7 @@ cd /home/agilex/jiaan/project/cobot-web
 
 材料：Git + configs/assets登记源码/环境 + 用户指定权重。A6000本项目outputs/environments/cobot-external-source-20260929.tar.gz保留Junfeng OpenPI、Galaxea、XR1、transformers vendor、LingBot、prismatic、dlimp源码，不含数据/权重，SHA见configs/assets/cobot_external_sources.json。Galaxea版本89f2322b4ad016e192437adc1a2c253b05bab246；LingBot版本a1c6c014c212d0e85729ba3b7d911ee674dd6299及现场补丁在快照保留。无Git部分标精确快照，不猜原厂版本。
 
-Flux环境快照位置/哈希见configs/assets/fluxvla_environment.json，仍须验证base Python/动态库/shebang。pip清单不是完整lock；diffusers dev、flash-attn和本地Flux wheel旧来源已不存在，使用保存材料或固定源码重建，不能静默换最新版。Junfeng π0.5环境归VLA，未迁入control、未升级现场共享环境。
+Flux环境快照位置/哈希见configs/assets/fluxvla_environment.json，base Python与主要库导入已按下节验证；GPU加载与真实推理仍须单独验收。pip清单不是完整lock；diffusers dev、flash-attn和本地Flux wheel旧来源已不存在，使用保存材料或固定源码重建，不能静默换最新版。Junfeng π0.5环境归VLA，未迁入control、未升级现场共享环境。
 
 换机替换ROS setup、Python、模型根和相机约定；不同硬件增加adapter，不改训练循环。原生Flux与历史适配分别验收。RTC/EMA保持既有配置，不为其他方法默认启用。数据/权重继续Getea1/jiaan/{data,model}，不复制大型资产。
 
