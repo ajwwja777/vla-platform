@@ -127,8 +127,8 @@
     },
     {
       "path": "start_local_server.sh",
-      "bytes": 3561,
-      "sha256": "adf49dd71c22a11c735217cc50fd06770930a95657b0a58226b3c2bf2d473c3b",
+      "bytes": 3691,
+      "sha256": "f403cc80337db4f351f0cc52cabbc9bb3ab60398ba1c59dc2024b4c080a79c0e",
       "source_sha256": "4e4dc895e803cd9ddcb4f6294fee6a0405a8bc8d6b88feade1865bec911a4abf",
       "source_bytes": 3490
     },

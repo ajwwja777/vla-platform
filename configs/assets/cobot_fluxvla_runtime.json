@@ -1,0 +1,10 @@
+{
+  "upstream_revision": "8e22b69b2ff8c8c333d4095596cde8e1e3b57ade",
+  "source_archive": "/data/LFT-W02_data/jiaan/jiaan/projects/vla-platform/outputs/migrations/20260928-getea-storage/fluxvla-pinned-source.tar",
+  "archive_sha256": "00c2a00d7f355ac0e5b48f6d2474a22fbd2db67d24a83dbc998a5f4fdc0bb555",
+  "cobot_upstream": "/home/agilex/jiaan/project/vla-platform/third_party/fluxvla-pinned",
+  "cobot_environment": "/home/agilex/jiaan/project/vla-platform/envs/fluxvla-cu124-py310",
+  "checkpoint": "/media/agilex/Getea1/jiaan/model/vla-platform/fluxvla_pi05/in_the_pot/step_5000",
+  "base": "/media/agilex/Getea1/jiaan/model/vla-platform/fluxvla_pi05/base/pi05_base",
+  "state": "paths_prepared_asset_verification_in_progress"
+}

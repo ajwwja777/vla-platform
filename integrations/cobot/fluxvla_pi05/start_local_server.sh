@@ -50,6 +50,9 @@ fi
 
 timestamp="$(date +%Y%m%d_%H%M%S)"
 log="${LOG_DIR}/server_step_${STEP}_${timestamp}.log"
+export PYTHONDONTWRITEBYTECODE=1
+export XDG_CACHE_HOME="$RUNTIME_ROOT/cache"
+export TRITON_CACHE_DIR="$RUNTIME_ROOT/cache/triton"
 export FLUXVLA_UPSTREAM_ROOT="${UPSTREAM}"
 export FLUXVLA_PI05_BASE="${BASE}"
 export PYTHONPATH="${ROOT}${PYTHONPATH:+:${PYTHONPATH}}"

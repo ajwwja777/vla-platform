@@ -23,7 +23,7 @@ def main():
     names = run(["git","ls-files","-z"],cwd=ROOT,capture_output=True).stdout.split("\0")
     roots = {"integrations", "docs"}
     files = [name for name in names if name and
-        (Path(name).parts[0] in roots or name in ("README.md","AGENTS.md","scripts/sync_cobot.py","configs/assets/cobot_pi05_code.json"))
+        (Path(name).parts[0] in roots or name in ("README.md","AGENTS.md","scripts/sync_cobot.py","configs/assets/cobot_pi05_code.json","configs/assets/cobot_fluxvla_runtime.json"))
         and "tests" not in Path(name).parts]
     hashes = {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in files}
     evidence=ROOT/"outputs/deployments";evidence.mkdir(parents=True,exist_ok=True)
