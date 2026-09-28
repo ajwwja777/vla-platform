@@ -52,3 +52,13 @@ Cobot 采集及评测数据统一规划在 `/home/agilex/jiaan/data/`。模型�
 2026-09-27 归属更新：独立 ops 项目已取消；本次仅修正协作与 runtime 归属，不代表本项目旧业务资产已迁移。
 
 历史模型位置：models/history/dm0-5/step_4000、models/history/xiaomi-robotics-1-dagger-round001/step_4000。来源与SHA索引见configs/assets/legacy_cobot_models.json，完整保全记录见docs/MIGRATION.md（2026-09-28）。
+
+## 数据和权重存放现状（2026-09-28）
+
+用户确认原始采集、现场评测和当前部署checkpoint长期单份放Cobot；训练中间checkpoint、停止部署的历史模型单份放A6000。共享场景数据通过manifest供不同模型使用，不给每个模型复制一份原始数据。
+
+本项目A6000 models/history/dm0-5/step_4000占10.89GiB，models/history/xiaomi-robotics-1-dagger-round001/step_4000占10.25GiB。旧A6000 XR1 final-transfer仍有对应权重副本，待去重。
+
+Cobot当前π0.5在/home/agilex/cobot_magic/task3/jiaan/deployments/in_the_pot/pi05/checkpoints/step_2000（11.59GiB）；DAgger续训在/home/agilex/cobot_magic/task5/jiaan/hil_realworld_rl/deployments/in_the_pot/pi05_dagger_round001/checkpoints/step_3000（11.59GiB）。其他Galaxea/Xiaomi/Lingbot及外置盘FluxVLA权重仍在旧目录。旧Xiaomi DAgger现场last.ckpt链接已失效，权重实体保存在本项目A6000历史模型目录；它不在当前网页六模型目录内，后续部署需接入新位置。
+
+in_the_pot数据仍分布于task3/jiaan/datasets/in_the_pot、task3/jiaan/realworld_rl/data/task5-rlt-r1/in_the_pot及task5/jiaan/hil_realworld_rl/data/{raw_rollouts,lerobot}/in_the_pot。场景根目标为/home/agilex/jiaan/data/in_the_pot/，尚未切换。所有完整绝对路径与实测占用见同级cobot-web/docs/STORAGE.md；当前盘点没有执行资产搬移或去重。
