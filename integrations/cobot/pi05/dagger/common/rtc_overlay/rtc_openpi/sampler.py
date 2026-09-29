@@ -22,14 +22,12 @@ def rtc_sample_actions(
     execution_horizon,
     num_steps=10,
     maximum_guidance_weight=5.0,
+    prefix_cache=None,
 ):
     """Sample an action chunk while inpainting its pending old prefix."""
 
-    observation = _model.preprocess_observation(
-        None,
-        observation,
-        train=False,
-    )
+    observation = (prefix_cache.observation if prefix_cache is not None else
+                   _model.preprocess_observation(None, observation, train=False))
     dt = -1.0 / num_steps
     batch_size = observation.state.shape[0]
     noise = jax.random.normal(
@@ -50,16 +48,14 @@ def rtc_sample_actions(
         "exp",
     )
 
-    prefix_tokens, prefix_mask, prefix_ar_mask = model.embed_prefix(
-        observation
-    )
-    prefix_attn_mask = make_attn_mask(prefix_mask, prefix_ar_mask)
-    positions = jnp.cumsum(prefix_mask, axis=1) - 1
-    _, kv_cache = model.PaliGemma.llm(
-        [prefix_tokens, None],
-        mask=prefix_attn_mask,
-        positions=positions,
-    )
+    if prefix_cache is None:
+        prefix_tokens, prefix_mask, prefix_ar_mask = model.embed_prefix(observation)
+        prefix_attn_mask = make_attn_mask(prefix_mask, prefix_ar_mask)
+        positions = jnp.cumsum(prefix_mask, axis=1) - 1
+        _, kv_cache = model.PaliGemma.llm(
+            [prefix_tokens, None], mask=prefix_attn_mask, positions=positions)
+    else:
+        prefix_mask, kv_cache = prefix_cache.prefix_mask, prefix_cache.kv_cache
 
     def model_velocity(x_t, time):
         suffix_tokens, suffix_mask, suffix_ar_mask, adarms_cond = (
