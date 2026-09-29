@@ -68,3 +68,7 @@ Cobot 数据和 checkpoint 均存放 Getea1/jiaan/{data,model}；场景数据共
 ## 2026-09-29接入导航
 
 先读[结构、模型登记与换机部署](DEPLOYMENT.md)。历史运行时留在integrations，Flux原生代码未为统一页面而改动。RLT/EXPO-FT保留各自算法。源码/环境材料的完整路径与SHA见configs/assets；包清单不代表已验证可重装环境。
+
+## 2026-09-30: reusable execution utilities for RLT
+
+Existing implementation stays in integrations/cobot/pi05/dagger/common/: rtc_overlay/rtc_openpi/sampler.py now accepts an optional prefix_cache; the default computation remains unchanged. runtime_lib/execution_methods/action_processing.py provides pure time-preserving integer-rate interpolation and bounded caller-seeded correlated noise with dimension masks. It imports no ROS or RL algorithm. RLT owns its separate 7D transform bridge and reuses this sampler; FluxVLA native directories and training remain unchanged. Array tests pass; RLT's three recorded-frame RTC run reports ~72 ms baseline / ~114 ms guided after compilation, identical repeated baseline actions/tokens. This is not integrated RLT RTC or robot validation; no live publication/noise settings changed. Full experiment evidence: /data/LFT-W02_data/jiaan/jiaan/projects/rl-platform/docs/EXPERIMENTS_20260930.md. Cobot counterpart root: /home/agilex/jiaan/project/vla-platform/.

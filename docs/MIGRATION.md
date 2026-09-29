@@ -112,3 +112,7 @@ USB 掉线重连后已完成已迁移资产的全量收据复核；尚不能据�
 A6000新增保存必要外部源码及补丁证据，不含数据/权重；Flux环境与基础Python归档独立恢复后，Torch/FlashAttention/Diffusers/FluxVLA导入通过。其他历史模型的包清单和源码材料不等于全套GPU环境重建通过；Junfeng π0.5共享环境未升级。新GPU加载和真实推理按模型逐个验收。
 
 主代码位于 /data/LFT-W02_data/jiaan/jiaan/projects/vla-platform；现场副本 /home/agilex/jiaan/project/vla-platform。后续收尾版本以Git main和现场.release.json为准。guide仅更新事实摘要，不提交其Git。
+
+## 2026-09-30: optional RTC cache reuse
+
+Added prefix-cache input to the existing dagger RTC sampler and reusable pure action_processing utilities. Updated its overlay checksum manifest. Committed/pushed on A6000 and SHA256-synced only selected files to Cobot. The 14D bridge is unchanged; RLT provides its own 7D bridge. No FluxVLA core, environment, weight or robot control changes. Tests: interpolation duration/endpoints, bounded correlated noise/masks, and three actual RLT recorded-image RTC inferences. Live RLT asynchronous queue integration and higher-rate publication remain pending. See docs/JIAAN.md and RL EXPERIMENTS_20260930.md.
