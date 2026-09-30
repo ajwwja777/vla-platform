@@ -116,3 +116,10 @@ A6000新增保存必要外部源码及补丁证据，不含数据/权重；Flux�
 ## 2026-09-30: optional RTC cache reuse
 
 Added prefix-cache input to the existing dagger RTC sampler and reusable pure action_processing utilities. Updated its overlay checksum manifest. Committed/pushed on A6000 and SHA256-synced only selected files to Cobot. The 14D bridge is unchanged; RLT provides its own 7D bridge. No FluxVLA core, environment, weight or robot control changes. Tests: interpolation duration/endpoints, bounded correlated noise/masks, and three actual RLT recorded-image RTC inferences. Live RLT asynchronous queue integration and higher-rate publication remain pending. See docs/JIAAN.md and RL EXPERIMENTS_20260930.md.
+
+## 2026-09-30: reusable clock/filter and queue snapshot
+Added execution_timing.py and remaining_actions() for optional RLT asynchronous
+execution. Updated dagger RTC checksum manifest; no Flux/14D bridge/algorithm or
+default model changes. A6000 utility and RLT contracts passed, robot not exercised.
+Selective deployment to /home/agilex/jiaan/project/vla-platform follows release;
+RLT owns its corresponding execution profile and Replay integration.

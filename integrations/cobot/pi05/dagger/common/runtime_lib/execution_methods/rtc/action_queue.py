@@ -90,6 +90,13 @@ class ThreadSafeActionChunk:
             self._cursor += 1
             return action
 
+    def remaining_actions(self) -> np.ndarray:
+        """Return a detached snapshot without consuming or changing ownership."""
+        with self._lock:
+            if self._actions is None:
+                return np.empty((0, self._action_dim or 0), dtype=np.float32)
+            return self._actions[self._cursor:].copy()
+
     def begin_inference(
         self,
         session_id: str,
