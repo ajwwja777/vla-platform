@@ -127,3 +127,10 @@ RLT owns its corresponding execution profile and Replay integration.
 Selective21-file cross-project SHA deployment completed from published commits.
 Cobot real Stage1+Actor synthetic-I/O7-variant audit passed, GPU returned idle.
 No hardware node restart or motion; this does not constitute Flux/robot acceptance.
+
+## 2026-09-30：领域对话与并行开发交接
+
+用户指定后续任务由各领域项目对话负责，可并行调研、分析、现场部署和基础设施工作。
+A6000 AGENTS.md 新增本领域范围、当前待办、独立worktree/任务说明和现场单一负责人的约定；
+笔记本对应目录 AGENTS.md 已从旧“初始化”说明更新为正式接管入口。
+本批该项目仅改文档，无业务代码/环境/资产变更或现场动作。guide仅追加项目事实，不提交Git。
