@@ -77,6 +77,11 @@ class Task2PauseGate:
                 mode=self._mode,
             )
 
+    def publish_if_current(self, generation, publish, action):
+        with self._lock:
+            if self._armed and not self._paused and generation == self._generation:
+                publish(action)
+
     def accepts(self, generation: int) -> bool:
         with self._lock:
             return (

@@ -8,6 +8,15 @@ import threading
 from typing import Any
 
 import numpy as np
+import sys as _sys
+from pathlib import Path as _Path
+_shared = next(p for p in _Path(__file__).resolve().parents if (p/'execution_options.py').is_file())
+if str(_shared) not in _sys.path:
+    _sys.path.insert(0,str(_shared))
+from execution_options import selected_options
+from execution_runtime import PublicationDriver
+
+from execution_runtime import PublicationSink, SequentialRTCController
 import rospy
 from openpi_client import websocket_client_policy
 
@@ -249,7 +258,11 @@ def main(argv=None) -> int:
     if args.use_init_pose:
         ros.move_to_initial_pose()
     sink = CobotExecutionSink(ros, args)
-    controller = AsyncRTCController(
+    options=selected_options()
+    if options.get("enabled"):
+        sink=PublicationSink(sink,args.publish_rate,options,lambda: not rospy.is_shutdown())
+    controller_type=SequentialRTCController if options.get("enabled") and not options["rtc"] else AsyncRTCController
+    controller = controller_type(
         RTCConfig(
             control_hz=args.publish_rate,
             min_execution_horizon=args.min_execution_horizon,

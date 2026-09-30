@@ -13,6 +13,15 @@ import time
 from typing import Iterable, Optional
 
 import numpy as np
+import sys as _sys
+from pathlib import Path as _Path
+_shared = next(p for p in _Path(__file__).resolve().parents if (p/'execution_options.py').is_file())
+if str(_shared) not in _sys.path:
+    _sys.path.insert(0,str(_shared))
+from execution_options import selected_options
+from execution_runtime import PublicationDriver
+
+from execution_runtime import ChunkPipeline
 
 from common.g05_contract import build_raw_observation, flatten_action_response
 from common.g05_ws_client import G05WebSocketSession
@@ -292,6 +301,17 @@ def main() -> None:
         expected_action_steps=args.action_steps,
         timeout_s=args.request_timeout,
     )
+    options=selected_options()
+    publication=PublicationDriver(args.publish_rate,options,per_arm_limits=args.arm_steps_length) if options.get('enabled') else None
+    def infer_chunk(request):
+        commands=[]
+        for _ in range(args.action_steps):
+            response=session.infer(request)
+            commands.append(flatten_action_response(response,fallback_state=latest_joints()))
+            if response.get('need_obs',True): break
+            request={}
+        return np.asarray(commands,np.float32)
+    pipeline=ChunkPipeline(infer_chunk,rtc=options.get('rtc',False),replan_remaining=max(1,args.action_steps//2)) if publication else None
     rate = rospy.Rate(args.publish_rate)
     published = 0
     need_observation = True
@@ -304,10 +324,17 @@ def main() -> None:
         while published < args.max_publish_step and not rospy.is_shutdown():
             generation = policy_state.capture_generation()
             if generation is None:
+                if publication: publication.reset()
+                if pipeline: pipeline.reset()
                 rate.sleep()
                 continue
             try:
                 if generation != generation_seen or reset_requested.is_set():
+                    if pipeline and not pipeline.idle():
+                        rate.sleep()
+                        continue
+                    if pipeline: pipeline.reset(generation)
+                    if publication: publication.reset()
                     if session._socket is None:
                         metadata = session.connect()
                         print(f"[g05-task2] connected metadata={metadata}", flush=True)
@@ -333,7 +360,14 @@ def main() -> None:
                     request = {}
 
                 started = time.monotonic()
-                response = session.infer(request)
+                if pipeline:
+                    action=pipeline.tick(request,generation)
+                    if action is None:
+                        rate.sleep()
+                        continue
+                    response={'need_obs':True}
+                else:
+                    response = session.infer(request)
                 if not policy_state.is_current(generation):
                     print("[g05-task2] discarded stale WebSocket response after takeover", flush=True)
                     reset_requested.set()
@@ -341,7 +375,8 @@ def main() -> None:
                 current_state = latest_joints()
                 if current_state is None:
                     current_state = observed_state
-                action = flatten_action_response(response, fallback_state=current_state)
+                if not pipeline:
+                    action = flatten_action_response(response, fallback_state=current_state)
                 action[[6, 13]] = np.clip(
                     action[[6, 13]], args.gripper_min, args.gripper_max
                 )
@@ -351,15 +386,17 @@ def main() -> None:
                     reset_requested.set()
                     continue
                 policy_state.mark_ready(generation)
-                if not args.shadow:
-                    left_publisher.publish(joint_message(command[:7]))
-                    right_publisher.publish(joint_message(command[7:]))
+                def publish_command(command):
+                    with policy_state._lock:
+                        if not policy_state.is_current(generation): return
+                        if not args.shadow:
+                            left_publisher.publish(joint_message(command[:7]))
+                            right_publisher.publish(joint_message(command[7:]))
+                        last_command[0]=command
+                if publication:
+                    publication.emit(command,current_state,publish_command,lambda: policy_state.is_current(generation))
                 else:
-                    print(
-                        f"[g05-shadow] generation={generation} action_min={command.min():.6f} action_max={command.max():.6f}",
-                        flush=True,
-                    )
-                last_command[0] = command
+                    publish_command(command)
                 need_observation = bool(response.get("need_obs", True))
                 published += 1
                 if need_observation:
@@ -371,11 +408,14 @@ def main() -> None:
             except Exception as error:
                 policy_state.set_paused(True)
                 reset_requested.set()
-                session.close()
+                if not pipeline or pipeline.idle(): session.close()
+                if pipeline: pipeline.reset()
+                if publication: publication.reset()
                 generation_seen = None
                 print(f"[g05-task2] fail-closed pause: {type(error).__name__}: {error}", flush=True)
                 rate.sleep()
     finally:
+        if pipeline: pipeline.close()
         session.close()
 
 

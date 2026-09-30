@@ -134,3 +134,11 @@ No hardware node restart or motion; this does not constitute Flux/robot acceptan
 A6000 AGENTS.md 新增本领域范围、当前待办、独立worktree/任务说明和现场单一负责人的约定；
 笔记本对应目录 AGENTS.md 已从旧“初始化”说明更新为正式接管入口。
 本批该项目仅改文档，无业务代码/环境/资产变更或现场动作。guide仅追加项目事实，不提交Git。
+
+## 2026-10-01：模型无关的 Hz/滤波/可选 RTC 执行模块
+
+integrations/cobot/execution_options.py 提供纯配置校验与默认说明；execution_runtime.py 提供动作发布、物理时间滤波、前缀为空的顺序 chunk、可选异步 chunk。web/RLT 复用此配置合同。π0.5 baseline/DAgger、FluxVLA π0.5、XR1/DAgger、G05 baseline/DAgger 的暂停客户端接入，未改变权重、归一化、动作映射或默认执行路径。发布 Hz 与原逻辑步频分开，20→30/40/50 不缩短轨迹时间、不提高原 step limiter 的每秒限制；每个子 tick 校验暂停 epoch，接管重置滤波及缓存。
+
+π0.5、Flux、XR1 保留已有原生 prefix RTC；关闭 RTC 不做 prefix 重规划。G05 官方单步 RPC 由共用 queue 聚合 chunk，开启 RTC 时异步重规划并丢弃延迟前缀，未声称 G05 支持原生 diffusion prefix guidance。未有暂停协议/缺权重的 CLI 条目仍不可网页启动；公共模块可供其适配器接入，不能以选项展示代替接入或实际模型验收。
+
+离线 CPU：共用执行/时钟 27 passed，G05 generation/合同 15 passed，XR1 暂停/过期结果 26 passed；更新两份 RTC checksum 清单。未新加载 GPU、未机器人动作，不能将合成 I/O 视为上述各模型真机验收。发布文件 SHA 与版本见 web outputs/execution-compact-20261001/ 回执。

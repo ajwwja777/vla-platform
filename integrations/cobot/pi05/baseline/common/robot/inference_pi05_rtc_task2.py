@@ -28,6 +28,15 @@ after a handback is planned from what the cameras see now.
 from __future__ import annotations
 
 import threading
+import sys as _sys
+from pathlib import Path as _Path
+_shared = next(p for p in _Path(__file__).resolve().parents if (p/'execution_options.py').is_file())
+if str(_shared) not in _sys.path:
+    _sys.path.insert(0,str(_shared))
+from execution_options import selected_options
+from execution_runtime import PublicationDriver
+
+from execution_runtime import PublicationSink, SequentialRTCController
 
 import rospy
 from std_srvs.srv import SetBool, SetBoolResponse
@@ -111,18 +120,26 @@ def main(argv=None) -> int:
     backend = rtc.RTCWebsocketBackend(policy)
     ros = rtc.create_ros_interface(args)
     sink = rtc.CobotExecutionSink(ros, args)
+    options = selected_options()
     episode = 0
 
     def new_controller(index: int) -> AsyncRTCController:
         # A distinct session id per episode: the server keys its guided-sampling
         # state on it, and a handback is a new episode, not a continuation.
-        return AsyncRTCController(
+        controller_type = SequentialRTCController if options.get("enabled") and not options["rtc"] else AsyncRTCController
+        epoch = gate.generation
+        def publish_current(action):
+            with gate._lock:
+                if not gate.paused and gate.generation==epoch:
+                    sink.emit(action)
+        output = PublicationSink(sink,args.publish_rate,options,lambda: not gate.paused and gate.generation==epoch,publish_current) if options.get("enabled") else sink
+        return controller_type(
             RTCConfig(
                 control_hz=args.publish_rate,
                 min_execution_horizon=args.min_execution_horizon,
             ),
             backend,
-            sink,
+            output,
             session_id="cobot-pi05-rtc-task2-{}".format(index),
             action_dim=14,
         )

@@ -17,6 +17,14 @@ import threading
 from typing import Any
 
 import numpy as np
+import sys as _sys
+from pathlib import Path as _Path
+_shared = next(p for p in _Path(__file__).resolve().parents if (p/'execution_options.py').is_file())
+if str(_shared) not in _sys.path:
+    _sys.path.insert(0,str(_shared))
+from execution_options import selected_options
+from execution_runtime import PublicationDriver
+
 
 from .task2_control import (
     GenerationGate,
@@ -143,6 +151,9 @@ def main() -> None:
     from std_srvs.srv import SetBool, SetBoolResponse, Trigger, TriggerResponse
 
     args = parse_args()
+    options = selected_options()
+    publication = PublicationDriver(args.publish_rate,options,per_arm_limits=args.arm_steps_length) if options.get("enabled") else None
+    rtc_enabled = not options.get("enabled") or options["rtc"]
     rpc = LocalRTCClient(args.endpoint, timeout_s=args.request_timeout)
     ping = rpc.request({"endpoint": "ping"}, compress_images=False)
     if ping.get("status") != "ready":
@@ -344,6 +355,7 @@ def main() -> None:
         while published < args.max_publish_step and not rospy.is_shutdown():
             generation = generation_snapshot()
             if generation is None:
+                if publication: publication.reset()
                 rate.sleep()
                 continue
 
@@ -397,7 +409,7 @@ def main() -> None:
             if future is None:
                 should_request = (
                     action_queue.remaining == 0
-                    or action_queue.remaining <= args.replan_remaining
+                    or rtc_enabled and action_queue.remaining <= args.replan_remaining
                 )
                 observation = take_observation() if should_request else None
                 if observation is not None:
@@ -405,7 +417,7 @@ def main() -> None:
                         future_generation = generation
                         future_ticket = None
                         future = executor.submit(rpc.infer, observation, None, 0)
-                    elif action_queue.remaining <= args.replan_remaining:
+                    elif rtc_enabled and action_queue.remaining <= args.replan_remaining:
                         prefix = dynamic_prefix_len(
                             last_inference_s,
                             control_hz=args.publish_rate,
@@ -446,18 +458,25 @@ def main() -> None:
                         command = limit_action_step(
                             target, previous, per_arm_limits=args.arm_steps_length
                         )
-                        if not args.shadow:
-                            assert left_publisher is not None and right_publisher is not None
-                            left_publisher.publish(joint_message(command[:7]))
-                            right_publisher.publish(joint_message(command[7:]))
-                        last_command[0] = command
-                        published += 1
-                        if announced_generation != generation:
-                            print(
-                                f"[flux-pi05-task2] generation={generation} first safe command ready",
-                                flush=True,
-                            )
-                            announced_generation = generation
+                    def publish_command(command):
+                        with state_lock:
+                            if generation != generation_snapshot(): return
+                            if not args.shadow:
+                                assert left_publisher is not None and right_publisher is not None
+                                left_publisher.publish(joint_message(command[:7]))
+                                right_publisher.publish(joint_message(command[7:]))
+                            last_command[0] = command
+                    if publication:
+                        publication.emit(command,measured,publish_command,lambda: generation==generation_snapshot())
+                    else:
+                        publish_command(command)
+                    published += 1
+                    if announced_generation != generation:
+                        print(
+                            f"[flux-pi05-task2] generation={generation} first safe command ready",
+                            flush=True,
+                        )
+                        announced_generation = generation
             rate.sleep()
     finally:
         executor.shutdown(wait=False, cancel_futures=True)

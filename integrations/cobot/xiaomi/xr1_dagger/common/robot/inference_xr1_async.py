@@ -9,6 +9,14 @@ from pathlib import Path
 import time
 
 import numpy as np
+import sys as _sys
+from pathlib import Path as _Path
+_shared = next(p for p in _Path(__file__).resolve().parents if (p/'execution_options.py').is_file())
+if str(_shared) not in _sys.path:
+    _sys.path.insert(0,str(_shared))
+from execution_options import selected_options
+from execution_runtime import PublicationDriver
+
 
 from cobot_ros import RosInterface, parse_float_list, str2bool
 from cobot_xr1.deployment import (
@@ -252,6 +260,10 @@ def get_arguments() -> argparse.Namespace:
 
 def main() -> None:
     args = get_arguments()
+    options = selected_options()
+    rtc_enabled = not options.get("enabled") or options["rtc"]
+    publication=PublicationDriver(args.publish_rate,options,per_arm_limits=args.arm_steps_length) if options.get("enabled") else None
+    if publication: args.arm_smoothing_alpha=1.0
     if args.shadow_mode and args.use_init_pose:
         raise ValueError("shadow mode must not request initial-pose motion")
     fk = PiperKinematics.from_urdf(args.urdf)
@@ -290,6 +302,7 @@ def main() -> None:
             if task2_session is not None:
                 snapshot = ros.task2_gate.snapshot()
                 if snapshot.paused:
+                    if publication: publication.reset()
                     ros.set_task2_chunk_ready(False)
                     if queue is not None:
                         print(
@@ -437,7 +450,7 @@ def main() -> None:
                     if queue is None:
                         continue
 
-            if queue.needs_replan:
+            if rtc_enabled and queue.needs_replan:
                 observation = ros.wait_for_observation()
                 state = np.asarray(observation["observation.state"], dtype=np.float32)
                 token, remaining_targets = queue.begin_replan()
@@ -481,7 +494,19 @@ def main() -> None:
             if task2_session is not None and task2_session.requires_fresh:
                 queue = None
                 continue
-            ros.publish_policy_action(queue.pop())
+            if not rtc_enabled and queue.remaining == 0:
+                queue = None
+                continue
+            action=queue.pop()
+            if publication:
+                positions=ros._latest_joint_positions()
+                if positions is None: positions=ros.wait_for_joint_positions()
+                measured=np.concatenate(positions)
+                epoch=ros.task2_gate.snapshot().generation if task2_session is not None else None
+                publish = ros.publish_policy_action if task2_session is None else lambda command: ros.task2_gate.publish_if_current(epoch,ros.publish_policy_action,command)
+                publication.emit(action,measured,publish,lambda: task2_session is None or ros.task2_gate.accepts(epoch))
+            else:
+                ros.publish_policy_action(action)
             published += 1
             rate.sleep()
     finally:
