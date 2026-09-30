@@ -123,3 +123,7 @@ execution. Updated dagger RTC checksum manifest; no Flux/14D bridge/algorithm or
 default model changes. A6000 utility and RLT contracts passed, robot not exercised.
 Selective deployment to /home/agilex/jiaan/project/vla-platform follows release;
 RLT owns its corresponding execution profile and Replay integration.
+
+Selective21-file cross-project SHA deployment completed from published commits.
+Cobot real Stage1+Actor synthetic-I/O7-variant audit passed, GPU returned idle.
+No hardware node restart or motion; this does not constitute Flux/robot acceptance.

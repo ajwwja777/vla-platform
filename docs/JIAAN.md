@@ -84,3 +84,8 @@ tau=80ms is an RLT opt-in profile, not a default change to existing pi05 deploym
 6 utility tests passed; full RLT contracts total 76. Cobot GPU and robot acceptance
 are separate. Source tree, usage and rollback:
 /data/LFT-W02_data/jiaan/jiaan/projects/rl-platform/docs/RUNBOOK.md.
+
+RLT real Stage1+Actor synthetic-GPU acceptance now7/7 passed at20/30/40/50Hz and
+no-RTC/no-EMA controls; shared components require no additional model weights.
+See RL EXPERIMENTS_20260930.md for measurements and limitations. Real ROS/robot
+motion and insertion success remain unverified; native Flux training unchanged.
