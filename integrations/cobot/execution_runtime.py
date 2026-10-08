@@ -9,7 +9,7 @@ import importlib.util
 from pathlib import Path
 import time
 import numpy as np
-from execution_options import selected_options
+from .execution_options import selected_options
 
 _timing = Path(__file__).parent/'pi05/dagger/common/runtime_lib/execution_methods/execution_timing.py'
 _spec = importlib.util.spec_from_file_location('_cobot_shared_timing', _timing)

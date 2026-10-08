@@ -12,11 +12,14 @@ import sys as _sys
 from pathlib import Path as _Path
 _shared = next(p for p in _Path(__file__).resolve().parents if (p/'execution_options.py').is_file())
 if str(_shared) not in _sys.path:
-    _sys.path.insert(0,str(_shared))
-from execution_options import selected_options
-from execution_runtime import PublicationDriver
+    _sys.path.insert(0, str(_shared))
+_platform = _shared.parents[1]
+if str(_platform) not in _sys.path:
+    _sys.path.insert(0, str(_platform))
+from integrations.cobot.execution_options import selected_options
+from integrations.cobot.execution_runtime import PublicationDriver
 
-from execution_runtime import PublicationSink, SequentialRTCController
+from integrations.cobot.execution_runtime import PublicationSink, SequentialRTCController
 import rospy
 from openpi_client import websocket_client_policy
 

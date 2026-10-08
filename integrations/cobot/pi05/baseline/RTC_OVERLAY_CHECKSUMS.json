@@ -2,7 +2,7 @@
   "files": {
     "README_RTC.md": "2f3a3c116571b6db3537c06046b44ee0c9cc6182bb1a3c90724244ab9728acd4",
     "common/inference_pi05_rtc.sh": "1864bb180adc56f11d2149d1711bd2a84de459a03876db661915713409806efe",
-    "common/robot/inference_pi05_rtc.py": "dd60db32a3d0570afb621d0bb9e10d938b93befbb1956cd18e9ba5adfbfa852a",
+    "common/robot/inference_pi05_rtc.py": "27de180ab43da67c1cf0a634361456e539820f92f1e77fbdc2a8bbd4cb68e2bc",
     "common/rtc_overlay/SOURCE_COMMITS.json": "e7c67cf9500a3a1bc5dba4d5fa2098f5e65f86530e79b715b6c3a02c22b8b5eb",
     "common/rtc_overlay/rtc_openpi/__init__.py": "cc05c7eea880ec359c03e43d5b4f9d25efab7f7d71c3ae1b97c5a5639ee57780",
     "common/rtc_overlay/rtc_openpi/bridge.py": "8e36a541ea958a6bda54068a256604777e319040fecce6401e7fde04d4053ec6",
@@ -23,7 +23,7 @@
     "interface_live_rtc.sh": "6fc7dc2a4f5dbe9fb671f1d0e0d49c3fcd65e14e29f4c5fc4d41183cb5eec6fc",
     "interface_rtc.sh": "30aceb075d9d7b228a8e9bc5b820782fc7466a1ad157c7dc5543e7f60d0f08ff",
     "run_checkpoint_rtc.sh": "640eb58f9ca0e1f7a80cd1cb04d8ea6ecfbf68653c33ea3811c224a35c60ae10",
-    "common/robot/inference_pi05_rtc_task2.py": "9dc3cb22ab375f7c9caaa714502980483cc018d5e9c3217d86809980e443c274"
+    "common/robot/inference_pi05_rtc_task2.py": "1774072ae1d5bd32d5e9e152b243a643a26b35a9ad014a4044bdd42d0a6aefc3"
   },
   "schema_version": 1
 }

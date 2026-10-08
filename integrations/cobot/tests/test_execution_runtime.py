@@ -2,9 +2,9 @@ import sys,time,threading
 from pathlib import Path
 import numpy as np
 import pytest
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from execution_options import normalize_options, describe_execution
-from execution_runtime import PublicationDriver, ChunkPipeline
+sys.path.insert(0,str(Path(__file__).resolve().parents[3]))
+from integrations.cobot.execution_options import normalize_options, describe_execution
+from integrations.cobot.execution_runtime import PublicationDriver, ChunkPipeline
 
 class Clock:
     def __init__(self): self.now=0.
@@ -83,7 +83,7 @@ def test_pi05_rtc_off_uses_prefix_free_chunks_without_worker():
     sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'pi05/dagger/common/runtime_lib'))
     from execution_methods.rtc.config import RTCConfig
     from execution_methods.rtc.protocol import RTCResponse
-    from execution_runtime import SequentialRTCController
+    from integrations.cobot.execution_runtime import SequentialRTCController
     class Backend:
         def __init__(self):self.calls=[]
         def infer(self,request):
