@@ -33,6 +33,7 @@ ros.is_shutdown=lambda:True
 sys.modules['rospy']=ros
 srv=types.ModuleType('std_srvs.srv')
 srv.SetBool=object
+srv.SetBoolRequest=lambda **kw:types.SimpleNamespace(**kw)
 srv.SetBoolResponse=lambda **kw:types.SimpleNamespace(**kw)
 sys.modules['std_srvs']=types.ModuleType('std_srvs');sys.modules['std_srvs.srv']=srv
 policy_module=types.ModuleType('openpi_client')
@@ -63,6 +64,21 @@ client.rtc.create_ros_interface=lambda args:hardware_io
 assert client.main(['--prompt','synthetic import regression','--use-init-pose','false'])==0
 gate=json.loads(Path(os.environ['COBOT_PI05_GATE_STATE']).read_text())
 assert gate['paused'] and gate['manual_pause'] and not gate['hil_active']
+# A real Task2 sink fault must latch pause, retain ROS/model, and persist cause.
+ros.signal_shutdown=lambda reason: (_ for _ in ()).throw(AssertionError('fault shut down ROS'))
+manual=client.Task2PauseGate()
+request=lambda value,caller:types.SimpleNamespace(data=value,_connection_header={'callerid':caller})
+assert manual.handle_set_paused(request(False,'/cobot_deployment_command_42')).success
+assert not manual.paused
+sink=client.PausingExecutionSink(hardware_io,types.SimpleNamespace(),manual)
+sink.safe_stop('injected RTC worker delay')
+saved=json.loads(Path(os.environ['COBOT_PI05_GATE_STATE']).read_text())
+assert saved['paused'] and saved['manual_pause'] and not saved['hil_active']
+assert saved['runtime_fault']=='injected RTC worker delay'
+manual.handle_set_paused(request(False,'/task2_teach_button_handover'))
+assert manual.paused and manual.runtime_fault
+assert manual.handle_set_paused(request(False,'/cobot_deployment_command_42')).success
+assert not manual.paused and manual.runtime_fault is None
 print(json.dumps({'options':options,'paused':gate['paused']}))
 '''
     env = {**os.environ,

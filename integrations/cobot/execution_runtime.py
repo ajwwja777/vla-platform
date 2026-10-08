@@ -8,6 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 import importlib.util
 from pathlib import Path
 import time
+import threading
 import numpy as np
 from .execution_options import selected_options
 
@@ -28,48 +29,77 @@ class PublicationDriver:
         if self.limits is not None and (self.limits.shape != (14,) or not np.isfinite(self.limits).all() or np.any(self.limits<=0)):
             raise ValueError('invalid_physical_step_limits')
         self.filters = [_module.CausalJointFilter(tau_sec=.08 if self.options.get('smoothing') else 0., joint_dimensions=6) for _ in range(2)]
+        self._state_lock = threading.RLock()
+        self._emit_lock = threading.Lock()
+        self._generation = 0
         self.reset()
 
     def reset(self):
-        self.epoch = None
-        self.step = 0
-        self.previous = None
-        self.emitted = None
-        for f in self.filters:
-            f.reset()
+        # A worker can cancel publication while the owner is sleeping between
+        # sub-ticks. Reset invalidates that whole interval, not just its anchor.
+        with self._state_lock:
+            self._generation += 1
+            self.epoch = None
+            self.step = 0
+            self.previous = None
+            self.emitted = None
+            for f in self.filters:
+                f.reset()
 
     def emit(self, target, measured, publish, valid=lambda: True):
+        with self._emit_lock:
+            self._emit(target, measured, publish, valid)
+
+    def _emit(self, target, measured, publish, valid):
         target, measured = np.asarray(target, np.float32), np.asarray(measured, np.float32)
         if target.shape != (14,) or measured.shape != target.shape or not np.isfinite(target).all() or not np.isfinite(measured).all():
             raise ValueError('invalid_dual_arm_command')
-        if self.previous is None:
-            self.previous = measured.copy()
-            self.emitted = measured.copy()
-        # Do not catch up a delayed inference by bursting commands.
-        now = self.clock()
-        if self.epoch is None or now > self.epoch+(self.step+1)/self.logical_hz:
-            self.epoch = now-self.step/self.logical_hz
-        for at, alpha in _module.publication_events(self.step, self.logical_hz, self.hz):
-            deadline = self.epoch+at
-            while self.clock() < deadline:
-                if not valid():
-                    self.reset()
-                    return
-                self.sleep(min(.005, deadline-self.clock()))
+        with self._state_lock:
             if not valid():
                 self.reset()
                 return
-            command = self.previous+(target-self.previous)*alpha
-            if self.options.get('enabled'):
-                command = np.concatenate([f.apply(command[i*7:(i+1)*7], measured[i*7:(i+1)*7], 1/self.hz) for i,f in enumerate(self.filters)])
-            if self.limits is not None:
-                command = self.emitted+np.clip(command-self.emitted,-self.limits,self.limits)
-                for i,f in enumerate(self.filters):
-                    f.previous=command[i*7:(i+1)*7].copy()
-            publish(command)
-            self.emitted=command.copy()
-        self.previous = target.copy()
-        self.step += 1
+            if self.previous is None:
+                self.previous = measured.copy()
+                self.emitted = measured.copy()
+            # Do not catch up a delayed inference by bursting commands.
+            now = self.clock()
+            if self.epoch is None or now > self.epoch+(self.step+1)/self.logical_hz:
+                self.epoch = now-self.step/self.logical_hz
+            generation, epoch, step = self._generation, self.epoch, self.step
+            previous = self.previous.copy()
+        for at, alpha in _module.publication_events(step, self.logical_hz, self.hz):
+            deadline = epoch+at
+            while self.clock() < deadline:
+                with self._state_lock:
+                    if generation != self._generation:
+                        return
+                    if not valid():
+                        self.reset()
+                        return
+                self.sleep(min(.005, max(0., deadline-self.clock())))
+            with self._state_lock:
+                if generation != self._generation:
+                    return
+                if not valid():
+                    self.reset()
+                    return
+                command = previous+(target-previous)*alpha
+                if self.options.get('enabled'):
+                    command = np.concatenate([f.apply(command[i*7:(i+1)*7], measured[i*7:(i+1)*7], 1/self.hz) for i,f in enumerate(self.filters)])
+                if self.limits is not None:
+                    command = self.emitted+np.clip(command-self.emitted,-self.limits,self.limits)
+                    for i,f in enumerate(self.filters):
+                        f.previous=command[i*7:(i+1)*7].copy()
+                # Reset and publication commit are serialized. Do not hold the
+                # state lock across sleeps; cancellation must remain prompt.
+                publish(command)
+                if generation != self._generation:
+                    return
+                self.emitted=command.copy()
+        with self._state_lock:
+            if generation == self._generation:
+                self.previous = target.copy()
+                self.step += 1
 
 class PublicationSink:
     def __init__(self, sink, logical_hz, options, valid=lambda: True, publish=None):

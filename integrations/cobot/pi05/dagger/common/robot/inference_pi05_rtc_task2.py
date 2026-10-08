@@ -42,11 +42,11 @@ from integrations.cobot.execution_runtime import PublicationDriver
 from integrations.cobot.execution_runtime import PublicationSink, SequentialRTCController
 
 import rospy
-from std_srvs.srv import SetBool, SetBoolResponse
+from std_srvs.srv import SetBool, SetBoolRequest, SetBoolResponse
 
 import inference_pi05_rtc as rtc
 from execution_methods.rtc.config import RTCConfig
-from execution_methods.rtc.controller import AsyncRTCController
+from execution_methods.rtc.controller import AsyncRTCController, RTCControllerError
 from openpi_client import websocket_client_policy
 
 
@@ -64,6 +64,7 @@ class Task2PauseGate:
         # safe to start moving five arms; an operator does, by unpausing.
         self._paused = True
         self._generation = 0
+        self.runtime_fault = None
         self.service = ros_api.Service(
             PAUSE_SERVICE, SetBool, self.handle_set_paused
         )
@@ -82,6 +83,8 @@ class Task2PauseGate:
         requested = bool(request.data)
         with self._lock:
             self._paused = requested
+            if not requested:
+                self.runtime_fault = None
             self._generation += 1
             generation = self._generation
         print(
@@ -96,6 +99,30 @@ class Task2PauseGate:
                 "paused" if requested else "fresh resume", generation
             ),
         )
+
+    def pause_for_fault(self, reason):
+        with self._lock:
+            self.runtime_fault = str(reason)
+            # Dispatch through the web gate too, so the protective manual latch
+            # is persisted and a teach-button handback cannot resume the fault.
+            self.handle_set_paused(SetBoolRequest(data=True))
+        print('[pi05-rtc-task2] runtime fault; model retained and PAUSED: ' + str(reason), flush=True)
+
+
+class PausingExecutionSink(rtc.CobotExecutionSink):
+    """Stop execution on RTC faults while retaining the policy server and ROS."""
+    def __init__(self, ros, args, gate):
+        super().__init__(ros, args)
+        self.gate = gate
+        self.generation = None
+
+    def emit(self, action):
+        with self.gate._lock:
+            if not self.gate.paused and self.generation == self.gate.generation:
+                super().emit(action)
+
+    def safe_stop(self, reason):
+        self.gate.pause_for_fault(reason)
 
 
 def _discard_takeover_state(ros) -> None:
@@ -122,7 +149,8 @@ def main(argv=None) -> int:
     )
     backend = rtc.RTCWebsocketBackend(policy)
     ros = rtc.create_ros_interface(args)
-    sink = rtc.CobotExecutionSink(ros, args)
+    gate = Task2PauseGate()
+    sink = PausingExecutionSink(ros, args, gate)
     options = selected_options()
     episode = 0
 
@@ -131,6 +159,7 @@ def main(argv=None) -> int:
         # state on it, and a handback is a new episode, not a continuation.
         controller_type = SequentialRTCController if options.get("enabled") and not options["rtc"] else AsyncRTCController
         epoch = gate.generation
+        sink.generation = epoch
         def publish_current(action):
             with gate._lock:
                 if not gate.paused and gate.generation==epoch:
@@ -148,7 +177,6 @@ def main(argv=None) -> int:
         )
 
     controller = None
-    gate = Task2PauseGate()
 
     observation = ros.wait_for_observation()
     print("[pi05-rtc-task2] prewarming baseline and guided samplers", flush=True)
@@ -178,30 +206,45 @@ def main(argv=None) -> int:
                     # Joins the inference worker.  This is what makes the next
                     # initialize() safe; it is also why the operator gets a
                     # brief pause before the arms stop responding to the chunk.
-                    controller.close(timeout=args.close_timeout)
+                    try:
+                        controller.close(timeout=args.close_timeout)
+                    except RTCControllerError as error:
+                        print('[pi05-rtc-task2] still PAUSED; waiting for RTC worker: ' + str(error), flush=True)
+                        rate.sleep()
+                        continue
                     controller = None
                     _discard_takeover_state(ros)
                 rate.sleep()
                 continue
 
-            if controller is None:
-                # Blocking, and deliberately so: the first chunk after a
-                # handback must be planned from what the cameras see now, not
-                # from a frame buffered while the operator's hands were in shot.
-                episode += 1
-                observation = ros.wait_for_observation()
-                controller = new_controller(episode)
-                controller.initialize(observation)
-                print(
-                    "[pi05-rtc-task2] episode {} resumed from a fresh "
-                    "observation".format(episode),
-                    flush=True,
-                )
+            try:
+                if controller is None:
+                    # Blocking, and deliberately so: the first chunk after a
+                    # handback must be planned from what the cameras see now, not
+                    # from a frame buffered while the operator's hands were in shot.
+                    episode += 1
+                    observation = ros.wait_for_observation()
+                    controller = new_controller(episode)
+                    controller.initialize(observation)
+                    print(
+                        "[pi05-rtc-task2] episode {} resumed from a fresh "
+                        "observation".format(episode),
+                        flush=True,
+                    )
 
-            newest = ros.get_observation()
-            if newest is not None:
-                observation = newest
-            controller.tick(observation)
+                newest = ros.get_observation()
+                if newest is not None:
+                    observation = newest
+                controller.tick(observation)
+            except Exception as error:
+                if rospy.is_shutdown():
+                    break
+                if not gate.runtime_fault:
+                    gate.pause_for_fault(error)
+                print('[pi05-rtc-task2] execution stopped; original fault: ' + str(error), flush=True)
+                # Next paused iteration joins/discards this controller. A new
+                # controller requires explicit operator resume and fresh inputs.
+                continue
             published_steps += 1
             rate.sleep()
     finally:

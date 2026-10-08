@@ -23,7 +23,7 @@
     "interface_live_rtc.sh": "6fc7dc2a4f5dbe9fb671f1d0e0d49c3fcd65e14e29f4c5fc4d41183cb5eec6fc",
     "interface_rtc.sh": "30aceb075d9d7b228a8e9bc5b820782fc7466a1ad157c7dc5543e7f60d0f08ff",
     "run_checkpoint_rtc.sh": "640eb58f9ca0e1f7a80cd1cb04d8ea6ecfbf68653c33ea3811c224a35c60ae10",
-    "common/robot/inference_pi05_rtc_task2.py": "1774072ae1d5bd32d5e9e152b243a643a26b35a9ad014a4044bdd42d0a6aefc3"
+    "common/robot/inference_pi05_rtc_task2.py": "2b9ce1da6e043b87ad815a9937558bafa576c33c5b34e760b7da8f5bec06fc1a"
   },
   "schema_version": 1
 }
