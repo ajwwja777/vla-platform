@@ -178,3 +178,15 @@ VLA 共用运行模块及 π0.5 baseline／DAgger、Flux、G05、XR1 客户端�
 15:39 结束最初 π0.5 加载验证并释放现场拥有权后，15:41 网页已启动 plug-v3-supported-online，后续只读 HTTP 状态为 ready、无录制 writer；本对话未切换、卸载或停止该 RLT 模型，也未继续占用 GPU 运行 π0.5。后续 π0.5 真权重加载验证前须重新协调现场拥有权。代码导入修复已完成，实际 DAgger 部署恢复仍未完成。
 
 新增现场证据（均在本任务 runtime/verification 或 runtime/incidents 中）：historical-dagger-logs.json、checkpoint-repeat-hashes.json、checkpoint-direct-hashes.json、checkpoint-after-advice-hashes.json、checkpoint-after-advice-finite-scan.json、serial-embedding-scan.json、local-checkpoint-search.json、copy-hashes.json、recovery.json、read-difference-pattern.json、read-difference-ranges.json。汇总归档到 cobot-web/outputs/pi05-import-20261008/；final-release.json 已追加最新诊断，保留之前快照的时点，部署恢复标志仍为 false。
+
+### 2026-10-08 追加恢复：原始完整权重恢复到用户批准的 NVMe 路径
+
+现场 sudo 只读 ntfscat 副本 13/19 匹配迁移原始 SHA；普通读取另一个文件仍能匹配，但同文件 ntfscat 不匹配。进一步以 O_RDONLY | O_DIRECT 直接读取 /dev/sda2，用户返回的 17:31 结果为 5/6 匹配；检查还发现 17:27 输出目录保留的 a37ff27b36ec269fd140299c14eba633.verified，重新读回匹配原始 SHA。因此组合得到完整 19 文件检查点，12,441,273,380 bytes 全部与 2026-09-28 迁移清单完全一致，没有修改浮点参数、清零 NaN 或使用其他模型。
+
+独立 NVMe 完整检查点 CPU NumPy 恢复验证：51 个叶、3,353,433,872 个参数，非有限值为 0；恢复后再次读取 19 文件 SHA 全部保持原始值。a37 两次块设备 O_DIRECT 样本比较有 271 字节差异，分布于两个 512-byte 扇区；底层读取链路仍有不稳定，不能将原因仅确定为 FUSE／文件缓存，更不能声称物理磁盘健康或已经修好底层存储。
+
+用户明确批准将同版本恢复权重保存在工控机 NVMe /home/agilex/jiaan/model/vla-platform/pi05/in_the_pot/dagger_2000plus3000 并登记部署；原 Getea 权重保留、不写入、不改名。独立复制到永久 NVMe 目录后逐文件 SHA 再次通过。web configs/hosts/cobot.json 的 pi05_dagger_checkpoint 仅对此模型登记该例外，configs/local.json 按相同单键应用并保留其他现场配置。Base model 仍表示训练初始化谱系，不等于实际推理加载权重。
+
+用户另行明确批准接管并切换为 π0.5，保持暂停、不启动机器人运动。接管时 HTTP 模型已 offline，recorder stopped，无 active_mode／writer／operation，GPU 空闲；只为生效路径重载网页服务，不重启硬件。此段记录权重恢复与配置发布，实际 20 Hz 及 50 Hz＋RTC＋滤波暂停加载结果另行追加，不能将 CPU 检查视为真机运行验收。
+
+证据：cobot-web/outputs/pi05-import-20261008/ 的 device-direct-verification.json、a37-direct-read-difference.json、recovered-checkpoint-assembly.json、recovered-checkpoint-finite-scan.json、nvme-checkpoint-release.json；现场 vla-platform/runtime/verification/pi05-import-20261008/ 保留匹配及拒绝样本。永久权重不放 Git，恢复和检查脚本仅写独立诊断目录。
