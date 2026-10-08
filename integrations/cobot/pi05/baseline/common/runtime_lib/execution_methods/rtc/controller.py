@@ -46,6 +46,8 @@ class AsyncRTCController:
         clock: Callable[[], float] = time.monotonic,
         session_id: str = "rtc-session",
         action_dim: Optional[int] = None,
+        minimum_delay_steps: int = 0,
+        delay_margin_steps: int = 0,
     ) -> None:
         self._config = config
         self._backend = backend
@@ -55,6 +57,11 @@ class AsyncRTCController:
         self._declared_action_dim = action_dim
         self._state = ThreadSafeActionChunk()
         self._delays = DelayHistory(config.delay_history_size)
+        for value in (minimum_delay_steps, delay_margin_steps):
+            if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+                raise RTCControllerError("delay floor and margin must be non-negative integers")
+        self._delay_floor = minimum_delay_steps
+        self._delay_margin = delay_margin_steps
         self._lifecycle_lock = threading.Lock()
         self._observation_lock = threading.Lock()
         self._latest_observation: Optional[Mapping[str, Any]] = None
@@ -69,7 +76,7 @@ class AsyncRTCController:
 
     @property
     def predicted_delay_steps(self) -> int:
-        return self._delays.forecast()
+        return max(self._delay_floor, self._delays.forecast()) + self._delay_margin
 
     @property
     def worker_alive(self) -> bool:
@@ -275,7 +282,7 @@ class AsyncRTCController:
                 return
 
     def _perform_inference(self) -> None:
-        predicted_delay = self._delays.forecast()
+        predicted_delay = self.predicted_delay_steps
         request_id = self._next_request_id()
         snapshot = self._state.begin_inference(
             session_id=self._session_id,

@@ -5,6 +5,8 @@ from __future__ import annotations
 
 import argparse
 import threading
+import time
+import math
 from typing import Any
 
 import numpy as np
@@ -46,6 +48,7 @@ class RTCWebsocketBackend:
                 "policy server does not expose RTC protocol version 1"
             )
         self._policy = policy
+        self._prewarm_actions = None
 
     def infer(self, request: RTCRequest) -> RTCResponse:
         raw = self._policy.infer(request.to_mapping())
@@ -81,6 +84,7 @@ class RTCWebsocketBackend:
                 execution_horizon=execution_horizon,
             )
         )
+        self._prewarm_actions = first.actions_robot.copy()
         self.infer(
             RTCRequest(
                 protocol_version=1,
@@ -92,6 +96,26 @@ class RTCWebsocketBackend:
                 execution_horizon=execution_horizon,
             )
         )
+
+    def calibrate_delay_steps(self, observation, *, control_hz, execution_horizon):
+        if self._prewarm_actions is None:
+            raise CobotRTCRuntimeError("prewarm required before guided delay calibration")
+        delays = []
+        # The first guided prewarm includes compilation; time two already-warm
+        # guided RPCs, including encoding, server work and response validation.
+        for request_id in (3, 4):
+            started = time.monotonic()
+            self.infer(RTCRequest(
+                protocol_version=1, session_id="cobot-pi05-rtc-prewarm",
+                request_id=request_id, observation=observation,
+                previous_actions_robot=self._prewarm_actions,
+                inference_delay_steps=1, execution_horizon=execution_horizon,
+            ))
+            elapsed = time.monotonic() - started
+            if not math.isfinite(elapsed) or elapsed < 0:
+                raise CobotRTCRuntimeError("invalid guided calibration time")
+            delays.append(max(1, math.ceil(elapsed * control_hz)))
+        return max(delays)
 
 
 class CobotExecutionSink:

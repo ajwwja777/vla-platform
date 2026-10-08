@@ -153,6 +153,7 @@ def main(argv=None) -> int:
     sink = PausingExecutionSink(ros, args, gate)
     options = selected_options()
     episode = 0
+    guided_delay_steps = 0
 
     def new_controller(index: int) -> AsyncRTCController:
         # A distinct session id per episode: the server keys its guided-sampling
@@ -165,6 +166,8 @@ def main(argv=None) -> int:
                 if not gate.paused and gate.generation==epoch:
                     sink.emit(action)
         output = PublicationSink(sink,args.publish_rate,options,lambda: not gate.paused and gate.generation==epoch,publish_current) if options.get("enabled") else sink
+        delay_options = (dict(minimum_delay_steps=guided_delay_steps, delay_margin_steps=2)
+                         if controller_type is AsyncRTCController else {})
         return controller_type(
             RTCConfig(
                 control_hz=args.publish_rate,
@@ -174,6 +177,7 @@ def main(argv=None) -> int:
             output,
             session_id="cobot-pi05-rtc-task2-{}".format(index),
             action_dim=14,
+            **delay_options,
         )
 
     controller = None
@@ -185,6 +189,11 @@ def main(argv=None) -> int:
         action_dim=14,
         execution_horizon=args.min_execution_horizon,
     )
+    if not options.get('enabled') or options['rtc']:
+        guided_delay_steps = backend.calibrate_delay_steps(
+            observation, control_hz=args.publish_rate,
+            execution_horizon=args.min_execution_horizon)
+        print('[pi05-rtc-task2] guided delay floor={} logical ticks; margin=2'.format(guided_delay_steps), flush=True)
     print(
         "[pi05-rtc-task2] ready and PAUSED. Waiting for {}.".format(
             PAUSE_SERVICE
