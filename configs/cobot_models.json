@@ -642,6 +642,65 @@
         "inference": "not_tested_this_batch",
         "robot": "pending"
       }
+    },
+    {
+      "id": "omnisf-v64-memory-cover-blocks-30000",
+      "family": "OmniSF",
+      "task": "cover_blocks",
+      "step": 30000,
+      "root": "integrations/cobot/omnisf",
+      "checkpoint": "/home/agilex/qizhou/omnisf_real/v64_memory_ckpt/30000",
+      "required": [
+        "/home/agilex/qizhou/omnisf_real/v64_memory_ckpt/30000/params/_METADATA",
+        "/home/agilex/qizhou/omnisf_real/v64_memory_ckpt/30000/params/manifest.ocdbt",
+        "/home/agilex/qizhou/omnisf_real/v64_memory_ckpt/30000/assets/robodojo_real_eef_rgb_so3_noST/norm_stats.json",
+        "/home/agilex/qizhou/omnisf_real/scripts/v64_live.py",
+        "/home/agilex/qizhou/omnisf_real/scripts/serve.sh"
+      ],
+      "managed": true,
+      "args": [
+        "interface.sh"
+      ],
+      "control_hz": 30,
+      "home_pose": "origin",
+      "runtime_dependencies": [
+        "/home/agilex/shuqi/06_Spatial_Forcing/env/bin/python",
+        "/home/agilex/miniconda3/envs/aloha/bin/python",
+        "/home/agilex/shuqi/robot/env.sh"
+      ],
+      "runtime_adapter": "omnisf",
+      "execution_options_supported": false,
+      "server_port": 8064,
+      "checkpoint_type": "inference_weights",
+      "resumable_training": false,
+      "integration_level": "preserved_runtime",
+      "code_revision": "ad64b6d9a882a4a2130e4c00a4953e61bfe44bef78ff2f142ee8614b6beb54fc",
+      "io_contract": "robodojo-real-eef16-absolute-quaternion-wxyz-memory8s-30hz",
+      "runtime_python": "/home/agilex/shuqi/06_Spatial_Forcing/env/bin/python",
+      "normalization": "/home/agilex/qizhou/omnisf_real/v64_memory_ckpt/30000/assets/robodojo_real_eef_rgb_so3_noST/norm_stats.json",
+      "base_model": null,
+      "prompt": "Cover the three blocks from left to right, then uncover them again in the order of red, green, and blue.",
+      "capabilities": {
+        "load": true,
+        "ready": true,
+        "start": true,
+        "pause": true,
+        "resume": true,
+        "stop": true,
+        "unload": true,
+        "capture": false,
+        "hil": false,
+        "evaluate": true,
+        "logs": true,
+        "pid": true,
+        "train": false
+      },
+      "verification": {
+        "files": "checked_at_listing",
+        "process_ready": "pending_user_load",
+        "inference": "pending_user_load",
+        "robot": "pending"
+      }
     }
   ],
   "schema_version": 1

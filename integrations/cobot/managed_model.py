@@ -47,7 +47,7 @@ def preflight(row):
         value = subprocess.check_output(["ip", "-details", "link", "show", interface], text=True, timeout=3)
         if any(word in value for word in ["ERROR-PASSIVE", "BUS-OFF", "state DOWN"]):
             raise ValueError("CAN not ready: " + interface)
-    port = PORTS[row["root"].split("/")[2]]
+    port = row.get("server_port") or PORTS[row["root"].split("/")[2]]
     with socket.socket() as sock:
         sock.settimeout(.5)
         if sock.connect_ex(("127.0.0.1", port)) == 0:

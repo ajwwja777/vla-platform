@@ -1,0 +1,10 @@
+{
+  "root": "/home/agilex/qizhou/omnisf_real",
+  "files": {
+    "scripts/serve.sh": "f44425b4b9399ee531eb6dfbaae91e7a4380d9c01e573e04f528a491f568263f",
+    "scripts/live.sh": "f10e19250bcf9f6c1c6051a207e19bc964a2221cae5968add803445ac03159bd",
+    "scripts/v64_live.py": "ad64b6d9a882a4a2130e4c00a4953e61bfe44bef78ff2f142ee8614b6beb54fc",
+    "scripts/test_v64_live.py": "4495fb929f9da147cdb484584c730350691621c3459dab2174496640e17de827",
+    "omnisf_v64/src/openpi/external_config/v64_8recent_infer.py": "29cec196053be3df9055069e301cab5a007a3ca522b6783d1e2bb62fde435a5e"
+  }
+}
