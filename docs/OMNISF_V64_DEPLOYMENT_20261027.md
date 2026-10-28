@@ -44,3 +44,18 @@ VLA6865d161ab222dd7047c047c97b1606a90c9b41a：真实两次RPC预热及有限值/
 当前eval-20261028T182447-3c151881仍待用户处理，目录/media/agilex/Getea1/jiaan/data/evaluations/test/；源文件全部SHA保持，未替用户标注成功/失败/未知，未丢弃首帧。13个采样Web/硬件进程启动身份保持。修复在下次模型加载生效，前端刷新生效；未知保留按钮供用户收尾后释放/重载。没有运动、归位、硬件启停、权重/Episode/Replay编辑或残留测试进程。
 
 主证据/data/LFT-W02_data/jiaan/jiaan/projects/cobot-web/outputs/omnisf-first-deploy-20261028/：timestamp-probe.json、cpu-tests.txt、web-backend-tests.txt、frontend-tests.txt、shadow-command.json（首次注入未命中）、shadow-retry-command.json、shadow-qualification.json、source-release.json、web-source-release.json、field-release.json、static-release.json与final-release.json。现场VLA runtime/verification/omnisf-first-deploy-20261028/保存before源码备份和隔离试验，shadow-retry/保留最终通过日志/回执；Web同名runtime/verification保存两静态备份。guide只更新事实摘要，不提交/push。
+
+
+## 2026-10-28 晚：执行段 IK 阻塞 ROS 回调，进程隔离修复
+
+用户再次实际部署：PID2260708、client2261272、eval-20261028T201744-85bbeb43，已累计50次动作发布，之后多次因同一100ms时间戳保护暂停。先前修复正确保留了模型，但没有消除观测回调延迟；之前无发布器推理验收未覆盖每段IK之后的逐动作检查，不能把它称为连续执行已通过。用户显示的约15.5FPS/51ms是网页预览信息，未据此直接归因相机本体。
+
+只读复现：固定使用现有predictions.jsonl的已记录动作，实时订阅实际三相机/双臂关节/末端；不发指令、不调用正在驻留模型的推理接口。每段模拟RPC等待245ms、原生25×双臂IK及25个30Hz检查节拍。原同进程8段中，IK前检查0异常，IK后3/8越界，命令节拍3/200越界；样本显示部分回调/消息滞后约150ms。另一个起始导入停顿样本单列，不计为IK后异常。OPENBLAS/OMP/MKL设为1的独立对照仍IK后2/8、节拍4/200异常，未把限线程当作修复。
+
+VLA b3690a36f5fdb8dfd31824328873ca477fa4f459 新增IKProcess：spawn独立CPU解释器加载同一SHA的原生Arm，父进程保留ROS订阅和发布。父子IPC等待释放父解释器，不让原生约150ms求解阻塞ROS消息处理；原生历史帧、归一化、FK/IK数学、阻尼、动作/速度限幅和30Hz逻辑不变。仅CPU子进程内部设置数值库单线程，不改共享环境或父进程默认；代码校验、IPC超时/子进程死亡拒绝迟到结果，关闭时回收自己拥有的工作进程。原生pinocchio在父进程订阅开始前导入，避免初始化导入停顿进入观测缓存。100ms对齐和250ms新鲜度保护仍逐动作执行，保护暂停/代际取消保持，不自动resume或放行旧观测。
+
+相同8段只读回放，隔离后IK后0/8、命令节拍0/200异常；最大命令节拍偏差35.79ms。IK耗时152–169ms，与同进程约153–164ms相近，不声称加速了算法。12组相同输入的原生/子进程solve与FK结果对比，最大关节差0，容差1e-9；16项CPU进程生命周期、源码身份、超时/死亡拒绝旧结果及原保护回归通过。诊断动作发布器0、模型RPC0、GPU实验0；所有诊断节点和自有IK测试worker已退出。
+
+代码已提交/push后按旧/新SHA同步bridge.py与ik_worker.py，两文件备份/核验并run.py --check通过。当前仍为原PID2260708的旧实现，ready/手动paused、generation12、原fault和活动轮次保留；不是当前客户端已热更新。16个采样Web/模型/硬件启动身份保持，trial所有文件SHA保持。未重启网页/模型/硬件，未结束或标注本轮，未调用归位/恢复/运动，未改Episode/Replay/权重。新实现下次用户收尾、释放并重新加载后激活；连续真机运动仍待用户复测，不能以只读模拟节拍称真机通过。
+
+证据：/data/LFT-W02_data/jiaan/jiaan/projects/cobot-web/outputs/omnisf-skew-20261028/，包括baseline-ik-skew.json、single_thread-ik-skew.json、isolated-ik-skew.json、math-parity.json、cpu-tests.txt、managed-native-preview.py、source-release.json、field-release.json和final-release.json。辅助脚本scratch/cobot-web/omnisf-skew-20261028/，模型独立工作树scratch/vla-platform/omnisf-ik-isolation-20261028/vla-platform。现场vla-platform/runtime/verification/omnisf-skew-20261028/保留CPU诊断脚本、isolated-ik-skew.json、before源码备份和回执。guide只追加事实摘要，不提交/push。
