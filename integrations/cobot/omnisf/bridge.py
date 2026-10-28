@@ -15,7 +15,7 @@ def patched_source(source):
         if source.count(old) != 1:
             raise ValueError('Native OmniSF lifecycle anchor changed: ' + old[:70])
         source = source.replace(old, new, 1)
-    change('import argparse\n', 'import argparse\nimport os\nfrom gate import Gate\nfrom observations import fresh_snapshot\n')
+    change('import argparse\n', 'import argparse\nimport os\nfrom gate import Gate\nfrom observations import fresh_snapshot\nfrom ik_worker import IKProcess\nimport pinocchio\n')
     change("    parser.add_argument('--prompt', default=COVER_BLOCKS)",
            "    parser.add_argument('--prompt', default=COVER_BLOCKS)\n"
            "    parser.add_argument('--shadow-predictions', type=int, default=0)")
@@ -28,6 +28,8 @@ def patched_source(source):
            '    def snapshot():\n        return fresh_snapshot(snapshot_once)\n\n    def ownership(data):')
     change('                data, q = snapshot()\n                cmd =',
            '                data, q = snapshot_once()\n                cmd =')
+    change('    arms = {s: Arm() for s in SIDES}',
+           "    ik_pool = IKProcess()\n    arms = {s: ik_pool.arm(s) for s in SIDES}")
     change('from std_srvs.srv import SetBool, SetBoolResponse',
            'from std_srvs.srv import SetBool, SetBoolResponse, Trigger, TriggerResponse')
     change("out = ROOT / 'outputs' /", "out = Path(os.environ['OMNISF_OUTPUT_ROOT']) /")
@@ -102,7 +104,7 @@ def patched_source(source):
            "                        publishers[s].publish(msg)")
     change("    except Exception as exc:\n        reason = str(exc)\n        raise", "    except Exception as exc:\n        reason = str(exc)\n        gate.trip(exc)\n        raise")
     change('    finally:\n        for p in publishers.values():',
-           "    finally:\n        gate.stopped.set()\n        gate.ready = False\n        gate.manual = True\n        paused.set()\n        gate.save()\n        for p in publishers.values():")
+           "    finally:\n        gate.stopped.set()\n        ik_pool.close()\n        gate.ready = False\n        gate.manual = True\n        paused.set()\n        gate.save()\n        for p in publishers.values():")
     # Runtime guard failures cancel this plan and keep server/client paused.
     # Startup failures above this loop remain fatal and never report readiness.
     header = '        while not rospy.is_shutdown() and time.monotonic() < stop_at:\n'
