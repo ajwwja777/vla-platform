@@ -27,3 +27,20 @@
 主证据：/data/LFT-W02_data/jiaan/jiaan/projects/cobot-web/outputs/omnisf-v64-20261027/，含 native-source-snapshot.json、native-contract-verification.json、gate-tests.txt、backend-tests-final.txt、baseline-collection-fixture.txt、frontend-tests-final.txt、field-cpu-checks.json、source-release.json、field-release.json、http-verification.json、picker-verification.json、final-release.json。独立工作树在scratch/{vla-platform,cobot-web}/omnisf-v64-20261027/，一次性同步工具归Web scratch。现场旧文件在cobot-web/runtime/verification/omnisf-v64-20261027/before/；同级保存安装／验收回执。
 
 VLA主目录原有Franka docs/JIAAN.md、docs/MIGRATION.md及交接文档未提交修改逐字保留，本任务未替其提交。guide只同步摘要，不提交/push。
+
+
+## 2026-10-28：首次部署时间戳异常及保护保留修复
+
+用户日志与正式状态确认：launcher2130379，model-20261028T182421.log；权重恢复5.12秒、原生归一化载入成功，模型曾ready/paused，显式开始后第一预测2.945秒、IK151ms；commands_sent=0。真正终止原因是Camera/joint timestamps differ by more than100ms，原客户端异常外抛后supervisor关闭服务。ROCm/TPU提示不是本次终止原因；WebSocket InvalidMessage来自接入适配器裸TCP就绪探测，后续原生客户端已连接成功。该探测设计是本接入的问题，改为服务原有HTTP /healthz。
+
+当下只读5秒/492样本偏差中位25.15ms、P95 33.21ms、最大36.65ms，0次超过100ms；不能据此还原先前瞬时越界的唯一来源，也不将首次编译耗时断言为时间戳异常的根因。保留原生100ms跨流对齐、250ms时间/到达新鲜度、控制权/示教/IK/有限值/限速保护；没有放宽阈值。规划与arm阶段最多等待200ms以取得严格有效的快照；每条动作仍使用一次即时严格检查，不在发布中等待后续帧补过期计划。
+
+VLA6865d161ab222dd7047c047c97b1606a90c9b41a：真实两次RPC预热及有限值/shape校验置于ready前；预热未完成不可arm。运行循环异常丢弃该代计划、保护性手动暂停且保留ready/客户端/模型服务，记录原始fault；不自动恢复。显式arm重新验证新鲜观测与控制权后才允许继续。启动/权重/预热失败仍不宣称ready。新增无动作发布器的shadow资格检查参数，和--execute互斥。原生记忆、转换、IK和发布限速保持。
+
+12项CPU测试通过。独立GPU端口18064、原始30000与实际三相机/双臂数据的零发布器测试通过：ready前两次预热，之后5次预测/IK，推理约240–246ms，commands0。另注入100ms故障后ready=true/paused=true/manual_pause=true/原始fault保留，客户端和服务持续存活；无自动resume。全部自有测试server/client退出，生产PID/待收尾轮次不变。第一次注入脚本未命中锚点、断言失败，日志独立保留；修正诊断锚点并断言唯一后重跑通过，不把首轮当作保护验收。不是机器人运动验收。
+
+现场按旧/新SHA同步4个VLA文件，run.py --check通过；不重启Web/模型/硬件，不自动加载正式模型。Web94cb4b6d78964b91e8b3d1b2bf2958be6e36f900补上既有unknown协议的“未知并保留”按钮，已退出模型的轮次可非删除收尾，操作直接走unknown而不走自动归位；RLT保留原专属skip。142完整前端、27相关后台/1既有跳过通过，两静态文件正式HTTP SHA一致。
+
+当前eval-20261028T182447-3c151881仍待用户处理，目录/media/agilex/Getea1/jiaan/data/evaluations/test/；源文件全部SHA保持，未替用户标注成功/失败/未知，未丢弃首帧。13个采样Web/硬件进程启动身份保持。修复在下次模型加载生效，前端刷新生效；未知保留按钮供用户收尾后释放/重载。没有运动、归位、硬件启停、权重/Episode/Replay编辑或残留测试进程。
+
+主证据/data/LFT-W02_data/jiaan/jiaan/projects/cobot-web/outputs/omnisf-first-deploy-20261028/：timestamp-probe.json、cpu-tests.txt、web-backend-tests.txt、frontend-tests.txt、shadow-command.json（首次注入未命中）、shadow-retry-command.json、shadow-qualification.json、source-release.json、web-source-release.json、field-release.json、static-release.json与final-release.json。现场VLA runtime/verification/omnisf-first-deploy-20261028/保存before源码备份和隔离试验，shadow-retry/保留最终通过日志/回执；Web同名runtime/verification保存两静态备份。guide只更新事实摘要，不提交/push。
