@@ -15,7 +15,19 @@ def patched_source(source):
         if source.count(old) != 1:
             raise ValueError('Native OmniSF lifecycle anchor changed: ' + old[:70])
         source = source.replace(old, new, 1)
-    change('import argparse\n', 'import argparse\nimport os\nfrom gate import Gate\n')
+    change('import argparse\n', 'import argparse\nimport os\nfrom gate import Gate\nfrom observations import fresh_snapshot\n')
+    change("    parser.add_argument('--prompt', default=COVER_BLOCKS)",
+           "    parser.add_argument('--prompt', default=COVER_BLOCKS)\n"
+           "    parser.add_argument('--shadow-predictions', type=int, default=0)")
+    change('    if args.pilot and not args.execute:',
+           "    if args.shadow_predictions and args.execute:\n"
+           "        parser.error('Shadow qualification cannot construct robot publishers')\n"
+           "    if args.pilot and not args.execute:")
+    change('    def snapshot():', '    def snapshot_once():')
+    change('    def ownership(data):',
+           '    def snapshot():\n        return fresh_snapshot(snapshot_once)\n\n    def ownership(data):')
+    change('                data, q = snapshot()\n                cmd =',
+           '                data, q = snapshot_once()\n                cmd =')
     change('from std_srvs.srv import SetBool, SetBoolResponse',
            'from std_srvs.srv import SetBool, SetBoolResponse, Trigger, TriggerResponse')
     change("out = ROOT / 'outputs' /", "out = Path(os.environ['OMNISF_OUTPUT_ROOT']) /")
@@ -44,8 +56,30 @@ def patched_source(source):
     change("service = rospy.Service('/task2/policy/set_paused', SetBool, set_paused)",
            "service = rospy.Service('/task2/policy/set_paused', SetBool, set_paused)\n"
            "            arm_service = rospy.Service('/task2/policy/arm', Trigger, arm_request)")
+    change('        stop_at = t_start + args.seconds',
+           "        stop_at = t_start + args.seconds\n"
+           "        if args.shadow_predictions:\n"
+           "            gate.armed, gate.manual = True, False\n"
+           "            paused.clear()\n            gate.save()")
+    change('            if not args.execute:\n                time.sleep(.5)',
+           "            if args.shadow_predictions and count >= args.shadow_predictions:\n"
+           "                reason = 'no-publisher shadow complete'\n                break\n"
+           "            if not args.execute:\n                time.sleep(.5)")
+    warmup = """        warmup_start = time.monotonic()
+        for warmup_index in range(2):
+            warm_data, warm_q = snapshot()
+            warm_now = time.monotonic()
+            warm_images = {name: to_rgb(warm_data[t][0]) for name, t in CAMERAS.items()}
+            with lock:
+                warm_images['cam_high'] = history.stack(warm_now, warm_images['cam_high'])
+            warm_state = np.asarray(sum((arm_state(warm_data[POSE[s]][0], warm_q[s][6], args.gripper_open) for s in SIDES), []), dtype=np.float32)
+            warm_actions = np.asarray(client.infer({'images': warm_images, 'state': warm_state, 'prompt': args.prompt})['actions'])
+            if warm_actions.shape != (50, 16) or not np.isfinite(warm_actions).all():
+                raise ValueError('Invalid warmup model output: %s' % (warm_actions.shape,))
+        print(json.dumps({'warmup_predictions': 2, 'warmup_seconds': time.monotonic() - warmup_start, 'commands_sent': 0}), flush=True)
+"""
     change('        t_start = time.monotonic()',
-           "        gate.ready = True\n        gate.save()\n"
+           warmup + "        gate.ready = True\n        gate.save()\n"
            "        print('Model ready and PAUSED; explicit Web Start required.', flush=True)\n"
            "        last_epoch = None\n        t_start = time.monotonic()")
     change('            data, q = snapshot()\n            ownership(data)\n            if paused.is_set():\n                previous = {s: list(q[s]) for s in SIDES}\n                time.sleep(.03)\n                continue',
@@ -69,6 +103,18 @@ def patched_source(source):
     change("    except Exception as exc:\n        reason = str(exc)\n        raise", "    except Exception as exc:\n        reason = str(exc)\n        gate.trip(exc)\n        raise")
     change('    finally:\n        for p in publishers.values():',
            "    finally:\n        gate.stopped.set()\n        gate.ready = False\n        gate.manual = True\n        paused.set()\n        gate.save()\n        for p in publishers.values():")
+    # Runtime guard failures cancel this plan and keep server/client paused.
+    # Startup failures above this loop remain fatal and never report readiness.
+    header = '        while not rospy.is_shutdown() and time.monotonic() < stop_at:\n'
+    begin = source.index(header) + len(header)
+    end = source.index('    except (KeyboardInterrupt, rospy.ROSInterruptException):', begin)
+    body = source[begin:end]
+    protected = '            try:\n' + ''.join('    ' + line if line.strip() else line for line in body.splitlines(True))
+    protected += ("            except Exception as exc:\n"
+                  "                gate.protect(exc)\n"
+                  "                print(json.dumps({'protective_pause': str(exc), 'commands_sent': commands, 'prediction': count}), flush=True)\n"
+                  "                continue\n")
+    source = source[:begin] + protected + source[end:]
     compile(source, '<managed-omnisf>', 'exec')
     return source
 

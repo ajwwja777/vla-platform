@@ -44,10 +44,12 @@ class Gate:
 
     def arm(self, validate):
         # Validation may perform bounded ROS reads. Do not hold the pause lock.
+        if not self.ready:
+            raise ValueError('Model warmup is not ready')
         generation = self.generation
         validate()
         with self.lock:
-            if generation != self.generation or not self.event.is_set():
+            if generation != self.generation or not self.event.is_set() or not self.ready:
                 raise ValueError('Pause state changed during arm; retry explicitly')
             self.armed = True
             self.fault = None
@@ -69,6 +71,16 @@ class Gate:
                 self.event.clear()
             self.save()
             return True, 'paused' if self.event.is_set() else 'running; fresh plan required'
+
+    def protect(self, error):
+        """Cancel the plan and retain the warm model until explicit fresh arm."""
+        with self.lock:
+            self.fault = str(error)
+            self.manual = True
+            self.armed = False
+            self.generation += 1
+            self.event.set()
+            self.save()
 
     def trip(self, error):
         with self.lock:

@@ -6,7 +6,8 @@ import json
 import os
 from pathlib import Path
 import signal
-import socket
+import urllib.request
+import urllib.error
 import subprocess
 import sys
 import time
@@ -66,12 +67,15 @@ def main():
             if server.poll() is not None:
                 raise RuntimeError('OmniSF inference server exited: ' + str(server.returncode))
             try:
-                with socket.create_connection(('127.0.0.1', 8064), timeout=.2):
-                    break
-            except OSError:
-                if time.monotonic() >= deadline:
-                    raise RuntimeError('OmniSF server readiness timeout')
-                time.sleep(.2)
+                opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+                with opener.open('http://127.0.0.1:8064/healthz', timeout=.3) as response:
+                    if response.status == 200 and response.read() == b'OK\n':
+                        break
+            except (OSError, urllib.error.URLError):
+                pass
+            if time.monotonic() >= deadline:
+                raise RuntimeError('OmniSF server readiness timeout')
+            time.sleep(.2)
         if stopping:
             return
         command = ['bash', '-c',

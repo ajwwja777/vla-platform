@@ -12,7 +12,9 @@ Gate = module.Gate
 
 
 def make(tmp_path):
-    return Gate(tmp_path / 'gate.json', threading.Event(), 123, 'omnisf')
+    gate = Gate(tmp_path / 'gate.json', threading.Event(), 123, 'omnisf')
+    gate.ready = True
+    return gate
 
 
 def test_load_starts_paused_and_cannot_resume_without_arm(tmp_path):
@@ -94,3 +96,29 @@ def test_runtime_fault_is_persisted_and_requires_fresh_arm(tmp_path):
     assert value['pid'] == 123 and value['model_id'] == 'omnisf'
     assert not value['ready'] and value['paused'] and value['runtime_fault'] == 'IK error'
     assert not g.pause(False, True)[0]
+
+
+def test_start_waits_for_warmup(tmp_path):
+    g = Gate(tmp_path / 'gate.json', threading.Event(), 123, 'omnisf')
+    with pytest.raises(ValueError, match='warmup'):
+        g.arm(lambda: None)
+    assert g.event.is_set() and not g.armed
+
+
+def test_guard_fault_retains_warm_model_but_requires_manual_fresh_arm(tmp_path):
+    g = make(tmp_path)
+    g.arm(lambda: None)
+    g.pause(False, True)
+    old_generation = g.generation
+    g.protect('Camera/joint timestamps differ by more than 100 ms')
+    saved = json.loads(g.path.read_text())
+    assert saved['ready'] and saved['paused'] and saved['runtime_fault']
+    assert g.generation > old_generation and not g.armed
+    assert not g.pause(False, True)[0]
+    g.pause(False, False)
+    assert g.event.is_set()
+    validated=[]
+    g.arm(lambda: validated.append(True))
+    assert validated == [True] and g.event.is_set()
+    assert g.pause(False, True)[0] and not g.event.is_set()
+    assert g.fault is None
